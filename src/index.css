@@ -1,5 +1,10 @@
 @import url("https://fonts.googleapis.com/css?family=Open+Sans");
 
+@font-face {
+  font-family: 'Cornerstone';
+  src: local('Cornerstone'), url(./fonts/Cornerstone.ttf) format('truetype');
+}
+
 /**
 This file contains the general and shared style of your application.
  */
@@ -7,7 +12,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Open Sans", sans-serif;
-  background: #0e3d61;
+  background: #252525;
 }
 
 input,
@@ -28,3 +33,4 @@ button {
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
 }
+
