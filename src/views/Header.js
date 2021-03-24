@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import { ReactLogo } from "./ReactLogo";
 import { PicturesLogo } from "./PicturesLogo";
 
 /**

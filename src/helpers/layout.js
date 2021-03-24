@@ -10,6 +10,6 @@ export const BaseContainer = styled.div`
   padding-left: 15px;
   margin-right: auto;
   padding-right: 15px;
-  max-width: ${DESKTOP_WIDTH}px;
-  height: 600px;
+  
+  height: 100vh;
 `;

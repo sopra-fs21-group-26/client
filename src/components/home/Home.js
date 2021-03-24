@@ -3,18 +3,39 @@ import styled from 'styled-components';
 import { BaseContainer } from '../../helpers/layout';
 import {withRouter} from "react-router-dom";
 import Header from "../../views/Header";
+import { AiOutlineInfoCircle } from "react-icons/ai";
+import ReactTooltip from "react-tooltip";
+import '../../views/design/tooltip.css'
 
-const Container = styled.div`
-
-    position: relative;
+export const Container = styled.div`
     
     display: flex;
     flex-direction: column;
     align-items: center;
+    
     position: relative;
     
     height: 170px;
     top: 100px;
+
+`;
+
+export const InfoButton = styled(AiOutlineInfoCircle)`
+
+    filter: drop-shadow(0px 8px 4px rgba(0, 0, 0, 0.25));
+    color: #F2AD43;
+    
+    position: absolute;
+    bottom: 40px;
+    right: 70px;
+    width: 45px;
+    height: 45px;
+    
+    &:hover {
+    transform: translateY(-5px);
+    }
+    transition: all 0.3s ease;
+    cursor: pointer;
 
 `;
 
@@ -58,10 +79,14 @@ class Home extends React.Component {
                     <LoginButton onClick={ () => {this.props.history.push("/login")}}>
                         LOGIN
                     </LoginButton>
-                    <RegisterButton>
+                    <RegisterButton onClick={ () => {this.props.history.push("/register")}}>
                         REGISTER
                     </RegisterButton>
                 </Container>
+                <InfoButton data-tip data-for="infoTip" />
+                <ReactTooltip class ="buttonTooltip" textColor="#252525" backgroundColor="#F2AD43" id="infoTip" place="top" effect="solid">
+                    About Us
+                </ReactTooltip>
             </BaseContainer>
         );
     }

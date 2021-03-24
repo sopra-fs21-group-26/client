@@ -1,54 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import {DESKTOP_WIDTH} from '../../helpers/layout';
 import { api, handleError } from '../../helpers/api';
 import User from '../shared/models/User';
 import { withRouter } from 'react-router-dom';
-
-const BaseContainer = styled.div`
-  margin-left: auto;
-  padding-left: 15px;
-  margin-right: auto;
-  padding-right: 15px;
-  max-width: ${DESKTOP_WIDTH}px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  
-  position: relative;
-  top: 145px;
-`;
-
-const TopBar = styled.div`
-
-  font-family: Cornerstone;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 39px;
-  color: #252525;
-  
-  width: 552px;
-  height: 98px;
-  padding-left: 25px;
-  
-  display: flex;
-  align-items: center;
-  
-  background: #F2AD43;
-  border-radius: 20px 20px 0px 0px;
-
-`;
-
-const BackgroundContainer = styled.div`
-
-  width: 552px;
-  height: 537px;
-
-  background: #3C3B38;
-  border-radius: 20px;
-
-`;
+import {BaseContainer, TopBar, BackgroundContainer, InputFieldContainer, UsernameInputField, PasswordInputField, ArrowButton, LoginButton} from "../../views/LoginManagement";
 
 /**
  * Classes in React allow you to have an internal state within the class and to have the React life-cycle for your component.
@@ -73,11 +28,7 @@ class Login extends React.Component {
       password: null
     };
   }
-  /**
-   * HTTP POST request is sent to the backend.
-   * If the request is successful, a new user is returned to the front-end
-   * and its token is stored in the localStorage.
-   */
+
   async login() {
     try {
       const requestBody = JSON.stringify({
@@ -126,6 +77,25 @@ class Login extends React.Component {
           <BackgroundContainer>
 
             <TopBar> Login </TopBar>
+
+            <InputFieldContainer>
+
+              <UsernameInputField
+                  placeholder="username"
+                  onChange={e => {
+                    this.handleInputChange('username', e.target.value);
+                  }}
+              />
+              <PasswordInputField
+                  placeholder="password"
+                  onChange={e => {
+                    this.handleInputChange('password', e.target.value);
+                  }}
+              />
+              <ArrowButton onClick={ () => {this.props.history.push("/")}}/>
+              <LoginButton onClick={ () => {this.props.history.push("/menu")}} disabled={!this.state.username || !this.state.password}/>
+
+            </InputFieldContainer>
 
           </BackgroundContainer>
 
