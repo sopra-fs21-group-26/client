@@ -1,6 +1,7 @@
-import React, {useState} from 'react';
+import React, { useState } from "react";
+import "react-responsive-modal/styles.css";
+import { Modal } from "react-responsive-modal";
 import styled from 'styled-components';
-import Modal from 'react-modal';
 import ReactTooltip from 'react-tooltip';
 import {AiOutlineInfoCircle} from "react-icons/ai";
 import '../../views/design/tooltip.css'
@@ -10,60 +11,69 @@ export const InfoButton = styled(AiOutlineInfoCircle)`
 
     filter: drop-shadow(0px 8px 4px rgba(0, 0, 0, 0.25));
     color: #F2AD43;
-    
-    
-    position: absolute;
-    width: 45px;
-    height: 45px;
-    bottom: 40px;
-    right: 70px;
-    
-    
+       
     &:hover {
     transform: translateY(-5px);
     }
     transition: all 0.3s ease;
     cursor: pointer;
+    
+    width: 45px;
+    height: 45px;
 
 `;
 
-function InfoModal(props) {
+const Container = styled.div`
 
-    const [modalIsOpen, setModalIsOpen] = useState(false);
+    display: flex;
+    align-items: center;
+    
+    justify-content: center;
 
-    return(
+    width: 45px;
+    height: 45px;
+    position: absolute;
+    bottom: 40px;
+    right: 70px;
 
-        <div>
-            <InfoButton onClick={() => setModalIsOpen(true)} data-tip data-for="infoTip" />
-            <Modal isOpen={modalIsOpen} style={
-                {
-                    overlay: {
-                        textAlign: 'center',
-                        backgroundColor: 'white',
-                        margin: 'auto',
-                        width: '400px',
-                        height: '400px',
-                        fontFamily: 'PT Mono',
-                        paddingLeft: '0px'
+`;
 
-                    },
-                    content: {
-                        color: 'orange',
-                        backgroundColor: '#252525'
-                    }
-                }
-            }>
-                <h2> TEST </h2>
-                <p> TEST BODY </p>
-                <div>
-                    <button onClick={() => setModalIsOpen(false)}> Close </button>
-                </div>
-            </Modal>
+
+const InfoModal = () => {
+    const [open, setOpen] = useState(false);
+
+    const onOpenModal = () => setOpen(true);
+    const onCloseModal = () => setOpen(false);
+
+    const style = {
+        overlay: {
+            background: "#FFFF00"
+        }
+    };
+
+    return (
+        <Container>
+            <InfoButton onClick={onOpenModal} data-tip data-for="infoTip"/>
             <ReactTooltip class ="buttonTooltip" textColor="#252525" backgroundColor="#F2AD43" id="infoTip" place="top" effect="solid">
                 About Us
             </ReactTooltip>
-        </div>
+            <Modal styles={style} open={open} onClose={onCloseModal} center>
+                <h2>TEST</h2>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
+                    pulvinar risus non risus hendrerit venenatis. Pellentesque sit amet
+                    hendrerit risus, sed porttitor quam.
+                </p>
+            </Modal>
+        </Container>
     );
-};
+}
 
 export default InfoModal;
+
+/*
+<ReactTooltip class ="buttonTooltip" textColor="#252525" backgroundColor="#F2AD43" id="infoTip" place="top" effect="solid">
+    About Us
+</ReactTooltip>
+
+data-tip data-for="infoTip"*/

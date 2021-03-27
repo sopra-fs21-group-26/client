@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import Header from "../../views/Header";
 import { BaseContainer } from '../../helpers/layout';
@@ -117,11 +117,6 @@ class Menu extends React.Component {
                 <ReactTooltip class ="buttonTooltip" textColor="#252525" backgroundColor="#F2AD43" id="logoutTip" place="top" effect="solid">
                     Logout
                 </ReactTooltip>
-
-{/*                <InfoButton data-tip data-for="infoTip" />
-                <ReactTooltip textColor="#252525" backgroundColor="#F2AD43" id="infoTip" place="top" effect="solid">
-                    About Us
-                </ReactTooltip>*/}
                 <InfoModal></InfoModal>
 
             </BaseContainer>
