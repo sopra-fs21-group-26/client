@@ -12,9 +12,7 @@ import '../../views/design/tooltip.css'
 
 const MenuContainer = styled(Container)`
 
-    justify-content: space-between;
     height: 250px;
-
 `;
 
 const PlayButton = styled.div` 
@@ -92,7 +90,7 @@ class Menu extends React.Component {
 
         return(
             <BaseContainer>
-                <Header height={"250"}/>
+                <Header height={"400"}/>
 
                 <MenuContainer>
 

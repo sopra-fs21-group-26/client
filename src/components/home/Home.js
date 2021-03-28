@@ -13,10 +13,10 @@ export const Container = styled.div`
     flex-direction: column;
     align-items: center;
     
-    position: relative;
+    margin-top: 50px;
     
     height: 170px;
-    top: 100px;
+    justify-content: space-between;
 
 `;
 
@@ -54,18 +54,36 @@ const LoginButton = styled.div`
     
     text-shadow: 0px 8px 4px rgba(0, 0, 0, 0.25);
     
-    
 `;
 
 const RegisterButton = styled(LoginButton)`
 
     color: #7E7E7E;
  
+
+`;
+
+export const Footer = styled.div`
+
+    font-family: PT Mono;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    color: #7E7E7E;
+    text-align: center;
     position: absolute;
-    
     bottom: 0px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 900px;
+    height: 45px;    
     
 `;
+
 
 class Home extends React.Component {
 
@@ -74,7 +92,7 @@ class Home extends React.Component {
     render(){
         return(
             <BaseContainer>
-                <Header height={"250"} />
+                <Header height={"400"} />
                 <Container>
                     <LoginButton onClick={ () => {this.props.history.push("/login")}}>
                         LOGIN
@@ -83,6 +101,10 @@ class Home extends React.Component {
                         REGISTER
                     </RegisterButton>
                 </Container>
+                <Footer>
+                    <div>made by students @ University of Zurich</div>
+                    <div style={{color: "#FFFFFF"}}>An adaption of the board game “Pictures”, created by Christian & Daniela Stöhr</div>
+                </Footer>
                 <InfoButton data-tip data-for="infoTip" />
                 <ReactTooltip class ="buttonTooltip" textColor="#252525" backgroundColor="#F2AD43" id="infoTip" place="top" effect="solid">
                     About Us

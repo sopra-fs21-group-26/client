@@ -12,4 +12,5 @@ export const BaseContainer = styled.div`
   padding-right: 15px;
   
   height: 100vh;
+  
 `;

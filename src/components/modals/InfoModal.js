@@ -47,7 +47,7 @@ const InfoModal = () => {
 
     const style = {
         overlay: {
-            background: "#FFFF00"
+            background: "grey"
         }
     };
 

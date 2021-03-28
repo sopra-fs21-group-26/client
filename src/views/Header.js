@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled, {keyframes} from "styled-components";
 import { PicturesLogo } from "./PicturesLogo";
 
 /**
@@ -8,13 +8,37 @@ import { PicturesLogo } from "./PicturesLogo";
  * Using styled-components, you can have styling conditions using the following syntax: ${props => ...}
  * https://www.styled-components.com/
  */
+
 const Container = styled.div`
+
   height: ${props => props.height}px;
   background: ${props => props.background};
+  
   display: flex;
   justify-content: center;
   align-items: center;
+  
+`;
 
+const rotate = keyframes`
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+
+  50% {
+    transform: rotate(360deg) scale(0.7);
+  }
+  
+  100% {
+    transform: rotate(720deg) scale(1);
+  }
+  
+`;
+
+const LogoWrapper = styled.div`
+
+    
+    animation: ${rotate} 45s linear infinite;
 `;
 
 /**
@@ -28,7 +52,9 @@ const Container = styled.div`
 const Header = props => {
   return (
     <Container height={props.height}>
-        <PicturesLogo width={850} height={113} />
+
+        <LogoWrapper><PicturesLogo width={300} height={300} /></LogoWrapper>
+
     </Container>
   );
 };
