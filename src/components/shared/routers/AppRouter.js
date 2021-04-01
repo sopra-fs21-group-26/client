@@ -49,6 +49,24 @@ class AppRouter extends React.Component {
                     </LoginGuard>
                 )}
             />
+            <Route
+                path="/menu"
+                exact
+                render = {() => (
+                    <GameGuard>
+                        <Menu />
+                    </GameGuard>
+                )}
+                />
+              <Route
+                  path="/home"
+                  exact
+                  render = {() => (
+                      <Home />
+                  )}
+              />
+
+
             <Route path="/" exact render={() => (
                 <Home />
             )}

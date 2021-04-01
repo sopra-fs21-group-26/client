@@ -86,6 +86,11 @@ const LogoutButton = styled(IoMdLogOut)`
 
 class Menu extends React.Component {
 
+    logout() {
+        localStorage.removeItem('token');
+        this.props.history.push('/home');
+    }
+
     render(){
 
         return(
@@ -111,7 +116,11 @@ class Menu extends React.Component {
                     My Profile
                 </ReactTooltip>
 
-                <LogoutButton data-tip data-for="logoutTip" />
+                <LogoutButton data-tip data-for="logoutTip"
+                              onClick={() => {
+                                  this.logout();
+                              }}
+                />
                 <ReactTooltip class ="buttonTooltip" textColor="#252525" backgroundColor="#F2AD43" id="logoutTip" place="top" effect="solid">
                     Logout
                 </ReactTooltip>

@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import {BaseContainer, TopBar, BackgroundContainer, InputFieldContainer, UsernameInputField, PasswordInputField, ArrowButton} from "../../views/LoginManagement";
 import {FaClipboardCheck} from 'react-icons/fa';
 import { withRouter } from 'react-router-dom';
+import {api, handleError} from "../../helpers/api";
+import User from "../shared/models/User";
 
 export const RegisterButton = styled(FaClipboardCheck)`
     
@@ -46,6 +48,32 @@ class Register extends React.Component {
         this.setState({ [key]: value });
     }
 
+    async register() {
+
+        try {
+            const requestBody = JSON.stringify({
+                username: this.state.username,
+                password: this.state.password
+            });
+
+            const response = await api.post('/players', requestBody);
+
+            const user = new User(response.data);
+
+            console.log('request to:', response.request.responseURL);
+            console.log('status code:', response.status);
+            console.log('status text:', response.statusText);
+            console.log('requested data:', response.data);
+
+            localStorage.setItem('token', user.token);
+
+            this.props.history.push(`/menu`);
+
+        } catch (error) {
+            alert(`Something went wrong during the registration: \n${handleError(error)}`);
+        }
+    }
+
 
     componentDidMount() {}
 
@@ -72,7 +100,10 @@ class Register extends React.Component {
                             }}
                         />
                         <ArrowButton onClick={ () => {this.props.history.push("/")}}/>
-                        <RegisterButton disabled={!this.state.username || !this.state.password}/>
+                        <RegisterButton disabled={!this.state.username || !this.state.password}
+                                        onClick={() => {
+                                            this.register();
+                                        }}/>
 
                     </InputFieldContainer>
 
