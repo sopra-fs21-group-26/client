@@ -1,12 +1,12 @@
 import React from "react";
 import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
-import { GameGuard } from "../routeProtectors/GameGuard";
-import GameRouter from "./GameRouter";
 import { LoginGuard } from "../routeProtectors/LoginGuard";
+import { MenuGuard } from "../routeProtectors/MenuGuard";
 import Login from "../../login/Login";
 import Home from "../../home/Home";
 import Register from "../../register/Register";
 import Menu from "../../menu/Menu";
+import Profile from "../../profile/Profile";
 
 /**
  * Main router of your application.
@@ -23,14 +23,6 @@ class AppRouter extends React.Component {
       <BrowserRouter>
         <Switch>
           <div>
-            <Route
-              path="/game"
-              render={() => (
-                <GameGuard>
-                  <GameRouter base={"/game"} />
-                </GameGuard>
-              )}
-            />
             <Route
               path="/login"
               exact
@@ -53,27 +45,21 @@ class AppRouter extends React.Component {
                 path="/menu"
                 exact
                 render = {() => (
-                    <GameGuard>
-                        <Menu />
-                    </GameGuard>
+                    <MenuGuard>
+                        <Menu/>
+                    </MenuGuard>
                 )}
                 />
-              <Route
-                  path="/home"
-                  exact
-                  render = {() => (
-                      <Home />
-                  )}
-              />
-
-
             <Route path="/" exact render={() => (
-                <Home />
+                <LoginGuard>
+                    <Home />
+                </LoginGuard>
             )}
             />
-            <Route path="/menu" exact render={() => (
-              <Menu />
-            )}
+            <Route
+                path="/players/:id"
+                exact
+                component = {Profile}
             />
           </div>
         </Switch>

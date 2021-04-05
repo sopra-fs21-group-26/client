@@ -88,7 +88,9 @@ class Menu extends React.Component {
 
     logout() {
         localStorage.removeItem('token');
-        this.props.history.push('/home');
+        localStorage.removeItem('userID');
+
+        this.props.history.push('/');
     }
 
     render(){
@@ -111,12 +113,18 @@ class Menu extends React.Component {
 
                 </MenuContainer>
 
-                <UserButton data-tip data-for="userTip" />
+                <UserButton
+                    data-tip
+                    data-for="userTip"
+                    onClick = { () => {
+                    this.props.history.push(`/players/${localStorage.getItem('userID')}`);
+                }} />
                 <ReactTooltip class ="buttonTooltip" textColor="#252525" backgroundColor="#F2AD43" id="userTip" place="top" effect="solid">
                     My Profile
                 </ReactTooltip>
 
-                <LogoutButton data-tip data-for="logoutTip"
+                <LogoutButton data-tip
+                              data-for="logoutTip"
                               onClick={() => {
                                   this.logout();
                               }}

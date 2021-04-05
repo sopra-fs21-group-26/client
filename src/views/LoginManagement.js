@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import {FaArrowAltCircleLeft, FaCheckCircle} from "react-icons/fa";
+import {FaArrowAltCircleLeft, FaCheckCircle, FaClipboardCheck} from "react-icons/fa";
 
 export const BaseContainer = styled.div`
   margin-left: auto;
@@ -26,7 +26,6 @@ export const TopBar = styled.div`
   font-size: 39px;
   color: #252525;
   
-  width: 552px;
   height: 98px;
   padding-left: 25px; 
   display: flex;
@@ -123,4 +122,29 @@ export const LoginButton = styled(FaCheckCircle)`
   cursor: ${props => (props.disabled ? "default" : "pointer")};
   opacity: ${props => (props.disabled ? 0.4 : 1)};
 
+`;
+
+export const RegisterButton = styled(FaClipboardCheck)`
+    
+    filter: drop-shadow(0px 8px 4px rgba(0, 0, 0, 0.25));
+    color: #F2AD43;
+    
+    position: absolute;
+    bottom: 100px;
+    right: 120px;
+    width: 60px;
+    height: 60px;
+    
+
+    transition: all 0.3s ease;
+    cursor: pointer;
+    
+    &:hover {
+    transform: ${props => (props.disabled ? "translateY(0px)" : "translateY(-5px)")}
+    }
+    transition: all 0.3s ease;
+    
+    cursor: ${props => (props.disabled ? "default" : "pointer")};
+    opacity: ${props => (props.disabled ? 0.4 : 1)};
+  
 `;

@@ -1,4 +1,4 @@
-import React from 'react';
+/*import React from 'react';
 import styled from 'styled-components';
 import { BaseContainer } from '../../helpers/layout';
 import { api, handleError } from '../../helpers/api';
@@ -95,4 +95,4 @@ class Game extends React.Component {
   }
 }
 
-export default withRouter(Game);
+export default withRouter(Game);*/

@@ -4,7 +4,6 @@ import styled from "styled-components";
 const Logo = styled.svg`
   width: ${props => props.width}px;
   height: ${props => props.height}px;
-  animation: rotation 2s infinite linear;
 `;
 
 export const PicturesLogo = props => {
