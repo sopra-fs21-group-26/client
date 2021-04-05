@@ -87,6 +87,7 @@ const LogoutButton = styled(IoMdLogOut)`
 class Menu extends React.Component {
 
     logout() {
+
         localStorage.removeItem('token');
         localStorage.removeItem('userID');
 

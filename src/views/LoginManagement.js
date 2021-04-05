@@ -30,6 +30,7 @@ export const TopBar = styled.div`
   padding-left: 25px; 
   display: flex;
   align-items: center;
+  position: relative;
   
   background: #F2AD43;
   border-radius: 20px 20px 0px 0px;
