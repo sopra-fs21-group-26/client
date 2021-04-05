@@ -5,10 +5,9 @@ import {api, handleError} from "../../helpers/api";
 import {Spinner} from "../../views/design/Spinner";
 import {BaseContainer} from "../../helpers/layout";
 import { TopBar, BackgroundContainer } from "../../views/LoginManagement";
-import '../profile/back_to_menu_1.svg';
 import {BsPencilSquare} from 'react-icons/bs';
 
-const BaseeContainer = styled(BaseContainer)`
+export const BaseeContainer = styled(BaseContainer)`
     
     display: flex;
     justify-content: center;
@@ -16,10 +15,10 @@ const BaseeContainer = styled(BaseContainer)`
         
 `;
 
-const Background = styled(BackgroundContainer)`
+export const Background = styled(BackgroundContainer)`
 
     width: 900px;
-    transform: scale(0.85);
+    transform: scale(0.70);
 `;
 
 const Container = styled.div`
@@ -91,7 +90,7 @@ const StatField = styled.div`
     border-radius: 25px;
 `;
 
-const BackToMenuButton = styled.div`
+export const BackToMenuButton = styled.div`
     
     position: absolute;
     height: 35px;

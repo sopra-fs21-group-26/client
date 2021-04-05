@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { LoginGuard } from "../routeProtectors/LoginGuard";
 import { MenuGuard } from "../routeProtectors/MenuGuard";
 import Login from "../../login/Login";
@@ -7,6 +7,7 @@ import Home from "../../home/Home";
 import Register from "../../register/Register";
 import Menu from "../../menu/Menu";
 import Profile from "../../profile/Profile";
+import Leaderboard from "../../leaderboard/Leaderboard"
 
 /**
  * Main router of your application.
@@ -49,7 +50,7 @@ class AppRouter extends React.Component {
                         <Menu/>
                     </MenuGuard>
                 )}
-                />
+            />
             <Route path="/" exact render={() => (
                 <LoginGuard>
                     <Home />
@@ -61,6 +62,15 @@ class AppRouter extends React.Component {
                 exact
                 component = {Profile}
             />
+              <Route
+                  path="/leaderboard"
+                  exact
+                  render = {() => (
+                      <MenuGuard>
+                          <Leaderboard />
+                      </MenuGuard>
+                  )}
+              />
           </div>
         </Switch>
       </BrowserRouter>

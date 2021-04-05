@@ -105,7 +105,10 @@ class Menu extends React.Component {
                     <PlayButton>
                         PLAY
                     </PlayButton>
-                    <LeaderboardsButton>
+                    <LeaderboardsButton
+                        onClick = { () => {
+                        this.props.history.push(`/leaderboard`);
+                    }}>
                         LEADERBOARDS
                     </LeaderboardsButton>
                     <TutorialButton>
