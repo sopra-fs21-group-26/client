@@ -94,7 +94,6 @@ class Menu extends React.Component {
                 token: localStorage.getItem('token')
             });
 
-
             await api.put('/logout', requestBody);
             console.log()
 
