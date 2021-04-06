@@ -34,7 +34,7 @@ class Login extends React.Component {
         username: this.state.username,
         password: this.state.password
       });
-      const response = await api.post('/users', requestBody);
+      const response = await api.put('/login', requestBody);
 
       // Get the returned user and update a new object.
       const user = new User(response.data);
@@ -92,7 +92,11 @@ class Login extends React.Component {
                   }}
               />
               <ArrowButton onClick={ () => {this.props.history.push("/")}}/>
-              <LoginButton onClick={ () => {this.props.history.push("/menu")}} disabled={!this.state.username || !this.state.password}/>
+              <LoginButton disabled={!this.state.username || !this.state.password}
+                           onClick={() => {
+                             this.login();
+                           }}
+              />
 
             </InputFieldContainer>
 

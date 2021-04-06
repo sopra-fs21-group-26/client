@@ -9,6 +9,8 @@ import {IoMdLogOut} from 'react-icons/io';
 import ReactTooltip from 'react-tooltip';
 import InfoModal from '../modals/InfoModal';
 import '../../views/design/tooltip.css'
+import {api, handleError} from "../../helpers/api";
+import User from "../shared/models/User";
 
 const MenuContainer = styled(Container)`
 
@@ -86,13 +88,25 @@ const LogoutButton = styled(IoMdLogOut)`
 
 class Menu extends React.Component {
 
-    logout() {
+    async logout() {
+        try {
+            const requestBody = JSON.stringify({
+                token: localStorage.getItem('token')
+            });
 
-        localStorage.removeItem('token');
-        localStorage.removeItem('userID');
 
-        this.props.history.push('/');
+            await api.put('/logout', requestBody);
+            console.log()
+
+            localStorage.removeItem('token');
+            localStorage.removeItem('userID')
+            this.props.history.push('/');
+
+        } catch (error) {
+            alert(`Something went wrong during the logout: \n${handleError(error)}`);
+        }
     }
+
 
     render(){
 
