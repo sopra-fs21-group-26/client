@@ -6,7 +6,6 @@ import { BaseeContainer } from '../profile/Profile';
 import { TopBar, BackgroundContainer, UsernameInputField } from "../../views/LoginManagement";
 import { BackToMenuButton } from "../profile/Profile";
 import { GoSearch } from "react-icons/go";
-import {Spinner} from "../../views/design/Spinner";
 import PlayerContainerRender from "../leaderboard/PlayerContainerRender";
 import {Player, PlayerInfo} from "../leaderboard/PlayerContainerRender";
 import BackToMenu from "../../views/design/BackToMenu";
@@ -145,41 +144,35 @@ class Leaderboard extends React.Component {
         if(this.state.foundUser){
             return(
                 <BaseeContainer>
+                    <div>
+                        <Background>
+                            <TopBar>LEADERBOARDS</TopBar>
+                            <InputFieldContainer>
+                                <SearchInputField
+                                    placeholder="Search Player..."
+                                    onKeyDown={this.handleKeyDown}
+                                    onChange={e => {
+                                        this.handleInputChange('username', e.target.value);
+                                    }}
+                                />
+                                <SearchSymbol></SearchSymbol>
+                            </InputFieldContainer>
+                            <PlayerContainer>
+                                <Player onClick = { () => {this.props.history.push(`/players/${this.state.foundUser.id}`)}}>
+                                    <PlayerInfo>{this.state.foundUser.username}</PlayerInfo>
+                                    <PlayerInfo>{this.state.foundUser.score}</PlayerInfo>
+                                </Player>
+                            </PlayerContainer>
 
-                    {!this.state.users ? (
-                        <Spinner />
-                    ) : (
-                        <div>
-                            <Background>
-                                <TopBar>LEADERBOARDS</TopBar>
-                                <InputFieldContainer>
-                                    <SearchInputField
-                                        placeholder="Search Player..."
-                                        onKeyDown={this.handleKeyDown}
-                                        onChange={e => {
-                                            this.handleInputChange('username', e.target.value);
-                                        }}
-                                    />
-                                    <SearchSymbol></SearchSymbol>
-                                </InputFieldContainer>
-                                <PlayerContainer>
-                                    <Player onClick = { () => {this.props.history.push(`/players/${this.state.foundUser.id}`)}}>
-                                        <PlayerInfo>{this.state.foundUser.username}</PlayerInfo>
-                                        <PlayerInfo>{this.state.foundUser.score}</PlayerInfo>
-                                    </Player>
-                                </PlayerContainer>
-
-                                <HeadingContainer>
-                                    <Heading>Username</Heading>
-                                    <Heading>ELO Score</Heading>
-                                </HeadingContainer>
-                            </Background>
-                            <BackToMenuButton onClick = { () => {this.props.history.push('/menu')}}>
-                                <BackToMenu/>
-                            </BackToMenuButton>
-                        </div>
-                    )}
-
+                            <HeadingContainer>
+                                <Heading>Username</Heading>
+                                <Heading>ELO Score</Heading>
+                            </HeadingContainer>
+                        </Background>
+                        <BackToMenuButton onClick = { () => {this.props.history.push('/menu')}}>
+                            <BackToMenu/>
+                        </BackToMenuButton>
+                    </div>
                 </BaseeContainer>
             );
         }

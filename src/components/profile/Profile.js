@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import { withRouter } from 'react-router-dom';
 import {api, handleError} from "../../helpers/api";
-import {Spinner} from "../../views/design/Spinner";
 import {BaseContainer} from "../../helpers/layout";
 import { TopBar, BackgroundContainer } from "../../views/LoginManagement";
 import {BsPencilSquare} from 'react-icons/bs';
@@ -241,42 +240,38 @@ class Profile extends React.Component {
         if(this.state.hasEditorPermission){
             return(
                 <BaseeContainer>
-                    {!this.state.user ? (
-                        <SpinnerAlt />
-                    ) : (
-                        <div>
-                            <Background>
-                                <TopBar>PROFILE
-                                    <ProfileName>{this.state.user.username}</ProfileName>
-                                </TopBar>
-                                <Container>
-                                    <StatFieldContainer>
-                                        <CancelButton onClick ={ () => {this.setState({hasEditorPermission: null})}}/>
-                                        <StatFieldEdit placeholder="Enter username"
-                                                       onKeyDown={this.handleKeyDown}
-                                                       onChange={e => {
-                                                           this.handleInputChange('username', e.target.value);
-                                                       }}>
-                                        </StatFieldEdit>
-                                        <StatField> {this.state.user.score}
-                                            <Title>ELO Score</Title>
-                                        </StatField>
-                                    </StatFieldContainer>
-                                    <StatFieldContainer>
-                                        <StatField> {this.state.user.gamesPlayed}
-                                            <Title>Games Played</Title>
-                                        </StatField>
-                                        <StatField> {this.state.user.gamesWon}
-                                            <Title>Games Won</Title>
-                                        </StatField>
-                                    </StatFieldContainer>
-                                </Container>
-                            </Background>
-                            <BackToMenuButton onClick = { () => {this.props.history.push('/menu')}}>
-                                <BackToMenu/>
-                            </BackToMenuButton>
-                        </div>
-                    )}
+                    <div>
+                        <Background>
+                            <TopBar>PROFILE
+                                <ProfileName>{this.state.user.username}</ProfileName>
+                            </TopBar>
+                            <Container>
+                                <StatFieldContainer>
+                                    <CancelButton onClick ={ () => {this.setState({hasEditorPermission: null})}}/>
+                                    <StatFieldEdit placeholder="Enter username"
+                                                   onKeyDown={this.handleKeyDown}
+                                                   onChange={e => {
+                                                       this.handleInputChange('username', e.target.value);
+                                                   }}>
+                                    </StatFieldEdit>
+                                    <StatField> {this.state.user.score}
+                                        <Title>ELO Score</Title>
+                                    </StatField>
+                                </StatFieldContainer>
+                                <StatFieldContainer>
+                                    <StatField> {this.state.user.gamesPlayed}
+                                        <Title>Games Played</Title>
+                                    </StatField>
+                                    <StatField> {this.state.user.gamesWon}
+                                        <Title>Games Won</Title>
+                                    </StatField>
+                                </StatFieldContainer>
+                            </Container>
+                        </Background>
+                        <BackToMenuButton onClick = { () => {this.props.history.push('/menu')}}>
+                            <BackToMenu/>
+                        </BackToMenuButton>
+                    </div>
                 </BaseeContainer>
             );
         }
