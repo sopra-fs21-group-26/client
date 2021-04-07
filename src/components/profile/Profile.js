@@ -6,7 +6,9 @@ import {Spinner} from "../../views/design/Spinner";
 import {BaseContainer} from "../../helpers/layout";
 import { TopBar, BackgroundContainer } from "../../views/LoginManagement";
 import {BsPencilSquare} from 'react-icons/bs';
+import { ImCancelCircle } from 'react-icons/im';
 import BackToMenu from '../../views/design/BackToMenu';
+import {SpinnerAlt} from "../../views/design/SpinnerAlt";
 
 export const BaseeContainer = styled(BaseContainer)`
     
@@ -107,6 +109,21 @@ export const BackToMenuButton = styled.div`
 
 const EditButton = styled(BsPencilSquare)`
     
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    left: 390px;
+    color: #898989;
+    &:hover {
+    transform: translateY(-5px);
+    }
+    transition: all 0.3s ease;
+    cursor: pointer;
+
+`;
+
+const CancelButton = styled(ImCancelCircle)`
+
     width: 50px;
     height: 50px;
     position: absolute;
@@ -225,7 +242,7 @@ class Profile extends React.Component {
             return(
                 <BaseeContainer>
                     {!this.state.user ? (
-                        <Spinner />
+                        <SpinnerAlt />
                     ) : (
                         <div>
                             <Background>
@@ -234,6 +251,7 @@ class Profile extends React.Component {
                                 </TopBar>
                                 <Container>
                                     <StatFieldContainer>
+                                        <CancelButton onClick ={ () => {this.setState({hasEditorPermission: null})}}/>
                                         <StatFieldEdit placeholder="Enter username"
                                                        onKeyDown={this.handleKeyDown}
                                                        onChange={e => {
@@ -266,7 +284,7 @@ class Profile extends React.Component {
             return(
                 <BaseeContainer>
                     {!this.state.user ? (
-                        <Spinner />
+                        <SpinnerAlt />
                     ) : (
                         <div>
                             <Background>

@@ -91,18 +91,6 @@ const PopupContainer = styled(Container)`
     
 `;
 
-const BackdropContainer = styled(Container)`
-    
-  position: absolute;
-  width: 100%;
-  top: 0px;
-  bottom: 10px;
-  
-  background: #252525;
-  filter: blur(10px);
-    
-`;
-
 const PopupHeaderContainer = styled(Container)`
       
     position: absolute;

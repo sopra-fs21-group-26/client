@@ -10,6 +10,7 @@ import {Spinner} from "../../views/design/Spinner";
 import PlayerContainerRender from "../leaderboard/PlayerContainerRender";
 import {Player, PlayerInfo} from "../leaderboard/PlayerContainerRender";
 import BackToMenu from "../../views/design/BackToMenu";
+import {SpinnerAlt} from "../../views/design/SpinnerAlt";
 
 const Background = styled(BackgroundContainer)`
 
@@ -128,6 +129,8 @@ class Leaderboard extends React.Component {
 
             const response = await api.get(`/players/leaderboard`);
 
+            await new Promise(resolve => setTimeout(resolve, 1000));
+
             this.setState({users: response.data});
 
         } catch (error) {
@@ -186,7 +189,7 @@ class Leaderboard extends React.Component {
                 <BaseeContainer>
 
                     {!this.state.users ? (
-                        <Spinner />
+                        <SpinnerAlt />
                     ) : (
                         <div>
                             <Background>
