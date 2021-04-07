@@ -101,6 +101,8 @@ class Leaderboard extends React.Component {
         // Example: if the key is username, this statement is the equivalent to the following one:
         // this.setState({'username': value});
         this.setState({ [key]: value });
+        this.setState({foundUser: null});
+
     }
 
     handleKeyDown = (e) => {
@@ -113,7 +115,6 @@ class Leaderboard extends React.Component {
         try{
             const response = await api.get(`/players/search/${this.state.username}`);
             this.setState({foundUser: response.data});
-            console.log(this.state.foundUser);
         }
         catch (error){
             alert(`This user does not exist: \n${handleError(error)}`);
@@ -135,7 +136,7 @@ class Leaderboard extends React.Component {
         }
 
     }
-    
+
     render(){
 
         if(this.state.foundUser){
@@ -180,44 +181,46 @@ class Leaderboard extends React.Component {
             );
         }
 
-        return(
-            <BaseeContainer>
+        else{
+            return(
+                <BaseeContainer>
 
-                {!this.state.users ? (
-                    <Spinner />
-                ) : (
-                    <div>
-                        <Background>
-                            <TopBar>LEADERBOARDS</TopBar>
-                            <InputFieldContainer>
-                                <SearchInputField
-                                    placeholder="Search Player..."
-                                    onKeyDown={this.handleKeyDown}
-                                    onChange={e => {
-                                        this.handleInputChange('username', e.target.value);
-                                    }}
-                                />
-                                <SearchSymbol></SearchSymbol>
-                            </InputFieldContainer>
+                    {!this.state.users ? (
+                        <Spinner />
+                    ) : (
+                        <div>
+                            <Background>
+                                <TopBar>LEADERBOARDS</TopBar>
+                                <InputFieldContainer>
+                                    <SearchInputField
+                                        placeholder="Search Player..."
+                                        onKeyDown={this.handleKeyDown}
+                                        onChange={e => {
+                                            this.handleInputChange('username', e.target.value);
+                                        }}
+                                    />
+                                    <SearchSymbol></SearchSymbol>
+                                </InputFieldContainer>
 
-                            {/*Render player container via functional component*/}
+                                {/*Render player container via functional component*/}
 
-                            <PlayerContainerRender users={this.state.users} history={this.props.history}></PlayerContainerRender>
+                                <PlayerContainerRender users={this.state.users} history={this.props.history}></PlayerContainerRender>
 
-                            <HeadingContainer>
-                                <Heading>Username</Heading>
-                                <Heading>ELO Score</Heading>
-                            </HeadingContainer>
-                        </Background>
-                        <BackToMenuButton onClick = { () => {this.props.history.push('/menu')}}>
-                            <BackToMenu/>
-                        </BackToMenuButton>
-                    </div>
-                )}
+                                <HeadingContainer>
+                                    <Heading>Username</Heading>
+                                    <Heading>ELO Score</Heading>
+                                </HeadingContainer>
+                            </Background>
+                            <BackToMenuButton onClick = { () => {this.props.history.push('/menu')}}>
+                                <BackToMenu/>
+                            </BackToMenuButton>
+                        </div>
+                    )}
 
-            </BaseeContainer>
+                </BaseeContainer>
 
-        );
+            );
+        }
     }
 }
 

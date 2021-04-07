@@ -211,7 +211,6 @@ class Profile extends React.Component {
     async checkEditorPermission(){
         try{
             const response = await api.put(`edit/${localStorage.getItem('token')}/${this.ID}`);
-            console.log(response);
             response.data == 'FORBIDDEN' ? alert("You are not allowed to edit other user's profiles!") : this.setState({hasEditorPermission: true});
         }
         catch (error){
