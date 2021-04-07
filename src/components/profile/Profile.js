@@ -148,7 +148,7 @@ class Profile extends React.Component {
             }
 
         } catch (error) {
-            alert(`Something went wrong while fetching the user: \n${handleError(error)}`);
+            alert(`Something went wrong while fetching the profile: \n${handleError(error)}`);
             this.props.history.push('/menu');
         }
     }

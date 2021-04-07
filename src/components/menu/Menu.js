@@ -184,7 +184,6 @@ class Menu extends React.Component {
       });
 
       await api.put('/logout', requestBody);
-      console.log()
 
       localStorage.removeItem('token');
       localStorage.removeItem('userID')
