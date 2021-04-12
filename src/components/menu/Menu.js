@@ -195,7 +195,10 @@ class Menu extends React.Component {
         <Header height={"400"}/>
         <MenuContainer>
 
-          <PlayButton>
+          <PlayButton
+            onClick={() => {
+                this.props.history.push(`/play`);
+            }}>
             PLAY
           </PlayButton>
           <LeaderboardsButton

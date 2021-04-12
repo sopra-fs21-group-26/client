@@ -8,6 +8,7 @@ import Register from "../../register/Register";
 import Menu from "../../menu/Menu";
 import Profile from "../../profile/Profile";
 import Leaderboard from "../../leaderboard/Leaderboard"
+import LobbyTransition from "../../etc/LobbyTransition";
 
 /**
  * Main router of your application.
@@ -70,6 +71,13 @@ class AppRouter extends React.Component {
                           <Leaderboard />
                       </MenuGuard>
                   )}
+              />
+              <Route
+                path="/play"
+                exact
+                render = {() => (
+                    <LobbyTransition history={this.props.history}/>
+                )}
               />
           </div>
         </Switch>
