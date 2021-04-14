@@ -59,9 +59,9 @@ const CloseButton = styled(PlayButton)`
 
 const TutorialHeader = styled(Container)`
 
-    position: relative;
+    position: absolute;
     margin-top: -20px;
-    left: -20%;
+    left: 2%;
 
     
     font-family: Cornerstone;
@@ -81,10 +81,10 @@ const TutorialHeader = styled(Container)`
 const PopupContainer = styled(Container)`
         
     position: absolute;
-    width: 932px;
-    height: 782px;
-    left: 254px;
-    top: 121px;
+    width: 80%;
+    height: 85%;
+    left: 10%;
+    top: 10px;
     
     background: #3C3B38;
     border-radius: 20px;
@@ -94,10 +94,10 @@ const PopupContainer = styled(Container)`
 const PopupHeaderContainer = styled(Container)`
       
     position: absolute;
-    width: 932px;
-    height: 98px;
-    left: 254px;
-    top: 121px;
+    width: 80%;
+    height: 10%;
+    left: 10%;
+    top: 10px;
     
     background: #F2AD43;
     border-radius: 20px 20px 0px 0px;
