@@ -9,6 +9,7 @@ import Menu from "../../menu/Menu";
 import Profile from "../../profile/Profile";
 import Leaderboard from "../../leaderboard/Leaderboard"
 import LobbyTransition from "../../etc/LobbyTransition";
+import SetTest from "../../Set/SetTest";
 
 /**
  * Main router of your application.
@@ -32,6 +33,13 @@ class AppRouter extends React.Component {
                 <LoginGuard>
                   <Login />
                 </LoginGuard>
+              )}
+            />
+            <Route
+              path="/SetTest"
+              exact
+              render={() => (
+                  <SetTest />
               )}
             />
             <Route

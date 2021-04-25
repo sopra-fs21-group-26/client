@@ -12,7 +12,6 @@ import '../../views/design/tooltip.css'
 import {api, handleError} from "../../helpers/api";
 import User from "../shared/models/User";
 import {Backdrop} from "@material-ui/core";
-import Popup from "./Popup";
 
 const MenuContainer = styled(Container)`
 
@@ -141,95 +140,26 @@ const LogoutButton = styled(IoMdLogOut)`
     cursor: pointer;
 `;
 
-class Menu extends React.Component {
-
-  constructor() {
-    super();
-    this.state = {
-      showPopup: false
-    };
-  }
-
-  async logout() {
-    try {
-      const requestBody = JSON.stringify({
-        token: localStorage.getItem('token')
-      });
-
-      await api.put('/logout', requestBody);
-
-      localStorage.removeItem('token');
-      localStorage.removeItem('userID')
-      this.props.history.push('/');
-
-    } catch (error) {
-      alert(`Something went wrong during the logout: \n${handleError(error)}`);
-    }
-  }
-
-  togglePopup() {
-    this.setState({
-      showPopup: !this.state.showPopup
-    });
-  }
-
+class Popup extends React.Component {
   render() {
-
     return (
-      <BaseContainer>
-        <Header height={"400"}/>
-        <MenuContainer>
-
+      <div>
+        <PopupContainer className='popup'>
+          <h1>{this.props.text}</h1>
           <PlayButton
             onClick={() => {
-                this.props.history.push(`/play`);
+              this.props.history.push(`/SetTest`);
             }}>
-            PLAY
+            SET 5 TEST
           </PlayButton>
-          <LeaderboardsButton
-            onClick={() => {
-              this.props.history.push(`/leaderboard`);
-            }}>
-            LEADERBOARDS
-          </LeaderboardsButton>
-          <TutorialButton onClick={this.togglePopup.bind(this)}>
-            TUTORIAL
-          </TutorialButton>
-
-        </MenuContainer>
-
-        <UserButton
-          data-tip
-          data-for="userTip"
-          onClick={() => {
-            this.props.history.push(`/players/${localStorage.getItem('userID')}`);
-          }}/>
-        <ReactTooltip class="buttonTooltip" textColor="#252525" backgroundColor="#F2AD43" id="userTip" place="top"
-                      effect="solid">
-          My Profile
-        </ReactTooltip>
-
-        <LogoutButton data-tip
-                      data-for="logoutTip"
-                      onClick={() => {
-                        this.logout();
-                      }}
-        />
-        {this.state.showPopup ?
-          <Popup
-            closePopup={this.togglePopup.bind(this)}
-          />
-          : null
-        }
-        <ReactTooltip class="buttonTooltip" textColor="#252525" backgroundColor="#F2AD43" id="logoutTip" place="top"
-                      effect="solid">
-          Logout
-        </ReactTooltip>
-        <InfoModal></InfoModal>
-
-      </BaseContainer>
-    );
+          <CloseButton onClick={this.props.closePopup}>Back To Menu</CloseButton>
+        </PopupContainer>
+        <PopupHeaderContainer>
+          <TutorialHeader>Welcome To The Tutorial</TutorialHeader>
+        </PopupHeaderContainer>
+      </div>
+    )
   }
 }
 
-export default withRouter(Menu);
+export default withRouter(Popup);
