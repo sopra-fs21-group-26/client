@@ -53,6 +53,7 @@ export const InputFieldContainer = styled(BackgroundContainer)`
     align-items: center;
     justify-content: center;
     position: relative;
+    border: 2px solid red;
     
  
 `;

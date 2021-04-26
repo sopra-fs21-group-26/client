@@ -30,6 +30,7 @@ const Container = styled.div`
     bottom: 0px;
     left: 0px;
     right: 0px;
+
 `;
 
 const StatFieldContainer = styled.div`

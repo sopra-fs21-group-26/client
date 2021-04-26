@@ -10,6 +10,8 @@ import Profile from "../../profile/Profile";
 import Leaderboard from "../../leaderboard/Leaderboard"
 import LobbyTransition from "../../etc/LobbyTransition";
 import SetTest from "../../Set/SetTest";
+import LobbyCreate from "../../lobby/LobbyCreate";
+import Lobby from "../../lobby/Lobby";
 
 /**
  * Main router of your application.
@@ -77,6 +79,24 @@ class AppRouter extends React.Component {
                   render = {() => (
                       <MenuGuard>
                           <Leaderboard />
+                      </MenuGuard>
+                  )}
+              />
+              <Route
+                  path="/lobby/create"
+                  exact
+                  render = {() => (
+                      <MenuGuard>
+                          <LobbyCreate />
+                      </MenuGuard>
+                  )}
+              />
+              <Route
+                  path="/lobby/:lobbyId"
+                  exact
+                  render = {() => (
+                      <MenuGuard>
+                          <Lobby />
                       </MenuGuard>
                   )}
               />
