@@ -12,6 +12,7 @@ import LobbyTransition from "../../etc/LobbyTransition";
 import SetTest from "../../Set/SetTest";
 import LobbyCreate from "../../lobby/LobbyCreate";
 import Lobby from "../../lobby/Lobby";
+import LobbyJoin from "../../lobby/LobbyJoin";
 
 /**
  * Main router of your application.
@@ -107,6 +108,15 @@ class AppRouter extends React.Component {
                     <LobbyTransition history={this.props.history}/>
                 )}
               />
+            <Route
+              path="/lobbies"
+              exact
+              render = {() => (
+                <MenuGuard>
+                  <LobbyJoin/>
+                </MenuGuard>
+              )}
+            />
           </div>
         </Switch>
       </BrowserRouter>
