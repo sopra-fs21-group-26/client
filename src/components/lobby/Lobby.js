@@ -4,10 +4,10 @@ import { BaseeContainer } from '../profile/Profile';
 import { withRouter } from 'react-router-dom';
 import {api, handleError} from "../../helpers/api";
 import {TopBar, BackgroundContainer, ArrowButton} from "../../views/LoginManagement";
+import Player from "../../views/Player";
 
 const PlayerContainer = styled.div`
 
-    border: 2px solid red;
     height: 82%;
     display: flex;
     flex-direction: column;
@@ -38,23 +38,39 @@ const PlayerBar = styled.div`
 
 class Lobby extends React.Component{
 
+    interval = this.intervalSetter();
+
+    ID = null;
+
     constructor(){
         super();
         this.state={
             lobbyName: null,
-            users: null
+            users: null,
+            isAdmin: null
         }
     }
 
     async componentDidMount(){
 
         const { match: { params } } = this.props;
+        this.ID = params.lobbyId;
         const response = await api.get(`/lobby/${params.lobbyId}`);
         this.setState({lobbyName: response.data.lobbyName});
         this.setState({users: response.data.playersInLobby});
 
+        console.log(response.data)
+
+        if(response.data.admin.token === localStorage.getItem('token')){
+            this.setState({isAdmin: true})
+        }
+
+    }
+
+    intervalSetter(){
         const thisBoundedGetPlayers = this.getPlayers.bind(this);
-        setInterval(thisBoundedGetPlayers, 1000);
+        setInterval(thisBoundedGetPlayers, 3000);
+
     }
 
     async getPlayers(){
@@ -66,25 +82,54 @@ class Lobby extends React.Component{
 
     }
 
+    componentWillUnmount(){
+        clearInterval(this.interval);
+    }
+
     render(){
-        return(
-            <BaseeContainer>
-                <BackgroundContainer>
-                    <TopBar>{this.state.lobbyName}</TopBar>
-                    {!this.state.users ? (
-                        ""
-                    ) : (
-                        <PlayerContainer>
-                            {this.state.users.map(user => {
-                                return(
-                                    <PlayerBar>{user.username}</PlayerBar>
-                                )
-                            })}
-                        </PlayerContainer>
-                    )}
-                </BackgroundContainer>
-            </BaseeContainer>
-        );
+        if(this.state.isAdmin){
+            return(
+                <BaseeContainer>
+                    <BackgroundContainer>
+                        <TopBar>{this.state.lobbyName}</TopBar>
+                        {!this.state.users ? (
+                            ""
+                        ) : (
+
+                            <PlayerContainer>
+                                {this.state.users.map(user => {
+                                    return(
+                                        <Player user={user} lobbyId={this.ID}/>
+                                    )
+                                })}
+                            </PlayerContainer>
+
+                        )}
+                    </BackgroundContainer>
+                </BaseeContainer>
+            )
+        }
+        else{
+            return(
+                <BaseeContainer>
+                    <BackgroundContainer>
+                        <TopBar>{this.state.lobbyName}</TopBar>
+                        {!this.state.users ? (
+                            ""
+                        ) : (
+                            <PlayerContainer>
+                                {this.state.users.map(user => {
+                                    return(
+                                        <Player user={user} />
+                                    )
+                                })}
+                            </PlayerContainer>
+                        )}
+                    </BackgroundContainer>
+                </BaseeContainer>
+            );
+        }
+
     }
 }
 

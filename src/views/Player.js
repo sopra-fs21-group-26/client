@@ -1,47 +1,135 @@
 import React from "react";
 import styled from "styled-components";
+import {BsCheck} from "react-icons/bs";
+import {VscError} from "react-icons/vsc";
+import {api} from "../helpers/api";
+import ReadyButton from "../views/design/ReadyButton";
 
-const Container = styled.div`
-  margin: 6px 0;
-  width: 280px;
-  padding: 10px;
-  border-radius: 6px;
-  display: flex;
-  align-items: center;
-  border: 1px solid #ffffff26;
+const PlayerWrapper = styled.div`
+    
+    width: 90%;
+    height: 12%;
+    border: 2px solid red;
+    display: flex;
+    justify-content: space-evenly;;
+    align-items: center;
+    flex-direction: row;
+
 `;
 
-const UserName = styled.div`
-  font-weight: lighter;
-  margin-left: 5px;
+const PlayerBar = styled.div`
+    width: 70%;
+    height: 70%;
+    background: linear-gradient(180deg, #252525 0%, rgba(37, 37, 37, 0) 100%);
+    border: 3px solid #F2AD43;
+    box-sizing: border-box;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    
+    padding-left: 5%;
+    padding-right: 5%;
+    
+    font-family: PT Mono;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    color: #FFFFFF;
 `;
 
-const Name = styled.div`
-  font-weight: bold;
-  color: #06c4ff;
+const NotReadySymbol = styled(VscError)`
+    
+    color: #C75858;
+    
 `;
 
-const Id = styled.div`
-  margin-left: auto;
-  margin-right: 10px;
-  font-weight: bold;
+const ReadySymbol = styled(BsCheck)`
+
+    color: #56CB62
+    
 `;
 
-/**
- * This is an example of a Functional and stateless component (View) in React. Functional components are not classes and thus don't handle internal state changes.
- * Conceptually, components are like JavaScript functions. They accept arbitrary inputs (called “props”) and return React elements describing what should appear on the screen.
- * They are reusable pieces, and think about each piece in isolation.
- * Functional components have to return always something. However, they don't need a "render()" method.
- * https://reactjs.org/docs/components-and-props.html
- * @FunctionalComponent
- */
-const Player = ({user}) => {
-  return (
-    <Container>
-      <Name>{user.status}</Name> <UserName>{user.username}</UserName>
-      <Id>Id: {user.id}</Id>
-    </Container>
-  );
-};
+const ReadyButtonStyled = styled.div`
 
+    &:hover{
+    transform: translateY(-5px);
+    }
+    transition: all 0.3s ease;
+    cursor: pointer;
+    
+`;
+
+class Player extends React.Component{
+
+    interval = this.intervalSetter();
+
+    constructor(){
+        super();
+        this.state={
+            isReady: null
+        }
+    }
+
+
+    componentDidMount(){}
+
+    intervalSetter(){
+        const thisBoundedGetReadyStatus = this.getReadyStatus.bind(this);
+        setInterval(thisBoundedGetReadyStatus, 3000);
+
+    }
+
+    async getReadyStatus(){
+        const response = await api.get(`/lobby/${this.props.lobbyId}`);
+        this.setState({isReady: response.data.playersInLobby[0].playerStatus})
+        console.log(this.state.isReady)
+
+    }
+
+    componentWillUnmount(){
+        clearInterval(this.interval);
+    }
+
+    async setReady(){
+
+        const requestBody = JSON.stringify({
+            token: localStorage.getItem('token')
+        });
+        await api.put(`/lobby/ready/${this.props.lobbyId}`, requestBody);
+    }
+
+
+    render(){
+        if(this.state.isReady !== "READY"){
+            return (
+                <PlayerWrapper>
+                    <PlayerBar>
+                        <div>{this.props.user.username}</div>
+                        <NotReadySymbol></NotReadySymbol>
+                    </PlayerBar>
+                    <ReadyButtonStyled onClick = {() => {this.setReady()}}>
+                        <ReadyButton></ReadyButton>
+                    </ReadyButtonStyled>
+                </PlayerWrapper>
+            );
+        }
+        else{
+            return(
+                <PlayerWrapper>
+                    <PlayerBar>
+                        <div>{this.props.user.username}</div>
+                        <ReadySymbol></ReadySymbol>
+                    </PlayerBar>
+                </PlayerWrapper>
+            )
+        }
+    }
+}
 export default Player;
+
+
+// <ReadyButtonStyled onClick = { () => {this.setReady()}}>
+//     <ReadyButton></ReadyButton>
+// </ReadyButtonStyled>
