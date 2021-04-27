@@ -33,6 +33,8 @@ class LobbyCreate extends React.Component{
 
             this.setState({lobby: response.data});
 
+            console.log(this.state.lobby)
+
             this.props.history.push(`/lobbies/${this.state.lobby.lobbyId}`)
         }
 
