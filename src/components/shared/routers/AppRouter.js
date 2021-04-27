@@ -92,7 +92,7 @@ class AppRouter extends React.Component {
                   )}
               />
               <Route
-                  path="/lobby/:lobbyId"
+                  path="/lobbies/:lobbyId"
                   exact
                   render = {() => (
                       <MenuGuard>

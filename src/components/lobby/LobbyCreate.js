@@ -31,11 +31,9 @@ class LobbyCreate extends React.Component{
 
             const response = await api.post(`/lobby/create/${this.state.lobbyName}`, requestBody);
 
-            console.log(response.data);
-
             this.setState({lobby: response.data});
 
-            this.props.history.push(`/lobby/${this.state.lobby.lobbyId}`)
+            this.props.history.push(`/lobbies/${this.state.lobby.lobbyId}`)
         }
 
         catch(error){
@@ -56,7 +54,7 @@ class LobbyCreate extends React.Component{
                                 this.handleInputChange('lobbyName', e.target.value);
                             }}
                         />
-                        <ArrowButton onClick={ () => {this.props.history.push("/")}}/>
+                        <ArrowButton onClick={ () => {this.props.history.push("/play")}}/>
                         <LoginButton disabled={!this.state.lobbyName}
                                      onClick={() => {
                                          this.createLobby();
