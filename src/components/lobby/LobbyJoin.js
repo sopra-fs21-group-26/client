@@ -19,10 +19,12 @@ import Player from "../../views/Player";
 import {SpinnerAlt} from "../../views/design/SpinnerAlt";
 import * as PropTypes from "prop-types";
 import {GoSearch} from "react-icons/go";
+import {AiOutlineReload, AiOutlineUser} from "react-icons/ai";
 
 const Lobbies = styled.ul`
   list-style: none;
   padding-left: 0;
+  margin-top: 100px;
 `;
 
 
@@ -65,6 +67,7 @@ const JoinButton = styled.div`
   &:hover {
   transform: translateY(-5px);
   }
+  transition: all 0.3s ease;
   cursor: pointer;
   margin-top: 25px;
   margin-left: 79%;
@@ -80,23 +83,30 @@ const JoinButton = styled.div`
 `;
 
 const SearchInputField = styled(UsernameInputField)`
-
-    width: 745px;
-    height: 68px;
-    text-align: left;
-    padding-left: 60px;
-    font-size: 30px;
+  position: fixed;
+  height: 50px;
+  width: 70%;
+  margin-left: 10%;
+  margin-right: auto;
+  margin-top: 70px;
+  align: center;
+  font-size: 30px;
     
 `;
 
 const SearchSymbol = styled(GoSearch)`
-
-    color: #252525;
-    width: 30px;
-    height: 30px;
+    position: fixed;
+    width: 40px;
+    height: 40px;
     position: absolute;
-    left: 90px;
-    top: 30px;
+    margin-left: 83%;
+    top: 132px;
+      filter: drop-shadow(0px 8px 4px rgba(0, 0, 0, 0.25));
+  &:hover {
+  transform: translateY(-5px);
+  }
+  transition: all 0.3s ease;
+  color: #F2AD43;
     
 `;
 
@@ -113,6 +123,19 @@ const Number = styled.div`
   text-shadow: 0px 6px 4px rgba(0, 0, 0, 0.25);
     
 `;
+const Refresh = styled(AiOutlineReload)`
+  position: fixed;
+  width: 40px;
+  height: 40px;
+  margin-left: 92%;
+  margin-top: -7.5%;
+  filter: drop-shadow(0px 8px 4px rgba(0, 0, 0, 0.25));
+  &:hover {
+  transform: translateY(-5px);
+  }
+  transition: all 0.3s ease;
+  color: #F2AD43;
+`
 
 
 const Lobby = ({lobby}) => {
@@ -131,7 +154,7 @@ class LobbyCreate extends React.Component {
     super();
     this.state = {
       lobbies: null,
-      joiningLobby: null
+      foundLobby: null
     };
   }
 
@@ -151,6 +174,10 @@ class LobbyCreate extends React.Component {
 
   }
 
+  refresh(){
+    window.location.reload()
+  }
+
   async componentDidMount() {
     try {
       const request = JSON.stringify({
@@ -165,6 +192,40 @@ class LobbyCreate extends React.Component {
     }
   }
 
+  handleInputChange(key, value) {
+    // Example: if the key is username, this statement is the equivalent to the following one:
+    // this.setState({'username': value});
+    this.setState({ [key]: value });
+    this.setState({foundLobby: null});
+
+  }
+
+  handleKeyDown = (e) => {
+    if (e.key === 'Enter') {
+      this.searchLobby();
+    }
+  }
+
+  async searchLobby(){
+    try{
+      return(
+        <LobbyContainer>
+          {this.state.lobbies.map(lobby =>(
+            <Lobby key={lobby.lobbyName}>
+              {}
+            </Lobby>
+          ))}
+        </LobbyContainer>
+      )
+
+    }
+    catch (error){
+      alert(`This lobby does not exist: \n${handleError(error)}`);
+      this.props.history.push('/lobbies');
+    }
+
+  }
+
 
   render() {
     return (
@@ -174,17 +235,22 @@ class LobbyCreate extends React.Component {
         ) : (<BaseeContainer>
           <Background>
             <TopBar>LOBBY FINDER</TopBar>
-            {/*          <InputFieldContainer>
-            <SearchInputField
-              placeholder="Search Lobbies..."
-              onKeyDown={this.handleKeyDown}
-              onChange={e => {
-                this.handleInputChange('username', e.target.value);
-              }}
-            />
+
+
             <SearchSymbol></SearchSymbol>
-          </InputFieldContainer>*/}
             <Lobbies>
+              <div>
+                <Refresh onClick={() => {
+                  this.refresh();
+                }}></Refresh>
+              <SearchInputField
+                placeholder="Search Lobbies..."
+                onKeyDown={this.handleKeyDown}
+                onChange={e => {
+                  this.handleInputChange('lobbyName', e.target.value);
+                }}>
+              </SearchInputField>
+              </div>
               {this.state.lobbies.map(lobby => {
                 return (
                   <LobbyContainer key={lobby.id}>
