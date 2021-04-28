@@ -2,7 +2,7 @@ import React from "react";
 
 const ReadyButton = props => {
     return(
-        <svg width="184" height="20" viewBox="0 0 184 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg width="100" height="20" viewBox="0 0 184 40" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g filter="url(#filter0_d)">
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M18.5416 27.4954L21.6078 24.5966L10.1323 13.7477L21.6078 2.89874L18.5416 0L4 13.7477L18.5416 27.4954ZM32.4482 24.5966L20.9727 13.7477L32.4482 2.89874L29.3821 0L14.8404 13.7477L29.3821 27.4954L32.4482 24.5966Z" fill="#F2AD43"/>
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M164.907 -0.000242233L161.84 2.8985L173.316 13.7474L161.84 24.5964L164.907 27.4951L179.448 13.7474L164.907 -0.000242233ZM151 2.8985L162.475 13.7474L151 24.5964L154.066 27.4951L168.608 13.7474L154.066 -0.000242233L151 2.8985Z" fill="#F2AD43"/>

@@ -105,7 +105,9 @@ class AppRouter extends React.Component {
                 path="/play"
                 exact
                 render = {() => (
-                    <LobbyTransition history={this.props.history}/>
+                    <MenuGuard>
+                        <LobbyTransition history={this.props.history}/>
+                    </MenuGuard>
                 )}
               />
             <Route

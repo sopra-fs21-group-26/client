@@ -159,7 +159,8 @@ class Menu extends React.Component {
       await api.put('/logout', requestBody);
 
       localStorage.removeItem('token');
-      localStorage.removeItem('userID')
+      localStorage.removeItem('userID');
+      localStorage.removeItem('username');
       this.props.history.push('/');
 
     } catch (error) {

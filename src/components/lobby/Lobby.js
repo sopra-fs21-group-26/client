@@ -5,9 +5,11 @@ import { withRouter } from 'react-router-dom';
 import {api, handleError} from "../../helpers/api";
 import {TopBar, BackgroundContainer, ArrowButton} from "../../views/LoginManagement";
 import Player from "../../views/Player";
+import StartGameButton from '../../views/design/StartGameButton';
 
 const PlayerContainer = styled.div`
-
+    
+    position: relative;
     height: 82%;
     display: flex;
     flex-direction: column;
@@ -16,25 +18,21 @@ const PlayerContainer = styled.div`
     
 `;
 
-const PlayerBar = styled.div`
+export const StartGameButtonWrapper = styled.div`
     
-    width: 60%;
-    height: 10%;
-    background: linear-gradient(180deg, #252525 0%, rgba(37, 37, 37, 0) 100%);
-    border: 3px solid #F2AD43;
-    box-sizing: border-box;
-    border-radius: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    position: absolute;
+    bottom: 3%;
+    &:hover {
+    transform: ${props => (props.disabled ? "translateY(0px)" : "translateY(-5px)")}
+    }
+    transition: all 0.3s ease;
+    cursor: pointer;
     
-    font-family: PT Mono;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 20px;
-    color: #FFFFFF;
+    cursor: ${props => (props.disabled ? "default" : "pointer")};
+    opacity: ${props => (props.disabled ? 0.4 : 1)};
 
 `;
+
 
 class Lobby extends React.Component{
 
@@ -47,7 +45,11 @@ class Lobby extends React.Component{
         this.state={
             lobbyName: null,
             users: null,
-            isAdmin: null
+            isAdmin: null,
+            adminUsername: null,
+            // isGameStarted: null,
+            playersInLobby: null,
+            allPlayersReady: null
         }
     }
 
@@ -61,6 +63,8 @@ class Lobby extends React.Component{
 
         console.log(response.data)
 
+        this.setState({adminUsername: response.data.admin.username});
+
         if(response.data.admin.token === localStorage.getItem('token')){
             this.setState({isAdmin: true})
         }
@@ -69,7 +73,7 @@ class Lobby extends React.Component{
 
     intervalSetter(){
         const thisBoundedGetPlayers = this.getPlayers.bind(this);
-        setInterval(thisBoundedGetPlayers, 3000);
+        return setInterval(thisBoundedGetPlayers, 3000);
 
     }
 
@@ -78,57 +82,70 @@ class Lobby extends React.Component{
         const { match: { params } } = this.props;
         const response = await api.get(`/lobby/${params.lobbyId}`);
         this.setState({users: response.data.playersInLobby});
+        this.setState({playersInLobby: response.data.numbersOfPlayers});
         console.log(this.state.users);
-
+        this.allPlayersReady();
     }
+
+    // isLobbyStarted(){
+    //     if(isGameStarted){
+    //
+    //     }
+    // }
 
     componentWillUnmount(){
         clearInterval(this.interval);
     }
 
-    render(){
-        if(this.state.isAdmin){
-            return(
-                <BaseeContainer>
-                    <BackgroundContainer>
-                        <TopBar>{this.state.lobbyName}</TopBar>
-                        {!this.state.users ? (
-                            ""
-                        ) : (
+    async allPlayersReady(){
+        let playersReady = 0;
+        let players = this.state.users;
 
-                            <PlayerContainer>
-                                {this.state.users.map(user => {
-                                    return(
-                                        <Player user={user} lobbyId={this.ID}/>
-                                    )
-                                })}
-                            </PlayerContainer>
+        players.forEach(countReady);
 
-                        )}
-                    </BackgroundContainer>
-                </BaseeContainer>
-            )
+        function countReady(value){
+            if(value.playerStatus === "READY"){
+                playersReady = playersReady + 1;
+            }
         }
+
+        if(playersReady === this.state.playersInLobby && this.state.playersInLobby >= 2){
+            this.setState({allPlayersReady: true});
+        }
+
         else{
-            return(
-                <BaseeContainer>
-                    <BackgroundContainer>
-                        <TopBar>{this.state.lobbyName}</TopBar>
-                        {!this.state.users ? (
-                            ""
-                        ) : (
-                            <PlayerContainer>
-                                {this.state.users.map(user => {
-                                    return(
-                                        <Player user={user} />
-                                    )
-                                })}
-                            </PlayerContainer>
-                        )}
-                    </BackgroundContainer>
-                </BaseeContainer>
-            );
+            this.setState({allPlayersReady: false});
         }
+
+    }
+
+    render(){
+
+        return(
+            <BaseeContainer>
+                <BackgroundContainer>
+                    <TopBar>{this.state.lobbyName}</TopBar>
+                    {!this.state.users ? (
+                        ""
+                    ) : (
+
+                        <PlayerContainer>
+                            {this.state.isAdmin ? (
+                                <StartGameButtonWrapper disabled={!this.state.allPlayersReady}>
+                                    <StartGameButton/>
+                                </StartGameButtonWrapper>
+                            ) : ("")}
+                            {this.state.users.map(user => {
+                                return(
+                                    <Player adminUsername={this.state.adminUsername} user={user} lobbyId={this.ID}/>
+                                )
+                            })}
+                        </PlayerContainer>
+
+                    )}
+                </BackgroundContainer>
+            </BaseeContainer>
+        )
 
     }
 }
