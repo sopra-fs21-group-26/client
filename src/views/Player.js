@@ -12,7 +12,7 @@ const PlayerWrapper = styled.div`
 
     position: relative;
     width: 100%;
-    height: 12%;
+    height: 8%;
     
     display: flex;
     justify-content: space-evenly;;
@@ -23,7 +23,7 @@ const PlayerWrapper = styled.div`
 const PlayerBar = styled.div`
 
     width: 55%;
-    height: 70%;
+    height: 85%;
     background: linear-gradient(180deg, #252525 0%, rgba(37, 37, 37, 0) 100%);
     border: 3px solid #F2AD43;
     box-sizing: border-box;
@@ -33,13 +33,13 @@ const PlayerBar = styled.div`
     align-items: center;
     flex-direction: row;
     
-    padding-left: 5%;
-    padding-right: 5%;
+    padding-left: 3%;
+    padding-right: 3%;
     
     font-family: PT Mono;
     font-style: normal;
     font-weight: normal;
-    font-size: 20px;
+    font-size: 18px;
     color: #FFFFFF;
 `;
 
@@ -58,8 +58,8 @@ const ReadySymbol = styled(BsCheck)`
 const ReadyButtonStyled = styled.div`
 
     position: absolute;
-    right: 2%;
-    top: 33%;
+    right: 4%;
+    top: 25%;
 
     &:hover{
     transform: translateY(-5px);

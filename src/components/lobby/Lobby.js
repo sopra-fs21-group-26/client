@@ -1,20 +1,48 @@
 import React from 'react';
 import styled from 'styled-components';
-import { BaseeContainer } from '../profile/Profile';
+import {Background, BaseeContainer} from '../profile/Profile';
 import { withRouter } from 'react-router-dom';
 import {api, handleError} from "../../helpers/api";
 import {TopBar, BackgroundContainer, ArrowButton} from "../../views/LoginManagement";
 import Player from "../../views/Player";
 import StartGameButton from '../../views/design/StartGameButton';
+import LeaveLobby from "../../views/design/LeaveLobby";
 
 const PlayerContainer = styled.div`
     
-    position: relative;
-    height: 82%;
+    height: 75%;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
+    
+`;
+
+const Container = styled(BackgroundContainer)`
+
+    position: relative;
+
+    width: 45%;
+    height: 70%;
+
+`;
+
+const ContainerHeader = styled(TopBar)`
+
+    height: 15%;
+    font-size: 28px;
+    display: flex;
+    justify-content: space-between;
+    padding-right: 25px; 
+
+`;
+
+const PlayerCount = styled.div`
+
+    font-family: PT Mono;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
     
 `;
 
@@ -33,6 +61,19 @@ export const StartGameButtonWrapper = styled.div`
 
 `;
 
+const LeaveLobbyButton = styled.div`
+
+    position: absolute;
+    height: 35px;
+    top: 30px;
+    left: 30px;
+    &:hover {
+        transform: translateY(-5px);
+    }
+    transition: all 0.3s ease;
+    cursor: pointer;
+
+`;
 
 class Lobby extends React.Component{
 
@@ -60,6 +101,7 @@ class Lobby extends React.Component{
         const response = await api.get(`/lobby/${params.lobbyId}`);
         this.setState({lobbyName: response.data.lobbyName});
         this.setState({users: response.data.playersInLobby});
+        this.setState({playersInLobby: response.data.numbersOfPlayers});
 
         console.log(response.data)
 
@@ -81,15 +123,16 @@ class Lobby extends React.Component{
 
         const { match: { params } } = this.props;
         const response = await api.get(`/lobby/${params.lobbyId}`);
+
         this.setState({users: response.data.playersInLobby});
         this.setState({playersInLobby: response.data.numbersOfPlayers});
-        console.log(this.state.users);
+
         if(response.data.admin.playerStatus === "PLAYING"){
             this.props.history.push("/testgame")
         }
         this.allPlayersReady();
     }
-    
+
 
     async startGame(){
 
@@ -130,12 +173,28 @@ class Lobby extends React.Component{
 
     }
 
+    async leaveLobby(){
+
+        const { match: { params } } = this.props;
+
+        const requestBody = JSON.stringify({
+            token: localStorage.getItem('token')
+        });
+
+        await api.put(`/lobby/leave/${params.lobbyId}`, requestBody);
+
+        this.props.history.push(`/lobbies`);
+    }
+
     render(){
 
         return(
             <BaseeContainer>
-                <BackgroundContainer>
-                    <TopBar>{this.state.lobbyName}</TopBar>
+                <Container>
+                    <ContainerHeader>
+                        <div>{this.state.lobbyName}</div>
+                        <PlayerCount>{this.state.playersInLobby} / 5 Players </PlayerCount>
+                    </ContainerHeader>
                     {!this.state.users ? (
                         ""
                     ) : (
@@ -154,7 +213,10 @@ class Lobby extends React.Component{
                         </PlayerContainer>
 
                     )}
-                </BackgroundContainer>
+                </Container>
+                <LeaveLobbyButton onClick={() => {this.leaveLobby()}}>
+                    <LeaveLobby/>
+                </LeaveLobbyButton>
             </BaseeContainer>
         )
 
