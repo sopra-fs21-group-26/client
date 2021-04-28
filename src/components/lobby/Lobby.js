@@ -38,6 +38,7 @@ class Lobby extends React.Component{
 
     interval = this.intervalSetter();
 
+
     ID = null;
 
     constructor(){
@@ -47,7 +48,6 @@ class Lobby extends React.Component{
             users: null,
             isAdmin: null,
             adminUsername: null,
-            // isGameStarted: null,
             playersInLobby: null,
             allPlayersReady: null
         }
@@ -84,14 +84,25 @@ class Lobby extends React.Component{
         this.setState({users: response.data.playersInLobby});
         this.setState({playersInLobby: response.data.numbersOfPlayers});
         console.log(this.state.users);
+        if(response.data.admin.playerStatus === "PLAYING"){
+            this.props.history.push("/testgame")
+        }
         this.allPlayersReady();
     }
+    
 
-    // isLobbyStarted(){
-    //     if(isGameStarted){
-    //
-    //     }
-    // }
+    async startGame(){
+
+        const { match: { params } } = this.props;
+
+        const requestBody = JSON.stringify({
+            token: localStorage.getItem('token')
+        });
+
+        const response = await api.put(`/lobby/start/${params.lobbyId}`, requestBody);
+
+
+    }
 
     componentWillUnmount(){
         clearInterval(this.interval);
@@ -131,7 +142,7 @@ class Lobby extends React.Component{
 
                         <PlayerContainer>
                             {this.state.isAdmin ? (
-                                <StartGameButtonWrapper disabled={!this.state.allPlayersReady}>
+                                <StartGameButtonWrapper disabled={!this.state.allPlayersReady} onClick = { () => {this.startGame()}}>
                                     <StartGameButton/>
                                 </StartGameButtonWrapper>
                             ) : ("")}
