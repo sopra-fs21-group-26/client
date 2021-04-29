@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import {Background, BaseeContainer} from '../profile/Profile';
+import {BaseeContainer} from '../profile/Profile';
 import { withRouter } from 'react-router-dom';
 import {api, handleError} from "../../helpers/api";
-import {TopBar, BackgroundContainer, ArrowButton} from "../../views/LoginManagement";
+import {TopBar, BackgroundContainer} from "../../views/LoginManagement";
 import Player from "../../views/Player";
 import StartGameButton from '../../views/design/StartGameButton';
 import LeaveLobby from "../../views/design/LeaveLobby";
@@ -182,6 +182,9 @@ class Lobby extends React.Component{
         });
 
         await api.put(`/lobby/leave/${params.lobbyId}`, requestBody);
+
+        // TODO
+        localStorage.removeItem('lobbyID');
 
         this.props.history.push(`/lobbies`);
     }

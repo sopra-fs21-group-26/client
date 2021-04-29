@@ -8,11 +8,12 @@ import Register from "../../register/Register";
 import Menu from "../../menu/Menu";
 import Profile from "../../profile/Profile";
 import Leaderboard from "../../leaderboard/Leaderboard"
-import LobbyTransition from "../../etc/LobbyTransition";
+import LobbyTransition from "../../lobby/LobbyTransition";
 import SetTest from "../../Set/SetTest";
 import LobbyCreate from "../../lobby/LobbyCreate";
 import Lobby from "../../lobby/Lobby";
 import LobbyJoin from "../../lobby/LobbyJoin";
+import Scoring from "../../game/Scoring";
 
 /**
  * Main router of your application.
@@ -119,6 +120,15 @@ class AppRouter extends React.Component {
                 </MenuGuard>
               )}
             />
+              <Route
+                  path="/scoringtest"
+                  exact
+                  render = {() => (
+                      <MenuGuard>
+                          <Scoring/>
+                      </MenuGuard>
+                  )}
+              />
           </div>
         </Switch>
       </BrowserRouter>
