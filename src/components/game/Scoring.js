@@ -82,6 +82,8 @@ const RankOneCircle = styled.div`
     align-items: center;
     justify-content: center;
     color: #252525;
+    padding-left: 7px;
+    padding-top: 3px;
     
 `;
 
@@ -89,6 +91,7 @@ const RankTwo = styled(RankOne)`
 
     color: #C6C1C1;
     font-size: 45px;
+    padding-right: 8px;
     
 `;
 
@@ -103,6 +106,7 @@ const RankThree = styled(RankOne)`
 
     color: #CE8741;
     font-size: 30px;
+    padding-right: 20px;
     
 `;
 
@@ -110,6 +114,8 @@ const RankThreeCircle = styled(RankOneCircle)`
 
     height: 50px;
     width: 50px;
+    padding-right: 3px;
+    padding-top: 3px;
     
 `;
 
@@ -139,13 +145,12 @@ class Scoring extends React.Component{
 
     async getPlayers(){
 
-        const lobbyId = localStorage.getItem('lobbyID');
-        const response = await api.get(`/lobby/${lobbyId}`);
+        const { match: { params } } = this.props;
+        const response = await api.get(`/lobby/${params.lobbyId}`);
 
         this.setState({users: response.data.playersInLobby});
         this.setState({playersInLobby: response.data.numbersOfPlayers});
-
-        console.log(response.data)
+        
         this.allPlayersReady();
 
     }
@@ -168,10 +173,8 @@ class Scoring extends React.Component{
 
     async componentDidMount(){
 
-        const lobbyId = localStorage.getItem('lobbyID');
-        const response = await api.get(`/games/${lobbyId}/score`);
-
-        console.log(response.data)
+        const { match: { params } } = this.props;
+        const response = await api.get(`/games/${params.lobbyId}/score`);
 
         this.setState({scoresheet: response.data});
 
@@ -180,8 +183,6 @@ class Scoring extends React.Component{
 
         const score_arr = Object.values(this.state.scoresheet.scoreSheet)
         this.setState({scores: score_arr})
-
-        console.log(this.state.usernames)
 
         this.countPlayers();
 
@@ -197,7 +198,8 @@ class Scoring extends React.Component{
             token: localStorage.getItem('token')
         });
 
-        await api.put(`/lobby/ready/${localStorage.getItem('lobbyID')}`, requestBody);
+        const { match: { params } } = this.props;
+        await api.put(`/lobby/ready/${params.lobbyId}`, requestBody);
     }
 
     async allPlayersReady(){
@@ -213,7 +215,9 @@ class Scoring extends React.Component{
         }
 
         if(playersReady === this.state.playersInLobby){
-            this.props.history.push(`/game/${localStorage.getItem('lobbyID')}`);
+
+            const { match: { params } } = this.props;
+            this.props.history.push(`/game/${params.lobbyId}`);
         }
 
     }
@@ -244,24 +248,24 @@ class Scoring extends React.Component{
                             <DummyPlayerContainer>
                                 <RankOne>1. {this.state.usernames[0]}<RankOneCircle>{this.state.scores[0]}</RankOneCircle></RankOne>
                                 <RankTwo>2. {this.state.usernames[1]}<RankTwoCircle>{this.state.scores[1]}</RankTwoCircle></RankTwo>
-                                <RankThree>3. {this.state.username[2]}<RankThreeCircle>{this.state.scores[2]}</RankThreeCircle></RankThree>
+                                <RankThree>3. {this.state.usernames[2]}<RankThreeCircle>{this.state.scores[2]}</RankThreeCircle></RankThree>
                             </DummyPlayerContainer>
                         ) : ("")}
                         {this.state.playerCount === 4 ? (
                             <DummyPlayerContainer>
                                 <RankOne>1. {this.state.usernames[0]}<RankOneCircle>{this.state.scores[0]}</RankOneCircle></RankOne>
                                 <RankTwo>2. {this.state.usernames[1]}<RankTwoCircle>{this.state.scores[1]}</RankTwoCircle></RankTwo>
-                                <RankThree>3. {this.state.username[2]}<RankThreeCircle>{this.state.scores[2]}</RankThreeCircle></RankThree>
-                                <RankFourFive>4. {this.state.username[3]}<RankFourFiveCircle>{this.state.scores[3]}</RankFourFiveCircle></RankFourFive>
+                                <RankThree>3. {this.state.usernames[2]}<RankThreeCircle>{this.state.scores[2]}</RankThreeCircle></RankThree>
+                                <RankFourFive>4. {this.state.usernames[3]}<RankFourFiveCircle>{this.state.scores[3]}</RankFourFiveCircle></RankFourFive>
                             </DummyPlayerContainer>
                         ) : ("")}
                         {this.state.playerCount === 5 ? (
                             <DummyPlayerContainer>
                                 <RankOne>1. {this.state.usernames[0]}<RankOneCircle>{this.state.scores[0]}</RankOneCircle></RankOne>
                                 <RankTwo>2. {this.state.usernames[1]}<RankTwoCircle>{this.state.scores[1]}</RankTwoCircle></RankTwo>
-                                <RankThree>3. {this.state.username[2]}<RankThreeCircle>{this.state.scores[2]}</RankThreeCircle></RankThree>
-                                <RankFourFive>4. {this.state.username[3]}<RankFourFiveCircle>{this.state.scores[3]}</RankFourFiveCircle></RankFourFive>
-                                <RankFourFive>5. {this.state.username[4]}<RankFourFiveCircle>{this.state.scores[4]}</RankFourFiveCircle></RankFourFive>
+                                <RankThree>3. {this.state.usernames[2]}<RankThreeCircle>{this.state.scores[2]}</RankThreeCircle></RankThree>
+                                <RankFourFive>4. {this.state.usernames[3]}<RankFourFiveCircle>{this.state.scores[3]}</RankFourFiveCircle></RankFourFive>
+                                <RankFourFive>5. {this.state.usernames[4]}<RankFourFiveCircle>{this.state.scores[4]}</RankFourFiveCircle></RankFourFive>
                             </DummyPlayerContainer>
                         ) : ("")}
                         <NextRoundButtonWrapper onClick = { () => {this.signalReady()}}>

@@ -183,9 +183,6 @@ class Lobby extends React.Component{
 
         await api.put(`/lobby/leave/${params.lobbyId}`, requestBody);
 
-        // TODO
-        localStorage.removeItem('lobbyID');
-
         this.props.history.push(`/lobbies`);
     }
 
