@@ -10,8 +10,8 @@ import {SpinnerAlt} from "../../views/design/SpinnerAlt";
 import * as PropTypes from "prop-types";
 
 const GridContainer = styled.div`
-  height: 600px;
-  width: 610px;
+  height: 480px;
+  width: 500px;
   margin-left: auto;
   margin-right: auto;
   align: center;
@@ -20,8 +20,8 @@ const GridContainer = styled.div`
 `;
 
 const Picture = styled.img`
-  height: 150px;
-  width: 150px;
+  height: 120px;
+  width: 120px;
   border: 2px solid #F2AD43;
   box-sizing: border-box;
   padding: 5px;
