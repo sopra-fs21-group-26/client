@@ -256,7 +256,7 @@ class LobbyCreate extends React.Component {
               </div>
               {this.state.lobbies.map(lobby => {
                 return (
-                  <LobbyContainer key={lobby.id}>
+                  <LobbyContainer>
                     <Lobby lobby={lobby}/>{
                     lobby.numbersOfPlayers < 5 &&
                     <JoinButton onClick={() => {

@@ -128,7 +128,7 @@ class Lobby extends React.Component{
         this.setState({playersInLobby: response.data.numbersOfPlayers});
 
         if(response.data.admin.playerStatus === "PLAYING"){
-            this.props.history.push("/testgame")
+            this.props.history.push(`/game/${params.lobbyId}`)
         }
         this.allPlayersReady();
     }
