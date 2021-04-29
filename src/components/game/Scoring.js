@@ -213,7 +213,7 @@ class Scoring extends React.Component{
         }
 
         if(playersReady === this.state.playersInLobby){
-            this.props.history.push("/testend");
+            this.props.history.push(`/game/${localStorage.getItem('lobbyID')}`);
         }
 
     }

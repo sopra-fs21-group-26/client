@@ -8,7 +8,7 @@ import Register from "../../register/Register";
 import Menu from "../../menu/Menu";
 import Profile from "../../profile/Profile";
 import Leaderboard from "../../leaderboard/Leaderboard"
-import LobbyTransition from "../../etc/LobbyTransition";
+import LobbyTransition from "../../lobby/LobbyTransition";
 import SetTest from "../../Set/SetTest";
 import LobbyCreate from "../../lobby/LobbyCreate";
 import Lobby from "../../lobby/Lobby";
