@@ -15,6 +15,7 @@ import Lobby from "../../lobby/Lobby";
 import LobbyJoin from "../../lobby/LobbyJoin";
 import Game from "../../game/Game";
 import Scoring from "../../game/Scoring";
+import Recreate from "../../game/Recreate";
 
 /**
  * Main router of your application.
@@ -139,6 +140,15 @@ class AppRouter extends React.Component {
                       </MenuGuard>
                   )}
               />
+            <Route
+              path="/game/:lobbyId/recreate"
+              exact
+              render = {() => (
+                <MenuGuard>
+                  <Recreate/>
+                </MenuGuard>
+              )}
+            />
           </div>
         </Switch>
       </BrowserRouter>
