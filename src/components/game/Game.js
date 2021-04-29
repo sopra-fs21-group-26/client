@@ -1,98 +1,78 @@
-/*import React from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { BaseContainer } from '../../helpers/layout';
 import { api, handleError } from '../../helpers/api';
 import Player from '../../views/Player';
-import { Spinner } from '../../views/design/Spinner';
 import { Button } from '../../views/design/Button';
 import { withRouter } from 'react-router-dom';
+import {BaseeContainer} from "../profile/Profile";
+import {SpinnerAlt} from "../../views/design/SpinnerAlt";
+import * as PropTypes from "prop-types";
 
-const Container = styled(BaseContainer)`
-  color: white;
-  text-align: center;
+const GridContainer = styled.div`
+  height: 600px;
+  width: 610px;
+  margin-left: auto;
+  margin-right: auto;
+  align: center;
+  margin-bottom: 55px;
+  box-sizing: border-box;
 `;
 
-const Users = styled.ul`
-  list-style: none;
-  padding-left: 0;
+const Picture = styled.img`
+  height: 150px;
+  width: 150px;
+  border: 2px solid #F2AD43;
+  box-sizing: border-box;
+  padding: 5px;
 `;
 
-const PlayerContainer = styled.li`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-`;
+
+
 
 class Game extends React.Component {
   constructor() {
     super();
     this.state = {
-      users: null
+      grid: null,
+      height: 100,
+      width: 100,
+      padding: 5,
     };
   }
 
-  logout() {
-    localStorage.removeItem('token');
-    this.props.history.push('/login');
-  }
 
   async componentDidMount() {
     try {
-      const response = await api.get('/users');
-      // delays continuous execution of an async operation for 1 second.
-      // This is just a fake async call, so that the spinner can be displayed
-      // feel free to remove it :)
+      const { match: { params } } = this.props;
+      this.ID = params.lobbyId;
+      const response = await api.get(`/games/${params.lobbyId}/grid`);
       await new Promise(resolve => setTimeout(resolve, 1000));
-
-      // Get the returned users and update the state.
-      this.setState({ users: response.data });
-
-      // This is just some data for you to see what is available.
-      // Feel free to remove it.
-      console.log('request to:', response.request.responseURL);
-      console.log('status code:', response.status);
-      console.log('status text:', response.statusText);
-      console.log('requested data:', response.data);
-
-      // See here to get more data.
-      console.log(response);
+      this.setState({ grid: response.data });
     } catch (error) {
-      alert(`Something went wrong while fetching the users: \n${handleError(error)}`);
+      alert(`Something went wrong while fetching the grid: \n${handleError(error)}`);
     }
   }
 
   render() {
     return (
-      <Container>
-        <h2>Happy Coding! </h2>
-        <p>Get all users from secure end point:</p>
-        {!this.state.users ? (
-          <Spinner />
+      <BaseeContainer>
+        {!this.state.grid ? (
+          <SpinnerAlt />
         ) : (
-          <div>
-            <Users>
-              {this.state.users.map(user => {
-                return (
-                  <PlayerContainer key={user.id}>
-                    <Player user={user} />
-                  </PlayerContainer>
-                );
-              })}
-            </Users>
-            <Button
-              width="100%"
-              onClick={() => {
-                this.logout();
-              }}
-            >
-              Logout
-            </Button>
-          </div>
+            <GridContainer>
+            {this.state.grid.map(picture => {
+              return (
+                  <Picture
+                    src = {`${picture.url}&fit=crop&w=400&h=400`}
+                  />
+              );
+                })}
+            </GridContainer>
         )}
-      </Container>
+      </BaseeContainer>
     );
   }
 }
 
-export default withRouter(Game);*/
+export default withRouter(Game);

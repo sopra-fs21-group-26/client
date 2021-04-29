@@ -13,6 +13,7 @@ import SetTest from "../../Set/SetTest";
 import LobbyCreate from "../../lobby/LobbyCreate";
 import Lobby from "../../lobby/Lobby";
 import LobbyJoin from "../../lobby/LobbyJoin";
+import Game from "../../game/Game";
 
 /**
  * Main router of your application.
@@ -116,6 +117,15 @@ class AppRouter extends React.Component {
               render = {() => (
                 <MenuGuard>
                   <LobbyJoin/>
+                </MenuGuard>
+              )}
+            />
+            <Route
+              path="/game/:lobbyId"
+              exact
+              render = {() => (
+                <MenuGuard>
+                  <Game/>
                 </MenuGuard>
               )}
             />
