@@ -8,6 +8,7 @@ import { withRouter } from 'react-router-dom';
 import {BaseeContainer} from "../profile/Profile";
 import {SpinnerAlt} from "../../views/design/SpinnerAlt";
 import CanvasDraw from "react-canvas-draw";
+import {LoginButton, RegisterButton} from "../../views/LoginManagement";
 
 const Picture = styled.img`
   height: 400px;
@@ -71,12 +72,33 @@ const TokenButton = styled.button`
     
 `;
 
+const Waiting = styled.div` 
+    
+    transition: all 0.3s ease;
+    position: absolute;
+    top: 40%;
+    left: 82%;
+    font-family: Cornerstone;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    color: #FFFFFF;
+    
+    text-shadow: 0px 8px 4px rgba(0, 0, 0, 0.25);
+    
+`;
+
 class Recreate extends React.Component {
+
+  interval = this.intervalSet();
+
   constructor() {
     super();
     this.state = {
       picture: null,
-      disabled: false
+      disabled: false,
+      isDone: null,
+      allDone: null
     };
   }
 
@@ -97,6 +119,32 @@ class Recreate extends React.Component {
     }
   }
 
+  componentWillUnmount(){
+    clearInterval(this.interval);
+  }
+
+  async getAllCreated() {
+    try {
+      const { match: { params } } = this.props;
+      this.ID = params.lobbyId;
+      const response = await api.get(`/games/allCreated/${params.lobbyId}`);
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      this.setState({ allDone: response.data });
+      if(this.state.allDone){
+        this.props.history.push(`/gameTest`);
+      }
+    } catch (error) {
+      alert(`Something went wrong while fetching the created status: \n${handleError(error)}`);
+    }
+  }
+
+
+  intervalSet(){
+    const thisGetAllPlayersReady = this.getAllCreated.bind(this);
+    return setInterval(thisGetAllPlayersReady, 1000);
+
+  }
+
   async savePicture(){
     try{
       const requestBody = JSON.stringify({
@@ -104,9 +152,14 @@ class Recreate extends React.Component {
         recreation: localStorage.getItem("savedDrawing")
       })
       await api.put(`/games/saveCreation`, requestBody);
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      await new Promise(resolve => setTimeout(resolve, 50));
+      const SecondRequest = JSON.stringify({
+        token: localStorage.getItem("token"),
+      })
+      await api.put(`/games/creation`, SecondRequest);
+      await new Promise(resolve => setTimeout(resolve, 50));
+      this.setState({isDone: true});
       console.log("success");
-      this.props.history.push(`/gameTest`);
     }
     catch(error){
       alert(`Something went wrong while saving your picture: \n${handleError(error)}`);
@@ -135,17 +188,25 @@ class Recreate extends React.Component {
   }
   }
   />
-            <TokenButton
-              onClick={() => {
-                localStorage.setItem(
-                  "savedDrawing",
-                  this.saveableCanvas.getSaveData()
-                );
-                this.savePicture();
-              }}
-            >
-              Save
-            </TokenButton>
+            {!this.state.isDone ? (
+                <TokenButton
+                  onClick={() => {
+                    localStorage.setItem(
+                      "savedDrawing",
+                      this.saveableCanvas.getSaveData()
+                    );
+                    this.savePicture();
+                  }}
+                >
+                  Save
+                </TokenButton>
+            ) : (
+              <Waiting>
+                Waiting for others to finish creating...
+              </Waiting>
+
+            )}
+
           </div>
         )}
       </BaseeContainer>
