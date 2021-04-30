@@ -170,6 +170,7 @@ class Game extends React.Component {
     super();
     this.state = {
       grid: null,
+      isAdmin: null
     };
   }
 
@@ -178,9 +179,22 @@ class Game extends React.Component {
     try {
       const {match: {params}} = this.props;
       this.ID = params.lobbyId;
-      const response = await api.get(`/games/${params.lobbyId}/grid`);
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      this.setState({grid: response.data});
+      const admindata = await api.get(`lobby/${params.lobbyId}`);
+      if(admindata.data.admin.token === localStorage.getItem('token')){
+        this.setState({isAdmin: true})
+      }
+      if(this.state.isAdmin) {
+        const response = await api.get(`/games/${params.lobbyId}/grid`);
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        this.setState({grid: response.data});
+      }
+      else{
+        await new Promise(resolve => setTimeout(resolve, 10000));
+        const response = await api.get(`/games/${params.lobbyId}/grid`);
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        this.setState({grid: response.data});
+      }
+
     } catch (error) {
       alert(`Something went wrong while fetching the grid: \n${handleError(error)}`);
     }
