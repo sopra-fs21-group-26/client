@@ -99,14 +99,9 @@ class Recreate extends React.Component {
 
   async savePicture(){
     try{
-      const lz = require('lz-string');
-      let comp1 = lz.compress(localStorage.getItem("savedDrawing"));
-      let comp2 = lz.compress(comp1);
-      let comp =  lz.compress(comp2);
-      console.log(comp, comp.length);
       const requestBody = JSON.stringify({
         token: localStorage.getItem("token"),
-        recreation: comp
+        recreation: localStorage.getItem("savedDrawing")
       })
       await api.put(`/games/saveCreation`, requestBody);
       await new Promise(resolve => setTimeout(resolve, 1000));
