@@ -56,8 +56,6 @@ checkLines(){
                   brushRadius={this.state.brushRadius}
                   disabled={this.state.disabled}
                   onChange={() => {
-                    this.stats.lines = this.stats.lines + 1;
-                    this.checkLines();
                     this.setState({disabled: true})
                   }
                   }
