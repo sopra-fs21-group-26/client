@@ -4,6 +4,7 @@ import { withRouter } from 'react-router-dom';
 import {api, handleError} from "../../helpers/api";
 import RankingsHeader from "../../views/design/RankingsHeader";
 import NextRound from "../../views/design/NexRound";
+import {SpinnerAlt} from "../../views/design/SpinnerAlt";
 
 const NextRoundButtonWrapper = styled.div`
     
@@ -139,7 +140,7 @@ class Scoring extends React.Component{
 
     intervalSetter(){
         const thisBoundedGetPlayers = this.getPlayers.bind(this);
-        return setInterval(thisBoundedGetPlayers, 3000);
+        return setInterval(thisBoundedGetPlayers, 1000);
 
     }
 
@@ -148,10 +149,32 @@ class Scoring extends React.Component{
         const { match: { params } } = this.props;
         const response = await api.get(`/lobby/${params.lobbyId}`);
 
+        console.log(response.data)
+
         this.setState({users: response.data.playersInLobby});
-        this.setState({playersInLobby: response.data.numbersOfPlayers});
-        
-        this.allPlayersReady();
+
+        // Determine client user
+        let players = this.state.users;
+
+        let thisUser = null;
+
+        players.forEach(checkUser);
+
+        function checkUser(value){
+            if(value.username === localStorage.getItem('username')){
+                thisUser = value;
+            }
+        }
+
+        this.setState({thisUser: thisUser});
+
+        if(response.data.allAreReadyForNextRound === true && response.data.isEndGame === true){
+            this.props.history.push(`/dummyend`)
+        }
+
+        if(response.data.allAreReadyForNextRound === true && response.data.isEndGame === false){
+            this.props.history.push(`/game/${params.lobbyId}`)
+        }
 
     }
 
@@ -163,11 +186,12 @@ class Scoring extends React.Component{
             usernames: null, // string
             scores: null,    // int
             playerCount: null,
-            allPlayersReady: null, // bool
+
+            // Specific client using this component
+            thisUser: null,
 
             // For next round / end game check
             users: null,
-            playersInLobby: null
         }
     }
 
@@ -188,6 +212,14 @@ class Scoring extends React.Component{
 
     }
 
+    countPlayers(){
+        let playerCount = 0;
+        for(let user in this.state.usernames){
+            playerCount = playerCount + 1;
+        }
+        this.setState({playerCount: playerCount});
+    }
+
     componentWillUnmount(){
         clearInterval(this.interval);
     }
@@ -199,36 +231,9 @@ class Scoring extends React.Component{
         });
 
         const { match: { params } } = this.props;
-        await api.put(`/lobby/ready/${params.lobbyId}`, requestBody);
+        await api.put(`/games/${params.lobbyId}/ready-for-next-round`, requestBody);
     }
 
-    async allPlayersReady(){
-        let playersReady = 0;
-        let players = this.state.users;
-
-        players.forEach(countReady);
-
-        function countReady(value){
-            if(value.playerStatus === "READY"){
-                playersReady = playersReady + 1;
-            }
-        }
-
-        if(playersReady === this.state.playersInLobby){
-
-            const { match: { params } } = this.props;
-            this.props.history.push(`/game/${params.lobbyId}`);
-        }
-
-    }
-
-    countPlayers(){
-        let playerCount = 0;
-        for(let user in this.state.usernames){
-            playerCount = playerCount + 1;
-        }
-        this.setState({playerCount: playerCount});
-    }
 
     render(){
         return(
@@ -236,7 +241,7 @@ class Scoring extends React.Component{
                 <RankingsWrapper>
                     <RankingsHeader/>
                 </RankingsWrapper>
-                {!this.state.usernames ? ("") : (
+                {!this.state.usernames || !this.state.thisUser ? (<SpinnerAlt/>) : (
                     <PlayerContainer>
                         {this.state.playerCount === 2 ? (
                             <DummyPlayerContainer>
@@ -268,9 +273,12 @@ class Scoring extends React.Component{
                                 <RankFourFive>5. {this.state.usernames[4]}<RankFourFiveCircle>{this.state.scores[4]}</RankFourFiveCircle></RankFourFive>
                             </DummyPlayerContainer>
                         ) : ("")}
-                        <NextRoundButtonWrapper onClick = { () => {this.signalReady()}}>
-                            <NextRound/>
-                        </NextRoundButtonWrapper>
+
+                        {this.state.thisUser.playerStatus !== 'READY' ? (
+                            <NextRoundButtonWrapper onClick = { () => {this.signalReady()}}>
+                                <NextRound/>
+                            </NextRoundButtonWrapper>
+                        ) : ("")}
                     </PlayerContainer>
                 )}
             </BaseContainer>

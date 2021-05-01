@@ -227,6 +227,7 @@ class LobbyCreate extends React.Component {
 
   }
 
+  // TODO: Milestone 4, working search field, scroll bar if open lobbies > 4
 
   render() {
     return (

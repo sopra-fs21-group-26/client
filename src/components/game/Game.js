@@ -195,9 +195,24 @@ class Game extends React.Component {
         this.setState({grid: response.data});
       }
 
+      this.timeoutCall();
+
     } catch (error) {
       alert(`Something went wrong while fetching the grid: \n${handleError(error)}`);
     }
+  }
+
+  timeoutCall(){
+
+    setTimeout(() => {
+      this.resetGame();
+    }, 1000);
+
+  }
+
+  async resetGame(){
+    const {match: {params}} = this.props;
+    await api.put(`/games/preparation-next-round/${params.lobbyId}`)
   }
 
   recreate() {
