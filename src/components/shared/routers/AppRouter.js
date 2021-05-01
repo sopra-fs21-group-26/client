@@ -161,7 +161,7 @@ class AppRouter extends React.Component {
               )}
             />
             <Route
-              path="/game/:lobbyId/Guess"
+              path="/game/:lobbyId/guess"
               exact
               render = {() => (
                 <MenuGuard>
