@@ -22,6 +22,21 @@ const NextRoundButtonWrapper = styled.div`
 
 `;
 
+const Waiting = styled.div` 
+    
+    transition: all 0.3s ease;
+    position: absolute;
+    bottom: 12%;
+    font-family: Cornerstone;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    color: #FFFFFF;
+    
+    text-shadow: 0px 8px 4px rgba(0, 0, 0, 0.25);
+    
+`;
+
 const BaseContainer = styled.div`
     
     display: flex;
@@ -149,8 +164,6 @@ class Scoring extends React.Component{
         const { match: { params } } = this.props;
         const response = await api.get(`/lobby/${params.lobbyId}`);
 
-        console.log(response.data)
-
         this.setState({users: response.data.playersInLobby});
 
         // Determine client user
@@ -192,6 +205,9 @@ class Scoring extends React.Component{
 
             // For next round / end game check
             users: null,
+
+            // Overwatch for next round button
+            clicked: false
         }
     }
 
@@ -225,6 +241,8 @@ class Scoring extends React.Component{
     }
 
     async signalReady(){
+
+        this.setState({clicked: true})
 
         const requestBody = JSON.stringify({
             token: localStorage.getItem('token')
@@ -274,11 +292,16 @@ class Scoring extends React.Component{
                             </DummyPlayerContainer>
                         ) : ("")}
 
-                        {this.state.thisUser.playerStatus !== 'READY' ? (
-                            <NextRoundButtonWrapper onClick = { () => {this.signalReady()}}>
-                                <NextRound/>
-                            </NextRoundButtonWrapper>
+                        <NextRoundButtonWrapper onClick = { () => {this.signalReady()}} disabled={this.state.clicked}>
+                            <NextRound/>
+                        </NextRoundButtonWrapper>
+
+                        {this.state.clicked ? (
+                            <Waiting>
+                                Waiting for others to ready up...
+                            </Waiting>
                         ) : ("")}
+
                     </PlayerContainer>
                 )}
             </BaseContainer>
