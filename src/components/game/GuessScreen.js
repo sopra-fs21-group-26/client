@@ -159,13 +159,13 @@ const Recreation = styled(CanvasDraw)`
       float: left;
 `;
 
-const Waiting = styled.div` 
+const Username = styled.div` 
     
     transition: all 0.3s ease;
     width: 120px;
     position: absolute;
     cursor: pointer;
-    top: 40%;
+    top: 37%;
     float: left;
     text-align: center;
     font-family: Cornerstone;
@@ -176,12 +176,29 @@ const Waiting = styled.div`
       &:hover {
   transform: translateY(-5px);
   }
-    border: 2px solid red;
     shadow: 2px;
     
     text-shadow: 0px 8px 4px rgba(0, 0, 0, 0.25);
     
 `;
+
+const DoneName = styled.div` 
+    
+    transition: all 0.3s ease;
+    width: 120px;
+    cursor: pointer;
+    float: left;
+    text-align: center;
+    font-family: Cornerstone;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    color: #F2AD43;
+    shadow: 2px;
+    text-shadow: 0px 8px 4px rgba(0, 0, 0, 0.25);
+    
+`;
+
 
 const Pictures = styled.img`
   height: 120px;
@@ -189,6 +206,7 @@ const Pictures = styled.img`
   border: 2px solid #F2AD43;
   box-sizing: border-box;
   padding: 5px;
+  cursor: pointer;
   &:hover {
   transform: translateY(-5px);
   }
@@ -197,12 +215,43 @@ const Pictures = styled.img`
 
 class GuessScreen extends React.Component {
 
+  interval = this.intervalSet();
+
+  async checkAllGuessed() {
+    try {
+      const {match: {params}} = this.props;
+      this.ID = params.lobbyId;
+      const response = await api.get(`/games/allGuessed/${params.lobbyId}`);
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      this.setState({allGuessed: response.data});
+      if (this.state.allGuessed) {
+        this.props.history.push(`/game/${params.lobbyId}/scoresheet`);
+      }
+    } catch (error) {
+      alert(`Something went wrong while fetching the guessed status: \n${handleError(error)}`);
+    }
+
+  }
+
   constructor() {
     super();
     this.state = {
       guess: null,
       grid: null,
+      guessingName: null,
+      coordinate: null,
+      doneGuesses: [],
+      playerCount: 0,
+      allGuessed: null,
     };
+  }
+
+  countPlayers(){
+    let playerCount = 0;
+    for(let user in this.state.guess.usernames){
+      playerCount = playerCount + 1;
+    }
+    this.setState({playerCount: playerCount});
   }
 
   async componentDidMount(){
@@ -217,12 +266,54 @@ class GuessScreen extends React.Component {
       const responseGrid = await api.get(`/games/${params.lobbyId}/grid`);
       await new Promise(resolve => setTimeout(resolve, 50));
       this.setState({ guess: response.data });
-      console.log(this.state.guess);
       this.setState({ grid: responseGrid.data });
+      this.countPlayers();
     } catch (error) {
       alert(`Something went wrong while fetching the picture: \n${handleError(error)}`);
     }
   }
+
+  componentWillUnmount(){
+    clearInterval(this.interval);
+  }
+
+  intervalSet(){
+    const confirmDoneGuesses = this.checkAllGuessed.bind(this);
+    return setInterval(confirmDoneGuesses, 1000);
+
+  }
+
+  async guess(){
+    try {
+      const { match: { params } } = this.props;
+      this.ID = params.lobbyId;
+      console.log(this.state.guessingName);
+      const requestBody = JSON.stringify({
+        token: localStorage.getItem('token'),
+        username: this.state.guessingName,
+      });
+      console.log(this.state);
+      await api.put(`/games/correctGuess/${params.lobbyId}/${this.state.coordinate}`, requestBody);
+      await new Promise(resolve => setTimeout(resolve, 50));
+      this.state.doneGuesses.push(this.state.guessingName);
+      console.log(this.state.coordinate, this.state.guessingName);
+      this.setState({
+        guessingName: null,
+        coordinate: null
+      })
+      if(this.state.doneGuesses.length === this.state.playerCount){
+        const requestGuessed = JSON.stringify({
+          token: localStorage.getItem('token'),
+        });
+        await api.put(`/games/guess`, requestGuessed);
+        await new Promise(resolve => setTimeout(resolve, 50));
+      }
+    } catch (error) {
+      alert(`Something went wrong while fetching the picture: \n${handleError(error)}`);
+    }
+
+  }
+
 
   render(){
     return (
@@ -247,6 +338,10 @@ class GuessScreen extends React.Component {
                 return (
                   <Pictures
                     src={`${picture.url}&fit=crop&w=800&h=800`}
+                    onClick={() =>(
+                      this.setState({coordinate:picture.coordinate}),
+                      this.guess()
+                      )}
                   />
                 );
               })}
@@ -278,11 +373,27 @@ class GuessScreen extends React.Component {
                 );
               })}
               {this.state.guess.usernames.map(guess => {
-                console.log(guess);
                 return (
-                  <Waiting>
+                  <Username
+                  onClick={() => (
+                    this.setState({guessingName: guess})
+                  )}
+                  hidden={this.state.doneGuesses.includes(guess)}
+                  >
                     {guess}
-                  </Waiting>
+                  </Username>
+                );
+              })}
+              {this.state.doneGuesses.map(guess => {
+                return (
+                  <div>
+                  <DoneName>
+                    Done Guesses:
+                  </DoneName>
+                  <DoneName>
+                    {guess}
+                  </DoneName>
+                </div>
                 );
               })}
             </div>
