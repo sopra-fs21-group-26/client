@@ -208,6 +208,7 @@ class Scoring extends React.Component{
 
             // Overwatch for next round button
             clicked: false
+
         }
     }
 
@@ -222,6 +223,7 @@ class Scoring extends React.Component{
         this.setState({usernames: arr});
 
         const score_arr = Object.values(this.state.scoresheet.scoreSheet)
+        score_arr.sort((a, b) => b - a);
         this.setState({scores: score_arr})
 
         this.countPlayers();
