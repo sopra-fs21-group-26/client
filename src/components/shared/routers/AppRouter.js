@@ -17,6 +17,7 @@ import Game from "../../game/Game";
 import Scoring from "../../game/Scoring";
 import Recreate from "../../game/Recreate";
 import GuessScreen from "../../game/GuessScreen";
+import End from "../../game/End";
 
 /**
  * Main router of your application.
@@ -138,6 +139,15 @@ class AppRouter extends React.Component {
                   render = {() => (
                       <MenuGuard>
                           <Scoring/>
+                      </MenuGuard>
+                  )}
+              />
+              <Route
+                  path="/game/:lobbyId/end"
+                  exact
+                  render = {() => (
+                      <MenuGuard>
+                          <End/>
                       </MenuGuard>
                   )}
               />

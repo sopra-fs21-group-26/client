@@ -182,7 +182,7 @@ class Scoring extends React.Component{
         this.setState({thisUser: thisUser});
 
         if(response.data.allAreReadyForNextRound === true && response.data.isEndGame === true){
-            this.props.history.push(`/dummyend`)
+            this.props.history.push(`/game/${params.lobbyId}/end`)
         }
 
         if(response.data.allAreReadyForNextRound === true && response.data.isEndGame === false){
