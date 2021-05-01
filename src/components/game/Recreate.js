@@ -131,7 +131,7 @@ class Recreate extends React.Component {
       await new Promise(resolve => setTimeout(resolve, 1000));
       this.setState({ allDone: response.data });
       if(this.state.allDone){
-        this.props.history.push(`/gameTest`);
+        this.props.history.push(`/game/${params.lobbyId}/guess`);
       }
     } catch (error) {
       alert(`Something went wrong while fetching the created status: \n${handleError(error)}`);
