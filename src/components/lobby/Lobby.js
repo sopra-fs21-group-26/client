@@ -131,6 +131,12 @@ class Lobby extends React.Component{
             this.props.history.push(`/game/${params.lobbyId}`)
         }
         this.allPlayersReady();
+
+        this.setState({adminUsername: response.data.admin.username});
+
+        if(response.data.admin.token === localStorage.getItem('token')){
+            this.setState({isAdmin: true})
+        }
     }
 
 
