@@ -57,14 +57,20 @@ class End extends React.Component{
     componentDidMount() {}
 
     async unregisterClientMenu(){
+        const requestBody = JSON.stringify({
+            token: localStorage.getItem('token')
+        });
         const { match: { params } } = this.props;
-        await api.put(`/lobbies/${params.lobbyId}/end-game`)
+        const response = await api.put(`/games/${params.lobbyId}/end-game`, requestBody)
         this.props.history.push(`/menu`)
     }
 
     async unregisterClientPlay(){
+        const requestBody = JSON.stringify({
+            token: localStorage.getItem('token')
+        });
         const { match: { params } } = this.props;
-        await api.put(`/lobbies/${params.lobbyId}/end-game`)
+        const response = await api.put(`/games/${params.lobbyId}/end-game`, requestBody)
         this.props.history.push(`/play`)
     }
 
