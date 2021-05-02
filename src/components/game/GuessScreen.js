@@ -1,10 +1,10 @@
 import React from "react";
 import styled from 'styled-components';
-import { BaseContainer } from '../../helpers/layout';
-import { api, handleError } from '../../helpers/api';
+import {BaseContainer} from '../../helpers/layout';
+import {api, handleError} from '../../helpers/api';
 import Player from '../../views/Player';
-import { Button } from '../../views/design/Button';
-import { withRouter } from 'react-router-dom';
+import {Button} from '../../views/design/Button';
+import {withRouter} from 'react-router-dom';
 import {BaseeContainer} from "../profile/Profile";
 import {SpinnerAlt} from "../../views/design/SpinnerAlt";
 import CanvasDraw from "react-canvas-draw";
@@ -142,6 +142,9 @@ const LeftLabelCircleD = styled.div`
 export const BasedContainer = styled(BaseeContainer)`
     
     position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     left: 10%;
         
 `;
@@ -153,6 +156,15 @@ export const BasedContainer2 = styled(BaseeContainer)`
         
 `;
 
+export const BaseddContainer = styled(BaseeContainer)`
+    
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+        
+`;
+
 export const DoneContainer = styled(BaseeContainer)`
     
     position: relative;
@@ -160,7 +172,6 @@ export const DoneContainer = styled(BaseeContainer)`
     top: 200px;
     height: 20%;
     width: 80%;
-    border: 2px solid red;
         
 `;
 
@@ -259,7 +270,7 @@ class GuessScreen extends React.Component {
       await new Promise(resolve => setTimeout(resolve, 1000));
       this.setState({allGuessed: response.data});
       if (this.state.allGuessed) {
-      this.props.history.push(`/game/${params.lobbyId}/scoresheet`);
+        this.props.history.push(`/game/${params.lobbyId}/scoresheet`);
       }
     } catch (error) {
       alert(`Something went wrong while fetching the guessed status: \n${handleError(error)}`);
@@ -280,17 +291,17 @@ class GuessScreen extends React.Component {
     };
   }
 
-  countPlayers(){
+  countPlayers() {
     let playerCount = 0;
-    for(let user in this.state.guess.usernames){
+    for (let user in this.state.guess.usernames) {
       playerCount = playerCount + 1;
     }
     this.setState({playerCount: playerCount});
   }
 
-  async componentDidMount(){
+  async componentDidMount() {
     try {
-      const { match: { params } } = this.props;
+      const {match: {params}} = this.props;
       this.ID = params.lobbyId;
       const requestBody = JSON.stringify({
         token: localStorage.getItem('token')
@@ -299,33 +310,33 @@ class GuessScreen extends React.Component {
       await new Promise(resolve => setTimeout(resolve, 50));
       const responseGrid = await api.get(`/games/${params.lobbyId}/grid`);
       await new Promise(resolve => setTimeout(resolve, 50));
-      this.setState({ guess: response.data });
-      this.setState({ grid: responseGrid.data });
+      this.setState({guess: response.data});
+      this.setState({grid: responseGrid.data});
       this.countPlayers();
     } catch (error) {
       alert(`Something went wrong while fetching the picture: \n${handleError(error)}`);
     }
   }
 
-  componentWillUnmount(){
+  componentWillUnmount() {
     clearInterval(this.interval);
   }
 
-  intervalSet(){
+  intervalSet() {
     const confirmDoneGuesses = this.checkAllGuessed.bind(this);
     return setInterval(confirmDoneGuesses, 1000);
 
   }
 
-  async guess(picture){
+  async guess(picture) {
     try {
-      const { match: { params } } = this.props;
+      const {match: {params}} = this.props;
       this.ID = params.lobbyId;
       const requestBody = JSON.stringify({
         token: localStorage.getItem('token'),
         username: this.state.guessingName,
       });
-      this.setState({coordinate:picture.coordinate});
+      this.setState({coordinate: picture.coordinate});
       await new Promise(resolve => setTimeout(resolve, 50));
       console.log(this.state.coordinate);
       await api.put(`/games/correctGuess/${params.lobbyId}/${this.state.coordinate}`, requestBody);
@@ -336,7 +347,7 @@ class GuessScreen extends React.Component {
         guessingName: null,
         coordinate: null
       })
-      if(this.state.doneGuesses.length === this.state.playerCount){
+      if (this.state.doneGuesses.length === this.state.playerCount) {
         const requestGuessed = JSON.stringify({
           token: localStorage.getItem('token'),
         });
@@ -350,40 +361,40 @@ class GuessScreen extends React.Component {
   }
 
 
-  render(){
+  render() {
     return (
-      <div>
-      <BasedContainer>
-        {!this.state.grid ? (
-          <SpinnerAlt/>
-        ) : (
-          <div>
-            <LeftLabelCircleA>A</LeftLabelCircleA>
-            <LeftLabelCircleB>B</LeftLabelCircleB>
-            <LeftLabelCircleC>C</LeftLabelCircleC>
-            <LeftLabelCircleD>D</LeftLabelCircleD>
-            <GridContainer>
-              <div>
-                <LabelCircle>1</LabelCircle>
-                <LabelCircle>2</LabelCircle>
-                <LabelCircle>3</LabelCircle>
-                <LabelCircle>4</LabelCircle>
-              </div>
-              {this.state.grid.map(picture => {
-                return (
-                  <Pictures
-                    src={`${picture.url}&fit=crop&w=800&h=800`}
-                    onClick={() =>(
-                      this.setState({coordinate:picture.coordinate}),
-                      this.guess(picture)
+      <BaseddContainer>
+        <BasedContainer>
+          {!this.state.grid ? (
+            <SpinnerAlt/>
+          ) : (
+            <div>
+              <LeftLabelCircleA>A</LeftLabelCircleA>
+              <LeftLabelCircleB>B</LeftLabelCircleB>
+              <LeftLabelCircleC>C</LeftLabelCircleC>
+              <LeftLabelCircleD>D</LeftLabelCircleD>
+              <GridContainer>
+                <div>
+                  <LabelCircle>1</LabelCircle>
+                  <LabelCircle>2</LabelCircle>
+                  <LabelCircle>3</LabelCircle>
+                  <LabelCircle>4</LabelCircle>
+                </div>
+                {this.state.grid.map(picture => {
+                  return (
+                    <Pictures
+                      src={`${picture.url}&fit=crop&w=800&h=800`}
+                      onClick={() => (
+                        this.setState({coordinate: picture.coordinate}),
+                          this.guess(picture)
                       )}
-                  />
-                );
-              })}
-            </GridContainer>
-          </div>
-        )}
-      </BasedContainer>
+                    />
+                  );
+                })}
+              </GridContainer>
+            </div>
+          )}
+        </BasedContainer>
         <BasedContainer2>
           {!this.state.guess ? (
             <SpinnerAlt/>
@@ -391,75 +402,76 @@ class GuessScreen extends React.Component {
             <div>
               <div
                 hidden={!(this.state.doneGuesses.length != this.state.playerCount)}>
-             <div>
-                {this.state.guess.usernames.map(guess => {
+                <div>
+                  {this.state.guess.usernames.map(guess => {
+                    return (
+                      <div>
+                        <DoneName>
+                          {guess}
+                        </DoneName>
+                      </div>
+                    );
+                  })}
+                  {this.state.guess.recreatedPictures.map(pic => {
+                    return (
+                      <Recreation
+                        hideGrid
+                        canvasWidth={120}
+                        canvasHeight={120}
+                        lazyRadius={0}
+                        brushRadius={2}
+                        brushColor={"#000000"}
+                        disabled={true}
+                        saveData={pic}
+                        onChange={() => {
+                          this.setState({disabled: true})
+                        }
+                        }>
+                      </Recreation>
+                    );
+                  })}
+                </div>
+                <div>
+                  <Username1
+                    hidden={!(this.state.doneGuesses.length != this.state.playerCount)}
+                  >Which Creation to guess: </Username1>
+                </div>
+                <div>
+                  {this.state.guess.usernames.map(guess => {
+                    return (
+                      <div>
+                        <Username
+                          onClick={() => (
+                            this.setState({guessingName: guess})
+                          )}
+                          hidden={this.state.doneGuesses.includes(guess)}
+                        >
+                          {guess}
+                        </Username>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+              <DoneContainer>
+                <DoneName>
+                  Done Guesses:
+                </DoneName>
+                {this.state.doneGuesses.map(guess => {
                   return (
-                    <div>
                     <DoneName>
                       {guess}
                     </DoneName>
-                    </div>
                   );
                 })}
-              {this.state.guess.recreatedPictures.map(pic => {
-                return (
-                  <Recreation
-                    hideGrid
-                    canvasWidth={120}
-                    canvasHeight={120}
-                    lazyRadius={0}
-                    brushRadius={2}
-                    brushColor={"#000000"}
-                    disabled={true}
-                    saveData={pic}
-                    onChange={() => {
-                      this.setState({disabled: true})
-                    }
-                    }>
-                  </Recreation>
-                );
-              })}
-              </div>
-              <div>
-              <Username1
-                hidden={!(this.state.doneGuesses.length != this.state.playerCount)}
-              >Which Creation to guess: </Username1>
-              </div>
-              <div>
-              {this.state.guess.usernames.map(guess => {
-                return (
-                  <div>
-                  <Username
-                  onClick={() => (
-                    this.setState({guessingName: guess})
-                  )}
-                  hidden={this.state.doneGuesses.includes(guess)}
-                  >
-                    {guess}
-                  </Username>
-                  </div>
-                );
-              })}
-              </div>
-              </div>
-              <DoneContainer>
-              <DoneName>
-                Done Guesses:
-              </DoneName>
-              {this.state.doneGuesses.map(guess => {
-                return (
-                  <DoneName>
-                    {guess}
-                  </DoneName>
-                );
-              })}
               </DoneContainer>
             </div>
           )}
         </BasedContainer2>
-      </div>
+      </BaseddContainer>
     )
   }
 
 }
+
 export default withRouter(GuessScreen);

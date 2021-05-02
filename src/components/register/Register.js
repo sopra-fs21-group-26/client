@@ -68,6 +68,7 @@ class Register extends React.Component {
                             }}
                         />
                         <PasswordInputField
+                          type="password"
                             placeholder="password"
                             onChange={e => {
                                 this.handleInputChange('password', e.target.value);
