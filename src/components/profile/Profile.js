@@ -158,6 +158,16 @@ const StatFieldEdit = styled.input`
     border-radius: 25px;
 `;
 
+const EloTitle = styled.div`
+    font-family: PT Mono;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 33px;
+    color: #FFF58F;
+    position: relative;
+    bottom: 120px;
+`;
+
 
 class Profile extends React.Component {
 
@@ -183,6 +193,8 @@ class Profile extends React.Component {
                 const { match: { params } } = this.props;
                 this.ID = params.id
                 const response = await api.get(`/players/${params.id}`);
+
+                console.log(response.data)
 
                 await new Promise(resolve => setTimeout(resolve, 1000));
 
@@ -256,7 +268,7 @@ class Profile extends React.Component {
                                                    }}>
                                     </StatFieldEdit>
                                     <StatField> {this.state.user.score}
-                                        <Title>ELO Score</Title>
+                                        <EloTitle>ELO Score</EloTitle>
                                     </StatField>
                                 </StatFieldContainer>
                                 <StatFieldContainer>
@@ -295,7 +307,7 @@ class Profile extends React.Component {
                                             <Title>Username</Title>
                                         </StatField>
                                         <StatField> {this.state.user.score}
-                                            <Title>ELO Score</Title>
+                                            <EloTitle>ELO Score</EloTitle>
                                         </StatField>
                                     </StatFieldContainer>
                                     <StatFieldContainer>
