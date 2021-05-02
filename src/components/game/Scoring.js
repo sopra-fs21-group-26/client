@@ -159,6 +159,8 @@ class Scoring extends React.Component{
 
     }
 
+    //test
+
     async getPlayers(){
 
         const { match: { params } } = this.props;
