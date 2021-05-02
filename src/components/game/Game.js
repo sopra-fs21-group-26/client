@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import { BaseContainer } from '../../helpers/layout';
-import { api, handleError } from '../../helpers/api';
+import {BaseContainer} from '../../helpers/layout';
+import {api, handleError} from '../../helpers/api';
 import Player from '../../views/Player';
-import { Button } from '../../views/design/Button';
-import { withRouter } from 'react-router-dom';
+import {Button} from '../../views/design/Button';
+import {withRouter} from 'react-router-dom';
 import {BaseeContainer} from "../profile/Profile";
 import {SpinnerAlt} from "../../views/design/SpinnerAlt";
 import * as PropTypes from "prop-types";
@@ -162,15 +162,16 @@ const TokenButton = styled.button`
 `;
 
 
-
-
-
 class Game extends React.Component {
+
+  interval = this.intervalSet();
+
   constructor() {
     super();
     this.state = {
       grid: null,
-      isAdmin: null
+      isAdmin: null,
+      ifGrid: null
     };
   }
 
@@ -180,19 +181,16 @@ class Game extends React.Component {
       const {match: {params}} = this.props;
       this.ID = params.lobbyId;
       const admindata = await api.get(`lobby/${params.lobbyId}`);
-      if(admindata.data.admin.token === localStorage.getItem('token')){
+      const ifGrid = await api.get(`games/${params.lobbyId}/grid/status`);
+      this.setState({ifGrid:ifGrid.data});
+      if (admindata.data.admin.token === localStorage.getItem('token')) {
         this.setState({isAdmin: true})
       }
-      if(this.state.isAdmin) {
-        const response = await api.get(`/games/${params.lobbyId}/grid`);
+      if (this.state.isAdmin && !this.state.ifGrid) {
+        await api.get(`/games/${params.lobbyId}/grid/make`);
         await new Promise(resolve => setTimeout(resolve, 1000));
-        this.setState({grid: response.data});
-      }
-      else{
-        await new Promise(resolve => setTimeout(resolve, 10000));
-        const response = await api.get(`/games/${params.lobbyId}/grid`);
-        await new Promise(resolve => setTimeout(resolve, 1000));
-        this.setState({grid: response.data});
+      } else {
+        await new Promise(resolve => setTimeout(resolve, 500));
       }
 
       this.timeoutCall();
@@ -202,7 +200,28 @@ class Game extends React.Component {
     }
   }
 
-  timeoutCall(){
+  componentWillUnmount() {
+    clearInterval(this.interval);
+  }
+
+  intervalSet() {
+    const thisGetAllPlayersReady = this.checkGrid.bind(this);
+    return setInterval(thisGetAllPlayersReady, 2000);
+
+  }
+
+  async checkGrid() {
+      const {match: {params}} = this.props;
+      this.ID = params.lobbyId;
+      const ifGrid = await api.get(`games/${params.lobbyId}/grid/status`);
+      if (ifGrid.data == true) {
+        const response = await api.get(`/games/${params.lobbyId}/grid`);
+        await new Promise(resolve => setTimeout(resolve, 500));
+        this.setState({grid: response.data})
+      }
+  }
+
+  timeoutCall() {
 
     setTimeout(() => {
       this.resetGame();
@@ -210,7 +229,7 @@ class Game extends React.Component {
 
   }
 
-  async resetGame(){
+  async resetGame() {
     const {match: {params}} = this.props;
     await api.put(`/games/preparation-next-round/${params.lobbyId}`)
   }
@@ -255,7 +274,6 @@ class Game extends React.Component {
     );
   }
 }
-
 
 
 export default withRouter(Game);

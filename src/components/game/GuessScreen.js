@@ -153,9 +153,16 @@ export const BasedContainer2 = styled(BaseeContainer)`
         
 `;
 
+export const DoneContainer = styled(BaseeContainer)`
+    
+    position: absolute;
+    left: 50%;
+        
+`;
+
 const Recreation = styled(CanvasDraw)`
-      position: absolute;
-      top: 20%;
+      position: relative;
+      margin-right: 20px;
       float: left;
 `;
 
@@ -163,7 +170,9 @@ const Username = styled.div`
     
     transition: all 0.3s ease;
     width: 120px;
-    position: absolute;
+    margin-top: 20px;
+    margin-right: 20px;
+    position: relative;
     cursor: pointer;
     top: 37%;
     float: left;
@@ -185,6 +194,7 @@ const Username = styled.div`
 const DoneName = styled.div` 
     
     transition: all 0.3s ease;
+    position: relative;
     width: 120px;
     cursor: pointer;
     float: left;
@@ -355,6 +365,7 @@ class GuessScreen extends React.Component {
             <SpinnerAlt/>
           ) : (
             <div>
+              <div>
               {this.state.guess.recreatedPictures.map(pic => {
                 return (
                   <Recreation
@@ -373,6 +384,7 @@ class GuessScreen extends React.Component {
                   </Recreation>
                 );
               })}
+              </div>
               {this.state.guess.usernames.map(guess => {
                 return (
                   <Username
@@ -385,18 +397,18 @@ class GuessScreen extends React.Component {
                   </Username>
                 );
               })}
+              <DoneContainer>
+              <DoneName>
+                Done Guesses:
+              </DoneName>
               {this.state.doneGuesses.map(guess => {
                 return (
-                  <div>
-                  <DoneName>
-                    Done Guesses:
-                  </DoneName>
                   <DoneName>
                     {guess}
                   </DoneName>
-                </div>
                 );
               })}
+              </DoneContainer>
             </div>
           )}
         </BasedContainer2>
