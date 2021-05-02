@@ -226,6 +226,9 @@ class Profile extends React.Component {
             this.setState({user: response.data});
             this.setState({hasEditorPermission: null});
 
+            localStorage.removeItem('username');
+            localStorage.setItem('username', this.state.username);
+
         } catch (error) {
             alert(`Something went wrong: \n${handleError(error)}`);
         }
