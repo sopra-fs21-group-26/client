@@ -155,8 +155,12 @@ export const BasedContainer2 = styled(BaseeContainer)`
 
 export const DoneContainer = styled(BaseeContainer)`
     
-    position: absolute;
-    left: 50%;
+    position: relative;
+    left: -20%;
+    top: 200px;
+    height: 20%;
+    width: 80%;
+    border: 2px solid red;
         
 `;
 
@@ -188,6 +192,7 @@ const Username = styled.div`
     shadow: 2px;
     
     text-shadow: 0px 8px 4px rgba(0, 0, 0, 0.25);
+    border: 4px solid #F2AD43;
     
 `;
 
@@ -196,7 +201,26 @@ const DoneName = styled.div`
     transition: all 0.3s ease;
     position: relative;
     width: 120px;
-    cursor: pointer;
+    margin-bottom: 20px;
+    margin-right: 20px;
+    float: left;
+    text-align: center;
+    font-family: Cornerstone;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    color: #F2AD43;
+    shadow: 2px;
+    text-shadow: 0px 8px 4px rgba(0, 0, 0, 0.25);
+    
+`;
+
+const Username1 = styled.div` 
+    
+    transition: all 0.3s ease;
+    position: relative;
+    width: 120px;
+    top: 20px;
     float: left;
     text-align: center;
     font-family: Cornerstone;
@@ -365,7 +389,18 @@ class GuessScreen extends React.Component {
             <SpinnerAlt/>
           ) : (
             <div>
-              <div>
+              <div
+                hidden={!(this.state.doneGuesses.length != this.state.playerCount)}>
+             <div>
+                {this.state.guess.usernames.map(guess => {
+                  return (
+                    <div>
+                    <DoneName>
+                      {guess}
+                    </DoneName>
+                    </div>
+                  );
+                })}
               {this.state.guess.recreatedPictures.map(pic => {
                 return (
                   <Recreation
@@ -385,8 +420,15 @@ class GuessScreen extends React.Component {
                 );
               })}
               </div>
+              <div>
+              <Username1
+                hidden={!(this.state.doneGuesses.length != this.state.playerCount)}
+              >Which Creation to guess: </Username1>
+              </div>
+              <div>
               {this.state.guess.usernames.map(guess => {
                 return (
+                  <div>
                   <Username
                   onClick={() => (
                     this.setState({guessingName: guess})
@@ -395,8 +437,11 @@ class GuessScreen extends React.Component {
                   >
                     {guess}
                   </Username>
+                  </div>
                 );
               })}
+              </div>
+              </div>
               <DoneContainer>
               <DoneName>
                 Done Guesses:
