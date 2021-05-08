@@ -154,7 +154,8 @@ class LobbyCreate extends React.Component {
     super();
     this.state = {
       lobbies: null,
-      foundLobby: null
+      foundLobby: null,
+      resultLobby: null,
     };
   }
 
@@ -197,7 +198,7 @@ class LobbyCreate extends React.Component {
     // Example: if the key is username, this statement is the equivalent to the following one:
     // this.setState({'username': value});
     this.setState({ [key]: value });
-    this.setState({foundLobby: null});
+    this.setState({foundLobby: value});
 
   }
 
@@ -209,16 +210,8 @@ class LobbyCreate extends React.Component {
 
   async searchLobby(){
     try{
-      return(
-        <LobbyContainer>
-          {this.state.lobbies.map(lobby =>(
-            <Lobby key={lobby.lobbyName}>
-              {}
-            </Lobby>
-          ))}
-        </LobbyContainer>
-      )
-
+      const response = await api.get(`/lobby/search/${this.state.foundLobby}`);
+      this.setState({resultLobby: response.data});
     }
     catch (error){
       alert(`This lobby does not exist: \n${handleError(error)}`);
@@ -253,18 +246,31 @@ class LobbyCreate extends React.Component {
                 }}>
               </SearchInputField>
               </div>
-              {this.state.lobbies.map(lobby => {
-                return (
-                  <LobbyContainer>
-                    <Lobby lobby={lobby}/>{
-                    lobby.numbersOfPlayers < 5 &&
-                    <JoinButton onClick={() => {
-                      this.join(lobby)
-                    }}> Join Lobby </JoinButton>
-                  }
-                  </LobbyContainer>
-                );
-              })}
+
+              {!this.state.resultLobby ? (
+                <div>
+                {this.state.lobbies.map(lobby => {
+                  return (
+                    <LobbyContainer>
+                      <Lobby lobby={lobby}/>{
+                      lobby.numbersOfPlayers < 5 &&
+                      <JoinButton onClick={() => {
+                        this.join(lobby)
+                      }}> Join Lobby </JoinButton>
+                    }
+                    </LobbyContainer>
+                  );
+                })}
+                </div>) : (
+                <LobbyContainer>
+                  <Lobby lobby={this.state.resultLobby}/>
+                  <JoinButton onClick={() => {
+                    this.join(this.state.resultLobby)
+                  }}> Join Lobby </JoinButton>
+                </LobbyContainer>
+
+                )}
+
             </Lobbies>
           </Background>
         </BaseeContainer>)}
