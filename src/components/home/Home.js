@@ -7,18 +7,22 @@ import { AiOutlineInfoCircle } from "react-icons/ai";
 import ReactTooltip from "react-tooltip";
 import '../../views/design/tooltip.css'
 
+// Reworked
+
 export const Container = styled.div`
     
     display: flex;
     flex-direction: column;
     align-items: center;
     
-    margin-top: 50px;
+    margin-top: 2.33%;
     
-    height: 170px;
+    height: 18.14%;
     justify-content: space-between;
 
 `;
+
+// Reworked
 
 export const InfoButton = styled(AiOutlineInfoCircle)`
 
@@ -26,10 +30,10 @@ export const InfoButton = styled(AiOutlineInfoCircle)`
     color: #F2AD43;
     
     position: absolute;
-    bottom: 40px;
-    right: 70px;
-    width: 45px;
-    height: 45px;
+    bottom: 4.26%;
+    right: 3.67%;
+    width: 2.36%;
+    height: 4.80%;
     
     &:hover {
     transform: translateY(-5px);
@@ -38,6 +42,8 @@ export const InfoButton = styled(AiOutlineInfoCircle)`
     cursor: pointer;
 
 `;
+
+// Reworked
 
 const LoginButton = styled.div` 
     
@@ -49,7 +55,7 @@ const LoginButton = styled.div`
     font-family: Cornerstone;
     font-style: normal;
     font-weight: normal;
-    font-size: 50px;
+    font-size: 310%;
     color: #FFFFFF;
     
     text-shadow: 0px 8px 4px rgba(0, 0, 0, 0.25);
@@ -63,24 +69,26 @@ const RegisterButton = styled(LoginButton)`
 
 `;
 
+// Reworked
+
 export const Footer = styled.div`
 
     font-family: PT Mono;
     font-style: normal;
     font-weight: normal;
-    font-size: 14px;
+    font-size: 87.5%;
     color: #7E7E7E;
     text-align: center;
     position: absolute;
-    bottom: 0px;
+    bottom: 0%;
     left: 50%;
     transform: translate(-50%, -50%);
     
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 900px;
-    height: 45px;    
+    width: 47.29%;
+    height: 4.80%;    
     
 `;
 
