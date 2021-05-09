@@ -2,8 +2,9 @@ import React from "react";
 import styled from "styled-components";
 
 const Logo = styled.svg`
-  width: ${props => props.width}px;
-  height: ${props => props.height}px;
+  width: ${props => props.width}vw;
+  height: ${props => props.height}vh;
+
 `;
 
 export const PicturesLogo = props => {

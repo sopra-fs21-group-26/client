@@ -71,7 +71,7 @@ export const UsernameInputField = styled.input`
     height: 16.5%;
     
     border: none;
-    border-radius: 20px;
+    border-radius: 1.05vw;
     margin-bottom: 20px;
     background: #777777;
     box-shadow: 0px 6px 4px rgba(0, 0, 0, 0.25);

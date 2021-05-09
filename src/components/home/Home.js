@@ -15,7 +15,7 @@ export const Container = styled.div`
     flex-direction: column;
     align-items: center;
     
-    margin-top: 2.33%;
+    margin-top: 6.33%;
     
     height: 18.14%;
     justify-content: space-between;
@@ -100,7 +100,7 @@ class Home extends React.Component {
     render(){
         return(
             <BaseContainer>
-                <Header height={"350"} />
+                <Header height={"38.75"} />
                 <Container>
                     <LoginButton onClick={ () => {this.props.history.push("/login")}}>
                         LOGIN

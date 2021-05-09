@@ -11,7 +11,7 @@ import { PicturesLogo } from "./PicturesLogo";
 
 const Container = styled.div`
 
-  height: ${props => props.height}px;
+  height: ${props => props.height}%;
   background: ${props => props.background};
   
   display: flex;
@@ -53,7 +53,7 @@ const Header = props => {
   return (
     <Container height={props.height}>
 
-        <LogoWrapper><PicturesLogo width={215} height={215} /></LogoWrapper>
+        <LogoWrapper><PicturesLogo width={15.76} height={32.01} /></LogoWrapper>
 
     </Container>
   );
