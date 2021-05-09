@@ -55,7 +55,7 @@ const LoginButton = styled.div`
     font-family: Cornerstone;
     font-style: normal;
     font-weight: normal;
-    font-size: 310%;
+    font-size: 5.33vh;
     color: #FFFFFF;
     
     text-shadow: 0px 8px 4px rgba(0, 0, 0, 0.25);
@@ -76,7 +76,7 @@ export const Footer = styled.div`
     font-family: PT Mono;
     font-style: normal;
     font-weight: normal;
-    font-size: 87.5%;
+    font-size: 1.49vh;
     color: #7E7E7E;
     text-align: center;
     position: absolute;
@@ -100,7 +100,7 @@ class Home extends React.Component {
     render(){
         return(
             <BaseContainer>
-                <Header height={"400"} />
+                <Header height={"42.68"} />
                 <Container>
                     <LoginButton onClick={ () => {this.props.history.push("/login")}}>
                         LOGIN
