@@ -54,7 +54,6 @@ const Container = styled.div`
     bottom: 0px;
     left: 0px;
     right: 0px;
-    border: 2px solid green;
 
 `;
 
@@ -68,8 +67,6 @@ const StatFieldContainer = styled.div`
     align-items: center;
     position: relative;
     top: 1.60vh;
-    
-    border: 2px solid blue;
 
 `;
 
