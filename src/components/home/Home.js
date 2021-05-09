@@ -100,7 +100,7 @@ class Home extends React.Component {
     render(){
         return(
             <BaseContainer>
-                <Header height={"42.68"} />
+                <Header height={"350"} />
                 <Container>
                     <LoginButton onClick={ () => {this.props.history.push("/login")}}>
                         LOGIN

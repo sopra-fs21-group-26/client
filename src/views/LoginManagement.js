@@ -18,16 +18,17 @@ export const BaseContainer = styled.div`
   
 `;
 
+// Reworked
 export const TopBar = styled.div`
 
   font-family: Cornerstone;
   font-style: normal;
   font-weight: normal;
-  font-size: 39px;
+  font-size: 4.16vh;
   color: #252525;
   
-  height: 98px;
-  padding-left: 25px; 
+  height: 18%;
+  padding-left: 4%; 
   display: flex;
   align-items: center;
   position: relative;
@@ -37,33 +38,37 @@ export const TopBar = styled.div`
 
 `;
 
+// Reworked
+
 export const BackgroundContainer = styled.div`
   
-  width: 552px;
-  height: 537px;
+  width: 29.00%;
+  height: 57.31%;
 
   background: #3C3B38;
   border-radius: 20px;
-
+  
 `;
 
-export const InputFieldContainer = styled(BackgroundContainer)`
+// Reworked
+export const InputFieldContainer = styled.div`
 
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
-    
- 
+    height: 92%;
+
 `;
 
+// Reworked
 export const UsernameInputField = styled.input`
 
     &::placeholder {
     color: #252525;
     }
-    width: 375px;
-    height: 86px;
+    width: 72%;
+    height: 16.5%;
     
     border: none;
     border-radius: 20px;
@@ -72,29 +77,31 @@ export const UsernameInputField = styled.input`
     box-shadow: 0px 6px 4px rgba(0, 0, 0, 0.25);
     color: #252525;
     font-family: PT Mono;
-    font-size: 25px;
+    font-size: 2.66vh;
       
     position: absolute;
     top: 10%;
     text-align: center;
 `;
 
+// Reworked
 export const PasswordInputField = styled(UsernameInputField)`
     
     top: 40%;
 
 `;
 
+// Reworked
 export const ArrowButton = styled(FaArrowAltCircleLeft)`
 
   filter: drop-shadow(0px 8px 4px rgba(0, 0, 0, 0.25));
   color: #F2AD43;
   
   position: absolute;
-  bottom: 100px;
-  left: 120px;
-  width: 60px;
-  height: 60px;
+  bottom: 16.07%;
+  left: 25.30%;
+  width: 9.45%;
+  height: 19.2%;
   
   &:hover {
   transform: translateY(-5px);
@@ -104,16 +111,17 @@ export const ArrowButton = styled(FaArrowAltCircleLeft)`
 
 `;
 
+// Reworked
 export const LoginButton = styled(FaCheckCircle)`
 
   filter: drop-shadow(0px 8px 4px rgba(0, 0, 0, 0.25));
   color: #F2AD43;
   
   position: absolute;
-  bottom: 100px;
-  right: 120px;
-  width: 60px;
-  height: 60px;
+  bottom: 16.07%;
+  right: 23.30%;
+  width: 9.45%;
+  height: 19.2%;
   
   &:hover {
   transform: ${props => (props.disabled ? "translateY(0px)" : "translateY(-5px)")}
@@ -125,16 +133,17 @@ export const LoginButton = styled(FaCheckCircle)`
 
 `;
 
+// Reworked
 export const RegisterButton = styled(FaClipboardCheck)`
     
     filter: drop-shadow(0px 8px 4px rgba(0, 0, 0, 0.25));
     color: #F2AD43;
     
     position: absolute;
-    bottom: 100px;
-    right: 120px;
-    width: 60px;
-    height: 60px;
+    bottom: 19%;
+    right: 23.30%;
+    width: 7.08%;
+    height: 14.4%;
     
 
     transition: all 0.3s ease;
