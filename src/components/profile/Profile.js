@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import { withRouter } from 'react-router-dom';
 import {api, handleError} from "../../helpers/api";
 import {BaseContainer} from "../../helpers/layout";
-import { TopBar, BackgroundContainer } from "../../views/LoginManagement";
 import {BsPencilSquare} from 'react-icons/bs';
 import { ImCancelCircle } from 'react-icons/im';
 import BackToMenu from '../../views/design/BackToMenu';
@@ -17,22 +16,49 @@ export const BaseeContainer = styled(BaseContainer)`
         
 `;
 
-export const Background = styled(BackgroundContainer)`
+// Reworked
+export const Background = styled.div`
 
-    width: 900px;
+    width: 47.29vw;
+    height: 57.31vh;
     transform: scale(0.70);
+    background: #3C3B38;
+    border-radius: 20px;
 `;
 
+// Reworked
+const TopBar = styled.div`
+
+  font-family: Cornerstone;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 4.16vh;
+  color: #252525;
+  
+  height: 10.45vh;
+  padding-left: 1.31vw; 
+  display: flex;
+  align-items: center;
+  position: relative;
+  
+  background: #F2AD43;
+  border-radius: 20px 20px 0px 0px;
+
+`;
+
+// Reworked
 const Container = styled.div`
 
     position: absolute;
-    top: 98px;
+    top: 10.45vh;
     bottom: 0px;
     left: 0px;
     right: 0px;
+    border: 2px solid green;
 
 `;
 
+// Reworked
 const StatFieldContainer = styled.div`
 
     height: 50%;
@@ -41,47 +67,50 @@ const StatFieldContainer = styled.div`
     justify-content: space-around;
     align-items: center;
     position: relative;
-    top: 15px;
+    top: 1.60vh;
+    
+    border: 2px solid blue;
 
 `;
 
+// Reworked
 const Title = styled.div`
     
-
     
     font-family: PT Mono;
     font-style: normal;
     font-weight: normal;
-    font-size: 33px;
+    font-size: 3.52vh;
     color: #FFF58F;
     position: relative;
-    bottom: 120px;
+    bottom: 12.80vh;
     
     
 `;
 
+// Reworked
 const ProfileName = styled.div`
     
     font-family: PT Mono;
     font-style: normal;
     font-weight: normal;
-    font-size: 30px;
+    font-size: 3.20vh;
     position: absolute;
-    right: 45px;
+    right: 2.36vw;
 
 `;
 
-
+// Reworked
 const StatField = styled.div`
 
-    width: 296px;
-    height: 68px;
+    width: 15.55vw;
+    height: 7.25vh;
 
     font-family: PT Mono;
     font-style: normal;
     font-weight: normal;
-    font-size: 30px;
-    line-height: 60px;
+    font-size: 3.20vh;
+    line-height: 6.40vh;
 
     text-align: center;
         
@@ -107,12 +136,13 @@ export const BackToMenuButton = styled.div`
 
 `;
 
+// Reworked
 const EditButton = styled(BsPencilSquare)`
     
-    width: 50px;
-    height: 50px;
+    width: 2.62vw;
+    height: 5.33vh;
     position: absolute;
-    left: 390px;
+    left: 20.49vw;
     color: #898989;
     &:hover {
     transform: translateY(-5px);
@@ -122,12 +152,13 @@ const EditButton = styled(BsPencilSquare)`
 
 `;
 
+// Reworked
 const CancelButton = styled(ImCancelCircle)`
 
-    width: 50px;
-    height: 50px;
+    width: 2.62vw;
+    height: 5.33vh;
     position: absolute;
-    left: 390px;
+    left: 20.49vw;
     color: #898989;
     &:hover {
     transform: translateY(-5px);
@@ -137,16 +168,17 @@ const CancelButton = styled(ImCancelCircle)`
 
 `;
 
+// Reworked
 const StatFieldEdit = styled.input`
 
-    width: 296px;
-    height: 68px;
+    width: 15.55vw;
+    height: 7.25vh;
 
     font-family: PT Mono;
     font-style: normal;
     font-weight: normal;
-    font-size: 30px;
-    line-height: 60px;
+    font-size: 3.20vh;
+    line-height: 6.40vh;
 
     text-align: center;
         
@@ -156,16 +188,20 @@ const StatFieldEdit = styled.input`
     border: 3px solid #F2AD43;
     box-sizing: border-box;
     border-radius: 25px;
+    
 `;
 
+// Reworked
 const EloTitle = styled.div`
+
     font-family: PT Mono;
     font-style: normal;
     font-weight: normal;
-    font-size: 33px;
+    font-size: 3.20vh;
     color: #FFF58F;
     position: relative;
-    bottom: 120px;
+    bottom: 12.80vh;
+    
 `;
 
 

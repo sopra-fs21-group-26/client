@@ -6,7 +6,7 @@ import ReactTooltip from 'react-tooltip';
 import {AiOutlineInfoCircle} from "react-icons/ai";
 import '../../views/design/tooltip.css'
 
-
+// Reworked
 export const InfoButton = styled(AiOutlineInfoCircle)`
 
     filter: drop-shadow(0px 8px 4px rgba(0, 0, 0, 0.25));
@@ -18,11 +18,12 @@ export const InfoButton = styled(AiOutlineInfoCircle)`
     transition: all 0.3s ease;
     cursor: pointer;
     
-    width: 45px;
-    height: 45px;
+    width: 100%;
+    height: 100%;
 
 `;
 
+// Reworked
 const Container = styled.div`
 
     display: flex;
@@ -30,11 +31,11 @@ const Container = styled.div`
     
     justify-content: center;
 
-    width: 45px;
-    height: 45px;
+    width: 2.36%;
+    height: 4.80%;
     position: absolute;
-    bottom: 40px;
-    right: 70px;
+    bottom: 4.26%;
+    right: 3.67%;
 
 `;
 

@@ -14,11 +14,13 @@ import User from "../shared/models/User";
 import {Backdrop} from "@material-ui/core";
 import Popup from "./Popup";
 
+// Reworked
 const MenuContainer = styled(Container)`
 
-    height: 250px;
+    height: 27.69%;
 `;
 
+// Reworked
 const PlayButton = styled.div` 
     
     &:hover {
@@ -29,81 +31,28 @@ const PlayButton = styled.div`
     font-family: Cornerstone;
     font-style: normal;
     font-weight: normal;
-    font-size: 50px;
+    font-size: 5.33vh;
     color: #FFFFFF;
     
     text-shadow: 0px 8px 4px rgba(0, 0, 0, 0.25);
     
-    
 `;
 
+// Reworked
 const LeaderboardsButton = styled(PlayButton)`
 
     color: #7E7E7E;
  
-    
 `;
 
+// Reworked
 const TutorialButton = styled(PlayButton)`
     
     color: #FFFFFF;
     
 `;
 
-const CloseButton = styled(PlayButton)`
-    
-    color: #FFFFFF;
-    position: relative;
-    bottom: 20px;
-    
-`;
-
-const TutorialHeader = styled(Container)`
-
-    position: absolute;
-    margin-top: -20px;
-    left: 2%;
-
-    
-    font-family: Cornerstone;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 36px;
-    line-height: 150px;
-    /* or 417% */
-    
-    align-items: left;
-    text-align: left;
-    
-    color: #252525;
-`;
-
-
-const PopupContainer = styled(Container)`
-        
-    position: absolute;
-    width: 80%;
-    height: 85%;
-    left: 10%;
-    top: 10px;
-    
-    background: #3C3B38;
-    border-radius: 20px;
-    
-`;
-
-const PopupHeaderContainer = styled(Container)`
-      
-    position: absolute;
-    width: 80%;
-    height: 10%;
-    left: 10%;
-    top: 10px;
-    
-    background: #F2AD43;
-    border-radius: 20px 20px 0px 0px;
-`;
-
+// Reworked
 const UserButton = styled(AiOutlineUser)`
     
     filter: drop-shadow(0px 8px 4px rgba(0, 0, 0, 0.25));
@@ -111,9 +60,9 @@ const UserButton = styled(AiOutlineUser)`
     
     position: absolute;
     bottom: 50%;
-    right: 70px;
-    width: 45px;
-    height: 45px;
+    right: 3.67%;
+    width: 2.36%;
+    height: 4.80%;
     
     &:hover {
     transform: translateY(-5px);
@@ -123,6 +72,7 @@ const UserButton = styled(AiOutlineUser)`
     
 `;
 
+// Reworked
 const LogoutButton = styled(IoMdLogOut)`
 
     filter: drop-shadow(0px 8px 4px rgba(0, 0, 0, 0.25));
@@ -130,9 +80,9 @@ const LogoutButton = styled(IoMdLogOut)`
     
     position: absolute;
     bottom: 39%;
-    right: 70px;
-    width: 45px;
-    height: 45px;
+    right: 3.67%;
+    width: 2.36%;
+    height: 4.80%;
     
     &:hover {
     transform: translateY(-5px);
@@ -178,7 +128,7 @@ class Menu extends React.Component {
 
     return (
       <BaseContainer>
-        <Header height={"400"}/>
+        <Header height={"350"}/>
         <MenuContainer>
 
           <PlayButton
@@ -234,3 +184,57 @@ class Menu extends React.Component {
 }
 
 export default withRouter(Menu);
+
+/*const CloseButton = styled(PlayButton)`
+
+    color: #FFFFFF;
+    position: relative;
+    bottom: 20px;
+
+`;
+
+const TutorialHeader = styled(Container)`
+
+    position: absolute;
+    margin-top: -20px;
+    left: 2%;
+
+
+    font-family: Cornerstone;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 36px;
+    line-height: 150px;
+    /!* or 417% *!/
+
+    align-items: left;
+    text-align: left;
+
+    color: #252525;
+`;
+
+
+const PopupContainer = styled(Container)`
+
+    position: absolute;
+    width: 80%;
+    height: 85%;
+    left: 10%;
+    top: 10px;
+
+    background: #3C3B38;
+    border-radius: 20px;
+
+`;
+
+const PopupHeaderContainer = styled(Container)`
+
+    position: absolute;
+    width: 80%;
+    height: 10%;
+    left: 10%;
+    top: 10px;
+
+    background: #F2AD43;
+    border-radius: 20px 20px 0px 0px;
+`;*/
