@@ -128,7 +128,7 @@ class Menu extends React.Component {
 
     return (
       <BaseContainer>
-        <Header height={"350"}/>
+        <Header height={"38.75"}/>
         <MenuContainer>
 
           <PlayButton
