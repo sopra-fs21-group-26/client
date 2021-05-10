@@ -9,6 +9,7 @@ import {TextareaAutosize} from "@material-ui/core";
 
 const BaseeContainer = styled(BaseContainer)`
 
+    position: absolute;
     
     width: 80vw;
     left: 10.55%;
