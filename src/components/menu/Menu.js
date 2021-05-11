@@ -167,9 +167,7 @@ class Menu extends React.Component {
                       }}
         />
         {this.state.showPopup ?
-          <Popup
-            closePopup={this.togglePopup.bind(this)}
-          />
+          <Popup closePopup={this.togglePopup.bind(this)}/>
           : null
         }
         <ReactTooltip class="buttonTooltip" textColor="#252525" backgroundColor="#F2AD43" id="logoutTip" place="top"
