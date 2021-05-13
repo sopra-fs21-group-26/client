@@ -5,6 +5,7 @@ import {api, handleError} from "../../helpers/api";
 import { BaseeContainer } from '../profile/Profile';
 import CanvasDraw from "react-canvas-draw";
 import reactable from 'reactablejs';
+import interact from 'interactjs';
 import {border} from "@material-ui/system";
 
 const Background = styled(BaseeContainer)`
@@ -14,7 +15,7 @@ const Background = styled(BaseeContainer)`
 
 `;
 
-const MyComponent = (props) => {
+const MySQ = (props) => {
   return <div ref={props.getRef}
               style={
                 {
@@ -24,36 +25,137 @@ const MyComponent = (props) => {
                 }
               }
   >
-   <img
-      width={40}
-      height={40}
-      align={"center"}
-      src="https://filedn.com/ltOdFv1aqz1YIFhf4gTY8D7/ingus-info/BLOGS/Photography-stocks3/stock-photography-slider.jpg"
+   <div
+      style={{
+        width: 100,
+        height: 100,
+        align: "center",
+        background: "#F2AD43",
+      }}
     />
   </div>
 }
 
-const Reactable = reactable(MyComponent);
+const MyCR = (props) => {
+  return <div ref={props.getRef}
+              style={
+                {
+                  left: props.x,
+                  top: props.y,
+                  position: "absolute",
+                }
+              }
+  >
+    <div
+      style={{
+        width: 100,
+        height: 100,
+        align: "center",
+        background: "#F2AD43",
+        borderRadius: "50%"
+      }}
+    />
+  </div>
+}
+
+const MyTR = (props) => {
+  return <div ref={props.getRef}
+              style={
+                {
+                  left: props.x,
+                  top: props.y,
+                  position: "absolute",
+                }
+              }
+  >
+    <div
+      style={{
+        width: 0,
+        height: 0,
+        align: "center",
+        borderLeft: "50px solid transparent",
+        borderRight: "50px solid transparent",
+        borderBottom: "100px solid #F2AD43",
+      }}
+    />
+  </div>
+}
+
+const ReactableSQ = reactable(MySQ);
+
+const ReactableCR = reactable(MyCR);
+
+const ReactableTR = reactable(MyTR);
 
 const BasicDemo = () => {
-  const [coordinate, setCoordinate] = React.useState({ x: 50, y: -100 });
+  const [coordinate, setCoordinate] = React.useState({ x: 50, y: -120 });
   return (
-    <Reactable
-      draggable
+    <ReactableSQ
+      draggable={{modifiers: [
+          interact.modifiers.restrictRect({
+            restriction: 'parent',
+            endOnly: true,
+          }),
+        ]}}
       onDragMove={event => {
           const {dx, dy} = event;
           setCoordinate(prev => ({
             x: prev.x + dx,
             y: prev.y + dy,
           }));
-      }
-
-      }
+      }}
       x={coordinate.x}
       y={coordinate.y}
     />
   );
 };
+const BasicCR = () => {
+  const [coordinate, setCoordinate] = React.useState({ x: 200, y: -120 });
+  return (
+    <ReactableCR
+      draggable={{modifiers: [
+          interact.modifiers.restrictRect({
+            restriction: 'parent',
+            endOnly: true,
+          }),
+        ]}}
+      onDragMove={event => {
+        const {dx, dy} = event;
+        setCoordinate(prev => ({
+          x: prev.x + dx,
+          y: prev.y + dy,
+        }));
+      }}
+      x={coordinate.x}
+      y={coordinate.y}
+    />
+  );
+};
+
+const BasicTR = () => {
+  const [coordinate, setCoordinate] = React.useState({ x: 350, y: -120 });
+  return (
+    <ReactableTR
+      draggable={{modifiers: [
+          interact.modifiers.restrictRect({
+            restriction: 'parent',
+            endOnly: true,
+          }),
+        ]}}
+      onDragMove={event => {
+        const {dx, dy} = event;
+        setCoordinate(prev => ({
+          x: prev.x + dx,
+          y: prev.y + dy,
+        }));
+      }}
+      x={coordinate.x}
+      y={coordinate.y}
+    />
+  );
+};
+
+
 
 class SetTest extends React.Component {
 
@@ -97,8 +199,12 @@ class SetTest extends React.Component {
             background: '#FFFFFF'
           }}
         >
-          <BasicDemo/>
-          <BasicDemo/>
+        <BasicDemo/>
+        <BasicDemo/>
+        <BasicCR/>
+        <BasicCR/>
+        <BasicTR/>
+        <BasicTR/>
         </div>
       </Background>
     )
