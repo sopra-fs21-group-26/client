@@ -8,16 +8,19 @@
     "amd-loader": "0.0.8",
     "axios": "^0.21.1",
     "canvas": "^2.7.0",
+    "interactjs": "^1.10.11",
     "lz-string": "^1.4.4",
     "react": "^17.0.1",
     "react-canvas-draw": "^1.1.1",
     "react-dom": "^17.0.1",
     "react-icons": "^4.2.0",
+    "react-interactjs": "^0.1.2",
     "react-responsive-modal": "^6.0.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "^4.0.2",
     "react-sound": "^1.2.0",
     "react-tooltip": "^4.2.15",
+    "reactablejs": "^0.2.0",
     "styled-components": "^5.2.1",
     "two": "^1.0.1",
     "two.js": "^0.7.4"
@@ -38,5 +41,9 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "@storybook/addon-actions": "^6.2.9",
+    "react-interactjs-wrapper": "^0.1.7"
+  }
 }
