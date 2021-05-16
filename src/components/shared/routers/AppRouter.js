@@ -18,6 +18,7 @@ import Scoring from "../../game/Scoring";
 import Recreate from "../../game/Recreate";
 import GuessScreen from "../../game/GuessScreen";
 import End from "../../game/End";
+import Set2Test from "../../Set/Set2Test";
 
 /**
  * Main router of your application.
@@ -48,6 +49,13 @@ class AppRouter extends React.Component {
               exact
               render={() => (
                   <SetTest />
+              )}
+            />
+            <Route
+              path="/Set2Test"
+              exact
+              render={() => (
+                <Set2Test />
               )}
             />
             <Route

@@ -6,7 +6,7 @@ import { BaseeContainer } from '../profile/Profile';
 import CanvasDraw from "react-canvas-draw";
 import reactable from 'reactablejs';
 import interact from 'interactjs';
-import {border} from "@material-ui/system";
+import html2canvas from 'html2canvas';
 
 const Background = styled(BaseeContainer)`
 
