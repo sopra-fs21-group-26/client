@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { withRouter } from 'react-router-dom';
-import {api, handleError} from "../../helpers/api";
+import {api} from "../../helpers/api";
 import RankingsHeader from "../../views/design/RankingsHeader";
 import NextRound from "../../views/design/NexRound";
 import {SpinnerAlt} from "../../views/design/SpinnerAlt";

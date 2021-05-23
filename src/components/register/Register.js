@@ -48,9 +48,6 @@ class Register extends React.Component {
         }
     }
 
-
-    componentDidMount() {}
-
     render(){
         return(
             <BaseContainer>

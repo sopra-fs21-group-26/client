@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import {BaseeContainer} from '../profile/Profile';
 import { withRouter } from 'react-router-dom';
-import {api, handleError} from "../../helpers/api";
+import {api} from "../../helpers/api";
 import {TopBar, BackgroundContainer} from "../../views/LoginManagement";
 import Player from "../../views/Player";
 import StartGameButton from '../../views/design/StartGameButton';
@@ -149,7 +149,7 @@ class Lobby extends React.Component{
             token: localStorage.getItem('token')
         });
 
-        const response = await api.put(`/lobby/start/${params.lobbyId}`, requestBody);
+        await api.put(`/lobby/start/${params.lobbyId}`, requestBody);
 
 
     }

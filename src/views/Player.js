@@ -1,10 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import {BsCheck} from "react-icons/bs";
+import {BsCheck, BsStar} from "react-icons/bs";
 import {VscError} from "react-icons/vsc";
 import {api} from "../helpers/api";
 import ReadyButton from "../views/design/ReadyButton";
-import {BsStar} from "react-icons/bs";
 import {AiOutlineUser} from 'react-icons/ai';
 
 
@@ -96,10 +95,7 @@ class Player extends React.Component{
             isReady: null
         }
     }
-
-    componentDidMount(){}
-
-
+    
     async setReady(){
 
         const requestBody = JSON.stringify({
@@ -153,7 +149,3 @@ class Player extends React.Component{
 }
 export default Player;
 
-
-// <ReadyButtonStyled onClick = { () => {this.setReady()}}>
-//     <ReadyButton></ReadyButton>
-// </ReadyButtonStyled>

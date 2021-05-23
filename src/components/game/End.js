@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { withRouter } from 'react-router-dom';
-import {api, handleError} from "../../helpers/api";
+import {api} from "../../helpers/api";
 import "./style.css";
 import BackToMenu2 from '../../views/design/BackToMenu2';
 import PlayAgain from "../../views/design/PlayAgain";
@@ -54,14 +54,12 @@ class End extends React.Component{
         super();
     }
 
-    componentDidMount() {}
-
     async unregisterClientMenu(){
         const requestBody = JSON.stringify({
             token: localStorage.getItem('token')
         });
         const { match: { params } } = this.props;
-        const response = await api.put(`/games/${params.lobbyId}/end-game`, requestBody)
+        await api.put(`/games/${params.lobbyId}/end-game`, requestBody)
         this.props.history.push(`/menu`)
     }
 
@@ -70,7 +68,7 @@ class End extends React.Component{
             token: localStorage.getItem('token')
         });
         const { match: { params } } = this.props;
-        const response = await api.put(`/games/${params.lobbyId}/end-game`, requestBody)
+        await api.put(`/games/${params.lobbyId}/end-game`, requestBody)
         this.props.history.push(`/play`)
     }
 

@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import Sound from 'react-sound';
 import soundtrack from '../home/soundtrack.mp3';
 import { makeStyles } from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
 import {BsVolumeUp} from 'react-icons/bs';
 import {BsVolumeDown} from 'react-icons/bs';
 import Slider from '@material-ui/core/Slider';
@@ -91,7 +90,6 @@ const Soundtrack = () => {
     };
 
     return(
-        <div>
             <Wrapper>
                 <PlayButtonWrapper>
                     <PlayButton onClick={() => setIsPlaying(!isPlaying)}>{!isPlaying ? '<< Play Soundtrack >>' : '<< Pause Soundtrack >>'}</PlayButton>
@@ -111,7 +109,6 @@ const Soundtrack = () => {
                     <VolumeUp/>
                 </SliderWrapper>
             </Wrapper>
-        </div>
     )
 }
 

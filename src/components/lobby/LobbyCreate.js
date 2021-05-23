@@ -1,9 +1,8 @@
 import React from 'react';
-import styled from 'styled-components';
 import { BaseeContainer } from '../profile/Profile';
 import { withRouter } from 'react-router-dom';
 import {api, handleError} from "../../helpers/api";
-import {BaseContainer, TopBar, BackgroundContainer, InputFieldContainer, UsernameInputField, PasswordInputField, ArrowButton, LoginButton} from "../../views/LoginManagement";
+import {TopBar, BackgroundContainer, InputFieldContainer, UsernameInputField, ArrowButton, LoginButton} from "../../views/LoginManagement";
 
 class LobbyCreate extends React.Component{
 
@@ -14,8 +13,6 @@ class LobbyCreate extends React.Component{
             lobby: null
         }
     }
-
-    componentDidMount() {}
 
     handleInputChange(key, value) {
         // Example: if the key is username, this statement is the equivalent to the following one:

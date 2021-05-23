@@ -4,22 +4,12 @@ import {Background, BaseeContainer} from '../profile/Profile';
 import {withRouter} from 'react-router-dom';
 import {api, handleError} from "../../helpers/api";
 import {
-  BaseContainer,
   TopBar,
-  BackgroundContainer,
-  InputFieldContainer,
-  UsernameInputField,
-  PasswordInputField,
-  ArrowButton,
-  LoginButton
+  UsernameInputField
 } from "../../views/LoginManagement";
-import {Button} from "../../views/design/Button";
-import {PlayerContainer} from "../leaderboard/PlayerContainerRender";
-import Player from "../../views/Player";
 import {SpinnerAlt} from "../../views/design/SpinnerAlt";
-import * as PropTypes from "prop-types";
 import {GoSearch} from "react-icons/go";
-import {AiOutlineReload, AiOutlineUser} from "react-icons/ai";
+import {AiOutlineReload} from "react-icons/ai";
 
 const Lobbies = styled.ul`
   list-style: none;

@@ -97,6 +97,6 @@ function Tutorial(){
             </p>
         </TextContainer>
     );
-};
+}
 
 export default Tutorial;

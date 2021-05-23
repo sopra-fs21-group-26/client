@@ -10,8 +10,6 @@ import ReactTooltip from 'react-tooltip';
 import InfoModal from '../modals/InfoModal';
 import '../../views/design/tooltip.css'
 import {api, handleError} from "../../helpers/api";
-import User from "../shared/models/User";
-import {Backdrop} from "@material-ui/core";
 import Popup from "./Popup";
 
 // Reworked
@@ -182,57 +180,3 @@ class Menu extends React.Component {
 }
 
 export default withRouter(Menu);
-
-/*const CloseButton = styled(PlayButton)`
-
-    color: #FFFFFF;
-    position: relative;
-    bottom: 20px;
-
-`;
-
-const TutorialHeader = styled(Container)`
-
-    position: absolute;
-    margin-top: -20px;
-    left: 2%;
-
-
-    font-family: Cornerstone;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 36px;
-    line-height: 150px;
-    /!* or 417% *!/
-
-    align-items: left;
-    text-align: left;
-
-    color: #252525;
-`;
-
-
-const PopupContainer = styled(Container)`
-
-    position: absolute;
-    width: 80%;
-    height: 85%;
-    left: 10%;
-    top: 10px;
-
-    background: #3C3B38;
-    border-radius: 20px;
-
-`;
-
-const PopupHeaderContainer = styled(Container)`
-
-    position: absolute;
-    width: 80%;
-    height: 10%;
-    left: 10%;
-    top: 10px;
-
-    background: #F2AD43;
-    border-radius: 20px 20px 0px 0px;
-`;*/

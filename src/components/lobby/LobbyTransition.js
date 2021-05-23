@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import { withRouter } from 'react-router-dom';
-import {api, handleError} from "../../helpers/api";
 import { BaseeContainer } from '../profile/Profile';
 import CreateLobby from '../../views/design/CreateLobby';
 import JoinLobby from '../../views/design/JoinLobby';

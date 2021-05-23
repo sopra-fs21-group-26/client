@@ -95,8 +95,6 @@ export const Footer = styled.div`
 
 class Home extends React.Component {
 
-    componentDidMount() {}
-
     render(){
         return(
             <BaseContainer>
