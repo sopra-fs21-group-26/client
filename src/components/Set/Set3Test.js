@@ -23,14 +23,14 @@ const MySQ = (props) => {
                   top: props.y,
                   position: "relative",
                   float: "left",
-                  paddingRight: 20,
+                  paddingRight: 15,
                 }
               }
   >
     <img src={process.env.PUBLIC_URL + "/setimg/top/icon1.png"}
          style={{
-           width: 100,
-           height: 100,
+           width: 80,
+           height: 80,
            border: '1px solid black',
            position: 'relative',
            float: 'left',
@@ -46,14 +46,14 @@ const MySQ2 = (props) => {
                   top: props.y,
                   position: "relative",
                   float: "left",
-                  paddingRight: 20,
+                  paddingRight: 15,
                 }
               }
   >
     <img src={process.env.PUBLIC_URL + "/setimg/top/icon2.png"}
          style={{
-           width: 100,
-           height: 100,
+           width: 80,
+           height: 80,
            border: '1px solid black',
            position: 'relative',
            float: 'left',
@@ -69,14 +69,14 @@ const MySQ3 = (props) => {
                   top: props.y,
                   position: "relative",
                   float: "left",
-                  paddingRight: 20,
+                  paddingRight: 15,
                 }
               }
   >
     <img src={process.env.PUBLIC_URL + "/setimg/top/icon3.png"}
          style={{
-           width: 100,
-           height: 100,
+           width: 80,
+           height: 80,
            border: '1px solid black',
            position: 'relative',
            float: 'left',
@@ -92,14 +92,294 @@ const MySQ4 = (props) => {
                   top: props.y,
                   position: "relative",
                   float: "left",
-                  paddingRight: 20,
+                  paddingRight: 15,
                 }
               }
   >
     <img src={process.env.PUBLIC_URL + "/setimg/top/icon4.png"}
          style={{
-           width: 100,
-           height: 100,
+           width: 80,
+           height: 80,
+           border: '1px solid black',
+           position: 'relative',
+           float: 'left',
+         }}
+    />
+  </div>
+}
+const MySQ5 = (props) => {
+  return <div ref={props.getRef}
+              style={
+                {
+                  left: props.x,
+                  top: props.y,
+                  position: "relative",
+                  float: "left",
+                  paddingRight: 15,
+                }
+              }
+  >
+    <img src={process.env.PUBLIC_URL + "/setimg/top/icon5.png"}
+         style={{
+           width: 80,
+           height: 80,
+           border: '1px solid black',
+           position: 'relative',
+           float: 'left',
+         }}
+    />
+  </div>
+}
+const MySQ6 = (props) => {
+  return <div ref={props.getRef}
+              style={
+                {
+                  left: props.x,
+                  top: props.y,
+                  position: "relative",
+                  float: "left",
+                  paddingRight: 15,
+                }
+              }
+  >
+    <img src={process.env.PUBLIC_URL + "/setimg/top/icon6.png"}
+         style={{
+           width: 80,
+           height: 80,
+           border: '1px solid black',
+           position: 'relative',
+           float: 'left',
+         }}
+    />
+  </div>
+}
+const MySQ7 = (props) => {
+  return <div ref={props.getRef}
+              style={
+                {
+                  left: props.x,
+                  top: props.y,
+                  position: "relative",
+                  float: "left",
+                  paddingRight: 15,
+                }
+              }
+  >
+    <img src={process.env.PUBLIC_URL + "/setimg/top/icon7.png"}
+         style={{
+           width: 80,
+           height: 80,
+           border: '1px solid black',
+           position: 'relative',
+           float: 'left',
+         }}
+    />
+  </div>
+}
+const MySQ8 = (props) => {
+  return <div ref={props.getRef}
+              style={
+                {
+                  left: props.x,
+                  top: props.y,
+                  position: "relative",
+                  float: "left",
+                  paddingRight: 15,
+                }
+              }
+  >
+    <img src={process.env.PUBLIC_URL + "/setimg/top/icon8.png"}
+         style={{
+           width: 80,
+           height: 80,
+           border: '1px solid black',
+           position: 'relative',
+           float: 'left',
+         }}
+    />
+  </div>
+}
+const MySQ9 = (props) => {
+  return <div ref={props.getRef}
+              style={
+                {
+                  left: props.x,
+                  top: props.y,
+                  position: "relative",
+                  display: "block",
+                  float:"left",
+                  paddingRight: 15,
+                }
+              }
+  >
+    <img src={process.env.PUBLIC_URL + "/setimg/top/icon9.png"}
+         style={{
+           width: 80,
+           height: 80,
+           border: '1px solid black',
+           position: 'relative',
+           float: 'left',
+         }}
+    />
+  </div>
+}
+const MySQ10 = (props) => {
+  return <div ref={props.getRef}
+              style={
+                {
+                  left: props.x,
+                  top: props.y,
+                  position: "relative",
+                  display: "block",
+                  float: "left",
+                  paddingRight: 15,
+                }
+              }
+  >
+    <img src={process.env.PUBLIC_URL + "/setimg/top/icon10.png"}
+         style={{
+           width: 80,
+           height: 80,
+           border: '1px solid black',
+           position: 'relative',
+           float: 'left',
+         }}
+    />
+  </div>
+}
+const MySQ11 = (props) => {
+  return <div ref={props.getRef}
+              style={
+                {
+                  left: props.x,
+                  top: props.y,
+                  position: "relative",
+                  float: "left",
+                  paddingRight: 15,
+                }
+              }
+  >
+    <img src={process.env.PUBLIC_URL + "/setimg/top/icon11.png"}
+         style={{
+           width: 80,
+           height: 80,
+           border: '1px solid black',
+           position: 'relative',
+           float: 'left',
+         }}
+    />
+  </div>
+}
+const MySQ12 = (props) => {
+  return <div ref={props.getRef}
+              style={
+                {
+                  left: props.x,
+                  top: props.y,
+                  position: "relative",
+                  float: "left",
+                  paddingRight: 15,
+                }
+              }
+  >
+    <img src={process.env.PUBLIC_URL + "/setimg/top/icon12.png"}
+         style={{
+           width: 80,
+           height: 80,
+           border: '1px solid black',
+           position: 'relative',
+           float: 'left',
+         }}
+    />
+  </div>
+}
+const MySQ13 = (props) => {
+  return <div ref={props.getRef}
+              style={
+                {
+                  left: props.x,
+                  top: props.y,
+                  position: "relative",
+                  display: "block",
+                  float:"left",
+                  paddingRight: 15,
+                }
+              }
+  >
+    <img src={process.env.PUBLIC_URL + "/setimg/top/icon13.png"}
+         style={{
+           width: 80,
+           height: 80,
+           border: '1px solid black',
+           position: 'relative',
+           float: 'left',
+         }}
+    />
+  </div>
+}
+const MySQ14 = (props) => {
+  return <div ref={props.getRef}
+              style={
+                {
+                  left: props.x,
+                  top: props.y,
+                  position: "relative",
+                  display: "block",
+                  float: "left",
+                  paddingRight: 15,
+                }
+              }
+  >
+    <img src={process.env.PUBLIC_URL + "/setimg/top/icon14.png"}
+         style={{
+           width: 80,
+           height: 80,
+           border: '1px solid black',
+           position: 'relative',
+           float: 'left',
+         }}
+    />
+  </div>
+}
+const MySQ15 = (props) => {
+  return <div ref={props.getRef}
+              style={
+                {
+                  left: props.x,
+                  top: props.y,
+                  position: "relative",
+                  float: "left",
+                  paddingRight: 15,
+                }
+              }
+  >
+    <img src={process.env.PUBLIC_URL + "/setimg/top/icon15.png"}
+         style={{
+           width: 80,
+           height: 80,
+           border: '1px solid black',
+           position: 'relative',
+           float: 'left',
+         }}
+    />
+  </div>
+}
+const MySQ16 = (props) => {
+  return <div ref={props.getRef}
+              style={
+                {
+                  left: props.x,
+                  top: props.y,
+                  position: "relative",
+                  float: "left",
+                  paddingRight: 15,
+                }
+              }
+  >
+    <img src={process.env.PUBLIC_URL + "/setimg/top/icon16.png"}
+         style={{
+           width: 80,
+           height: 80,
            border: '1px solid black',
            position: 'relative',
            float: 'left',
@@ -109,15 +389,29 @@ const MySQ4 = (props) => {
 }
 
 
+
 const ReactableSQ = reactable(MySQ);
 const Reactable2SQ = reactable(MySQ2);
 const Reactable3SQ = reactable(MySQ3);
 const Reactable4SQ = reactable(MySQ4);
+const Reactable5SQ = reactable(MySQ5);
+const Reactable6SQ = reactable(MySQ6);
+const Reactable7SQ = reactable(MySQ7);
+const Reactable8SQ = reactable(MySQ8);
+const Reactable9SQ = reactable(MySQ9);
+const Reactable10SQ = reactable(MySQ10);
+const Reactable11SQ = reactable(MySQ11);
+const Reactable12SQ = reactable(MySQ12);
+const Reactable13SQ = reactable(MySQ13);
+const Reactable14SQ = reactable(MySQ14);
+const Reactable15SQ = reactable(MySQ15);
+const Reactable16SQ = reactable(MySQ16);
+
 
 
 
 const BasicDemo = () => {
-  const [coordinate, setCoordinate] = React.useState({ x: 20, y: -120 });
+  const [coordinate, setCoordinate] = React.useState({ x: 10, y: -120 });
   return (
     <ReactableSQ
       draggable={{modifiers: [
@@ -125,10 +419,10 @@ const BasicDemo = () => {
             restriction: 'parent'
           }),
           interact.modifiers.snap({
-            targets: [interact.createSnapGrid({ x: 170, y: 168 })],
+            targets: [interact.createSnapGrid({ x: 133, y: 133 })],
             range: Infinity,
             relativePoints: [{ x: 40, y: 50 }],
-            offset: { x: 70, y: 130 },
+            offset: { x: 0, y: 90 },
           }),
         ]}}
       onDragMove={event => {
@@ -144,7 +438,7 @@ const BasicDemo = () => {
   );
 };
 const BasicDemo2 = () => {
-  const [coordinate, setCoordinate] = React.useState({ x: 20, y: -120 });
+  const [coordinate, setCoordinate] = React.useState({ x: 10, y: -120 });
   return (
     <Reactable2SQ
       draggable={{modifiers: [
@@ -152,10 +446,10 @@ const BasicDemo2 = () => {
             restriction: 'parent'
           }),
           interact.modifiers.snap({
-            targets: [interact.createSnapGrid({ x: 170, y: 168 })],
+            targets: [interact.createSnapGrid({ x: 133, y: 133 })],
             range: Infinity,
             relativePoints: [{ x: 40, y: 50 }],
-            offset: { x: 70, y: 130 },
+            offset: { x: 0, y: 90 },
           }),
         ]}}
       onDragMove={event => {
@@ -171,7 +465,7 @@ const BasicDemo2 = () => {
   );
 };
 const BasicDemo3 = () => {
-  const [coordinate, setCoordinate] = React.useState({ x: 20, y: -120 });
+  const [coordinate, setCoordinate] = React.useState({ x: 10, y: -120 });
   return (
     <Reactable3SQ
       draggable={{modifiers: [
@@ -179,10 +473,10 @@ const BasicDemo3 = () => {
             restriction: 'parent'
           }),
           interact.modifiers.snap({
-            targets: [interact.createSnapGrid({ x: 170, y: 168 })],
+            targets: [interact.createSnapGrid({ x: 133, y: 133 })],
             range: Infinity,
             relativePoints: [{ x: 40, y: 50 }],
-            offset: { x: 70, y: 130 },
+            offset: { x: 0, y: 90 },
           }),
         ]}}
       onDragMove={event => {
@@ -198,7 +492,7 @@ const BasicDemo3 = () => {
   );
 };
 const BasicDemo4 = () => {
-  const [coordinate, setCoordinate] = React.useState({ x: 20, y: -120 });
+  const [coordinate, setCoordinate] = React.useState({ x: 10, y: -120 });
   return (
     <Reactable4SQ
       draggable={{modifiers: [
@@ -206,10 +500,334 @@ const BasicDemo4 = () => {
             restriction: 'parent'
           }),
           interact.modifiers.snap({
-            targets: [interact.createSnapGrid({ x: 170, y: 168 })],
+            targets: [interact.createSnapGrid({ x: 133, y: 133 })],
             range: Infinity,
             relativePoints: [{ x: 40, y: 50 }],
-            offset: { x: 70, y: 130 },
+            offset: { x: 0, y: 90 },
+          }),
+        ]}}
+      onDragMove={event => {
+        const {dx, dy} = event;
+        setCoordinate(prev => ({
+          x: prev.x + dx,
+          y: prev.y + dy,
+        }));
+      }}
+      x={coordinate.x}
+      y={coordinate.y}
+    />
+  );
+};
+const BasicDemo5 = () => {
+  const [coordinate, setCoordinate] = React.useState({ x: 10, y: 350 });
+  return (
+    <Reactable5SQ
+      draggable={{modifiers: [
+          interact.modifiers.restrictRect({
+            restriction: 'parent'
+          }),
+          interact.modifiers.snap({
+            targets: [interact.createSnapGrid({ x: 133, y: 133 })],
+            range: Infinity,
+            relativePoints: [{ x: 40, y: 50 }],
+            offset: { x: 0, y: 90 },
+          }),
+        ]}}
+      onDragMove={event => {
+        const {dx, dy} = event;
+        setCoordinate(prev => ({
+          x: prev.x + dx,
+          y: prev.y + dy,
+        }));
+      }}
+      x={coordinate.x}
+      y={coordinate.y}
+    />
+  );
+};
+const BasicDemo6 = () => {
+  const [coordinate, setCoordinate] = React.useState({ x: 10, y: 350 });
+  return (
+    <Reactable6SQ
+      draggable={{modifiers: [
+          interact.modifiers.restrictRect({
+            restriction: 'parent'
+          }),
+          interact.modifiers.snap({
+            targets: [interact.createSnapGrid({ x: 133, y: 133 })],
+            range: Infinity,
+            relativePoints: [{ x: 40, y: 50 }],
+            offset: { x: 0, y: 90 },
+          }),
+        ]}}
+      onDragMove={event => {
+        const {dx, dy} = event;
+        setCoordinate(prev => ({
+          x: prev.x + dx,
+          y: prev.y + dy,
+        }));
+      }}
+      x={coordinate.x}
+      y={coordinate.y}
+    />
+  );
+};
+const BasicDemo7 = () => {
+  const [coordinate, setCoordinate] = React.useState({ x: 10, y: 350 });
+  return (
+    <Reactable7SQ
+      draggable={{modifiers: [
+          interact.modifiers.restrictRect({
+            restriction: 'parent'
+          }),
+          interact.modifiers.snap({
+            targets: [interact.createSnapGrid({ x: 133, y: 133 })],
+            range: Infinity,
+            relativePoints: [{ x: 40, y: 50 }],
+            offset: { x: 0, y: 90 },
+          }),
+        ]}}
+      onDragMove={event => {
+        const {dx, dy} = event;
+        setCoordinate(prev => ({
+          x: prev.x + dx,
+          y: prev.y + dy,
+        }));
+      }}
+      x={coordinate.x}
+      y={coordinate.y}
+    />
+  );
+};
+const BasicDemo8 = () => {
+  const [coordinate, setCoordinate] = React.useState({ x: 10, y: 350 });
+  return (
+    <Reactable8SQ
+      draggable={{modifiers: [
+          interact.modifiers.restrictRect({
+            restriction: 'parent'
+          }),
+          interact.modifiers.snap({
+            targets: [interact.createSnapGrid({ x: 133, y: 133 })],
+            range: Infinity,
+            relativePoints: [{ x: 40, y: 50 }],
+            offset: { x: 0, y: 90 },
+          }),
+        ]}}
+      onDragMove={event => {
+        const {dx, dy} = event;
+        setCoordinate(prev => ({
+          x: prev.x + dx,
+          y: prev.y + dy,
+        }));
+      }}
+      x={coordinate.x}
+      y={coordinate.y}
+    />
+  );
+};
+const BasicDemo9 = () => {
+  const [coordinate, setCoordinate] = React.useState({ x: -100, y: -150 });
+  return (
+    <Reactable9SQ
+      draggable={{modifiers: [
+          interact.modifiers.restrictRect({
+            restriction: 'parent'
+          }),
+          interact.modifiers.snap({
+            targets: [interact.createSnapGrid({ x: 133, y: 133 })],
+            range: Infinity,
+            relativePoints: [{ x: 40, y: 50 }],
+            offset: { x: 0, y: 90 },
+          }),
+        ]}}
+      onDragMove={event => {
+        const {dx, dy} = event;
+        setCoordinate(prev => ({
+          x: prev.x + dx,
+          y: prev.y + dy,
+        }));
+      }}
+      x={coordinate.x}
+      y={coordinate.y}
+    />
+  );
+};
+const BasicDemo10 = () => {
+  const [coordinate, setCoordinate] = React.useState({ x: -195, y: -60 });
+  return (
+    <Reactable10SQ
+      draggable={{modifiers: [
+          interact.modifiers.restrictRect({
+            restriction: 'parent'
+          }),
+          interact.modifiers.snap({
+            targets: [interact.createSnapGrid({ x: 133, y: 133 })],
+            range: Infinity,
+            relativePoints: [{ x: 40, y: 50 }],
+            offset: { x: 0, y: 90 },
+          }),
+        ]}}
+      onDragMove={event => {
+        const {dx, dy} = event;
+        setCoordinate(prev => ({
+          x: prev.x + dx,
+          y: prev.y + dy,
+        }));
+      }}
+      x={coordinate.x}
+      y={coordinate.y}
+    />
+  );
+};
+const BasicDemo11 = () => {
+  const [coordinate, setCoordinate] = React.useState({ x: -290, y: 30 });
+  return (
+    <Reactable11SQ
+      draggable={{modifiers: [
+          interact.modifiers.restrictRect({
+            restriction: 'parent'
+          }),
+          interact.modifiers.snap({
+            targets: [interact.createSnapGrid({ x: 133, y: 133 })],
+            range: Infinity,
+            relativePoints: [{ x: 40, y: 50 }],
+            offset: { x: 0, y: 90 },
+          }),
+        ]}}
+      onDragMove={event => {
+        const {dx, dy} = event;
+        setCoordinate(prev => ({
+          x: prev.x + dx,
+          y: prev.y + dy,
+        }));
+      }}
+      x={coordinate.x}
+      y={coordinate.y}
+    />
+  );
+};
+const BasicDemo12 = () => {
+  const [coordinate, setCoordinate] = React.useState({ x: -385, y: 125 });
+  return (
+    <Reactable12SQ
+      draggable={{modifiers: [
+          interact.modifiers.restrictRect({
+            restriction: 'parent'
+          }),
+          interact.modifiers.snap({
+            targets: [interact.createSnapGrid({ x: 133, y: 133 })],
+            range: Infinity,
+            relativePoints: [{ x: 40, y: 50 }],
+            offset: { x: 0, y: 90 },
+          }),
+        ]}}
+      onDragMove={event => {
+        const {dx, dy} = event;
+        setCoordinate(prev => ({
+          x: prev.x + dx,
+          y: prev.y + dy,
+        }));
+      }}
+      x={coordinate.x}
+      y={coordinate.y}
+    />
+  );
+};
+const BasicDemo13 = () => {
+  const [coordinate, setCoordinate] = React.useState({ x: 420, y: -230 });
+  return (
+    <Reactable13SQ
+      draggable={{modifiers: [
+          interact.modifiers.restrictRect({
+            restriction: 'parent'
+          }),
+          interact.modifiers.snap({
+            targets: [interact.createSnapGrid({ x: 133, y: 133 })],
+            range: Infinity,
+            relativePoints: [{ x: 40, y: 50 }],
+            offset: { x: 0, y: 90 },
+          }),
+        ]}}
+      onDragMove={event => {
+        const {dx, dy} = event;
+        setCoordinate(prev => ({
+          x: prev.x + dx,
+          y: prev.y + dy,
+        }));
+      }}
+      x={coordinate.x}
+      y={coordinate.y}
+    />
+  );
+};
+const BasicDemo14 = () => {
+  const [coordinate, setCoordinate] = React.useState({ x: 325, y: -140 });
+  return (
+    <Reactable14SQ
+      draggable={{modifiers: [
+          interact.modifiers.restrictRect({
+            restriction: 'parent'
+          }),
+          interact.modifiers.snap({
+            targets: [interact.createSnapGrid({ x: 133, y: 133 })],
+            range: Infinity,
+            relativePoints: [{ x: 40, y: 50 }],
+            offset: { x: 0, y: 90 },
+          }),
+        ]}}
+      onDragMove={event => {
+        const {dx, dy} = event;
+        setCoordinate(prev => ({
+          x: prev.x + dx,
+          y: prev.y + dy,
+        }));
+      }}
+      x={coordinate.x}
+      y={coordinate.y}
+    />
+  );
+};
+const BasicDemo15 = () => {
+  const [coordinate, setCoordinate] = React.useState({ x: 230, y: -50 });
+  return (
+    <Reactable15SQ
+      draggable={{modifiers: [
+          interact.modifiers.restrictRect({
+            restriction: 'parent'
+          }),
+          interact.modifiers.snap({
+            targets: [interact.createSnapGrid({ x: 133, y: 133 })],
+            range: Infinity,
+            relativePoints: [{ x: 40, y: 50 }],
+            offset: { x: 0, y: 90 },
+          }),
+        ]}}
+      onDragMove={event => {
+        const {dx, dy} = event;
+        setCoordinate(prev => ({
+          x: prev.x + dx,
+          y: prev.y + dy,
+        }));
+      }}
+      x={coordinate.x}
+      y={coordinate.y}
+    />
+  );
+};
+const BasicDemo16 = () => {
+  const [coordinate, setCoordinate] = React.useState({ x: 135, y: 40 });
+  return (
+    <Reactable16SQ
+      draggable={{modifiers: [
+          interact.modifiers.restrictRect({
+            restriction: 'parent'
+          }),
+          interact.modifiers.snap({
+            targets: [interact.createSnapGrid({ x: 133, y: 133 })],
+            range: Infinity,
+            relativePoints: [{ x: 40, y: 50 }],
+            offset: { x: 0, y: 90 },
           }),
         ]}}
       onDragMove={event => {
@@ -261,8 +879,8 @@ class Set3Test extends React.Component {
       <Background>
         <div
           style={{
-            width: 500,
-            height: 500,
+            width: 400,
+            height: 400,
             border: '1px solid black',
             position: 'absolute',
             background: '#FFFFFF'
@@ -272,6 +890,18 @@ class Set3Test extends React.Component {
           <BasicDemo2/>
           <BasicDemo3/>
           <BasicDemo4/>
+          <BasicDemo5/>
+          <BasicDemo6/>
+          <BasicDemo7/>
+          <BasicDemo8/>
+          <BasicDemo9/>
+          <BasicDemo10/>
+          <BasicDemo11/>
+          <BasicDemo12/>
+          <BasicDemo13/>
+          <BasicDemo14/>
+          <BasicDemo15/>
+          <BasicDemo16/>
         </div>
       </Background>
     )

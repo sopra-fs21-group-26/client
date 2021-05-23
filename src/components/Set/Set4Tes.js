@@ -272,8 +272,8 @@ class Set4Test extends React.Component {
       <Background>
         <div
           style={{
-            width: 500,
-            height: 500,
+            width: 400,
+            height: 400,
             border: '1px solid black',
             position: 'absolute',
             background: '#FFFFFF'

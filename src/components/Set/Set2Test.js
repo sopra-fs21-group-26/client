@@ -149,7 +149,7 @@ const YellowSQ = reactable(YlSQ);
 const GreySQ = reactable(GrySQ);
 
 const BasicSQ = () => {
-  const [coordinate, setCoordinate] = React.useState({ x: -150, y: -120 });
+  const [coordinate, setCoordinate] = React.useState({ x: -115, y: -120 });
   return (
     <ReactableSQ
       draggable={{modifiers: [
@@ -178,7 +178,7 @@ const BasicSQ = () => {
 };
 
 const BasicRedSQ = () => {
-  const [coordinate, setCoordinate] = React.useState({ x: -75, y: -120 });
+  const [coordinate, setCoordinate] = React.useState({ x: -50, y: -120 });
   return (
     <RedSQ
       draggable={{modifiers: [
@@ -207,7 +207,7 @@ const BasicRedSQ = () => {
 };
 
 const BasicGreenSQ = () => {
-  const [coordinate, setCoordinate] = React.useState({ x: 0, y: -120 });
+  const [coordinate, setCoordinate] = React.useState({ x: 15, y: -120 });
   return (
     <GreenSQ
       draggable={{modifiers: [
@@ -236,7 +236,7 @@ const BasicGreenSQ = () => {
 };
 
 const BasicBlueSQ = () => {
-  const [coordinate, setCoordinate] = React.useState({ x: 75, y: -120 });
+  const [coordinate, setCoordinate] = React.useState({ x: 80, y: -120 });
   return (
     <BlueSQ
       draggable={{modifiers: [
@@ -265,7 +265,7 @@ const BasicBlueSQ = () => {
 };
 
 const BasicYellowSQ = () => {
-  const [coordinate, setCoordinate] = React.useState({ x: 150, y: -120 });
+  const [coordinate, setCoordinate] = React.useState({ x: 145, y: -120 });
   return (
     <YellowSQ
       draggable={{modifiers: [
@@ -294,7 +294,7 @@ const BasicYellowSQ = () => {
 };
 
 const BasicGreySQ = () => {
-  const [coordinate, setCoordinate] = React.useState({ x: 225, y: -120 });
+  const [coordinate, setCoordinate] = React.useState({ x: 210, y: -120 });
   return (
     <GreySQ
       draggable={{modifiers: [
@@ -344,8 +344,8 @@ class Set2Test extends React.Component {
       <Background>
         <div
           style={{
-            width: 500,
-            height: 500,
+            width: 400,
+            height: 400,
             border: '1px solid black',
             position: 'absolute',
             background: '#FFFFFF'
@@ -355,8 +355,8 @@ class Set2Test extends React.Component {
             style={{
               width: 150,
               height: 150,
-              left: "35%",
-              top: "35%",
+              left: "125px",
+              top: "125px",
               border: '1px solid black',
               position: 'absolute',
               background: '#FFFFFF',

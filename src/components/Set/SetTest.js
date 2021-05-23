@@ -27,8 +27,8 @@ const MySQ = (props) => {
   >
    <div
       style={{
-        width: 100,
-        height: 100,
+        width: 80,
+        height: 80,
         align: "center",
         background: "#F2AD43",
       }}
@@ -48,8 +48,8 @@ const MyCR = (props) => {
   >
     <div
       style={{
-        width: 100,
-        height: 100,
+        width: 80,
+        height: 80,
         align: "center",
         background: "#F2AD43",
         borderRadius: "50%"
@@ -73,9 +73,9 @@ const MyTR = (props) => {
         width: 0,
         height: 0,
         align: "center",
-        borderLeft: "50px solid transparent",
-        borderRight: "50px solid transparent",
-        borderBottom: "100px solid #F2AD43",
+        borderLeft: "40px solid transparent",
+        borderRight: "40px solid transparent",
+        borderBottom: "80px solid #F2AD43",
       }}
     />
   </div>
@@ -88,7 +88,7 @@ const ReactableCR = reactable(MyCR);
 const ReactableTR = reactable(MyTR);
 
 const BasicDemo = () => {
-  const [coordinate, setCoordinate] = React.useState({ x: 50, y: -120 });
+  const [coordinate, setCoordinate] = React.useState({ x: 33, y: -120 });
   return (
     <ReactableSQ
       draggable={{modifiers: [
@@ -110,7 +110,7 @@ const BasicDemo = () => {
   );
 };
 const BasicCR = () => {
-  const [coordinate, setCoordinate] = React.useState({ x: 200, y: -120 });
+  const [coordinate, setCoordinate] = React.useState({ x: 166, y: -120 });
   return (
     <ReactableCR
       draggable={{modifiers: [
@@ -133,7 +133,7 @@ const BasicCR = () => {
 };
 
 const BasicTR = () => {
-  const [coordinate, setCoordinate] = React.useState({ x: 350, y: -120 });
+  const [coordinate, setCoordinate] = React.useState({ x: 280, y: -120 });
   return (
     <ReactableTR
       draggable={{modifiers: [
@@ -192,8 +192,8 @@ class SetTest extends React.Component {
       <Background>
         <div
           style={{
-            width: 500,
-            height: 500,
+            width: 400,
+            height: 400,
             border: '1px solid black',
             position: 'absolute',
             background: '#FFFFFF'
