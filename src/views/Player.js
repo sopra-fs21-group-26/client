@@ -95,7 +95,7 @@ class Player extends React.Component{
             isReady: null
         }
     }
-    
+
     async setReady(){
 
         const requestBody = JSON.stringify({
