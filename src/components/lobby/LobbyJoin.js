@@ -10,6 +10,21 @@ import {
 import {SpinnerAlt} from "../../views/design/SpinnerAlt";
 import {GoSearch} from "react-icons/go";
 import {AiOutlineReload} from "react-icons/ai";
+import BackToMenu from '../../views/design/BackToMenu';
+
+const BackToMenuButton = styled.div`
+
+    height: 35px;
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    &:hover{
+    transform: translateY(-5px);
+    }
+    transition: all 0.3s ease;
+    cursor: pointer;
+    
+`;
 
 const Lobbies = styled.ul`
   list-style: none;
@@ -263,6 +278,9 @@ class LobbyCreate extends React.Component {
 
             </Lobbies>
           </Background>
+          <BackToMenuButton onClick = {() => {this.props.history.push(`/menu`)}}>
+            <BackToMenu/>
+          </BackToMenuButton>
         </BaseeContainer>)}
       </BaseeContainer>
 
