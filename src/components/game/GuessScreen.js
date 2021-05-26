@@ -17,8 +17,17 @@ const Picture = styled.img`
   width: 120px;
   border: 2px solid #F2AD43;
   box-sizing: border-box;
+  position: relative;
   padding: 5px;
+  z-index: 50;
+  
+      &:hover {
+        transform:scale(4, 4);
+        z-index: 50;
+    }
 `;
+
+
 const LabelCircle = styled.div`
 
     height: 100px;
@@ -223,6 +232,7 @@ const Username1 = styled.div`
     font-size: 20px;
     color: #F2AD43;
     shadow: 2px;
+    z-index: 1;
     text-shadow: 0px 8px 4px rgba(0, 0, 0, 0.25);
     
 `;
@@ -371,6 +381,28 @@ class GuessScreen extends React.Component {
                     />
                   );
                 })}
+                <div
+                  hidden={(this.state.guessingName)}
+                  style={{
+                    zIndex: 20,
+                    background: "rgba(0,0,0,0.95)",
+                    position: "absolute",
+                    height: 520,
+                    bottom: 40,
+                    width: 500,
+                  }}
+                >
+                  <DoneName
+                  style={{
+                    textAlign: "center",
+                    display: "flex",
+                    justifyContent: "center",
+                    position: "relative",
+                    top: "30%",
+                    left: "40%",
+                  }}
+                  >First select the name of the user whose picture you want to guess</DoneName>
+                </div>
               </GridContainer>
             </div>
           )}
@@ -394,7 +426,7 @@ class GuessScreen extends React.Component {
                   })}
                   {this.state.guess.recreatedPictures.map(pic => {
                     return (
-                      <img
+                      <Picture
                         src={`data:image/jpeg;base64,${pic}`}
                         style={{
                           backgroundColor: "white",
@@ -404,7 +436,7 @@ class GuessScreen extends React.Component {
                         }
                         }
                       >
-                      </img>
+                      </Picture>
                     );
                   })}
                 </div>
