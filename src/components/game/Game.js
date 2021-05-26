@@ -167,7 +167,8 @@ class Game extends React.Component {
     this.state = {
       grid: null,
       isAdmin: null,
-      ifGrid: null
+      ifGrid: null,
+      set: null,
     };
   }
 
@@ -177,8 +178,11 @@ class Game extends React.Component {
       const {match: {params}} = this.props;
       this.ID = params.lobbyId;
       const admindata = await api.get(`lobby/${params.lobbyId}`);
+      const setnumber = await api.get(`rotation`);
       const ifGrid = await api.get(`games/${params.lobbyId}/grid/status`);
       this.setState({ifGrid:ifGrid.data});
+      this.setState({set:setnumber.data});
+      console.log(this.state);
       if (admindata.data.admin.token === localStorage.getItem('token')) {
         this.setState({isAdmin: true})
       }
@@ -233,7 +237,7 @@ class Game extends React.Component {
   recreate() {
     const {match: {params}} = this.props;
     this.ID = params.lobbyId;
-    this.props.history.push(`/game/${params.lobbyId}/recreate`)
+    this.props.history.push(`/game/${params.lobbyId}/recreate/${this.state.set}`)
   }
 
 

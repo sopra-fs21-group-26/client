@@ -47,28 +47,28 @@ class AppRouter extends React.Component {
               )}
             />
             <Route
-              path="/SetTest"
+              path="/game/:lobbyId/recreate/1"
               exact
               render={() => (
                   <SetTest />
               )}
             />
             <Route
-              path="/Set2Test"
+              path="/game/:lobbyId/recreate/2"
               exact
               render={() => (
                 <Set2Test />
               )}
             />
             <Route
-              path="/Set3Test"
+              path="/game/:lobbyId/recreate/3"
               exact
               render={() => (
                 <Set3Test />
               )}
             />
             <Route
-              path="/Set4Test"
+              path="/game/:lobbyId/recreate/4"
               exact
               render={() => (
                 <Set4Test />
@@ -176,7 +176,7 @@ class AppRouter extends React.Component {
                   )}
               />
             <Route
-              path="/game/:lobbyId/recreate"
+              path="/game/:lobbyId/recreate/0"
               exact
               render = {() => (
                 <MenuGuard>

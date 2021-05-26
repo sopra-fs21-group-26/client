@@ -197,7 +197,6 @@ class Recreate extends React.Component {
             {!this.state.isDone ? (
                 <TokenButton
                   onClick={() => {
-                    console.log(this.id)
                     this.savePicture();
                   }}
                 >

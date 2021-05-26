@@ -400,7 +400,7 @@ class GuessScreen extends React.Component {
                           backgroundColor: "white",
                           width: 120,
                           height: 120,
-                          paddingRight: 20,
+                          marginRight: 20,
                         }
                         }
                       >
