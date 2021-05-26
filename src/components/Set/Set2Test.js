@@ -97,7 +97,7 @@ const BlkSQ = (props) => {
       style={{
         width: 50,
         height: 50,
-        align: "center",
+        //align: "center",
         background: "black",
       }}
     />
@@ -218,15 +218,16 @@ const BasicSQ = () => {
       draggable={{modifiers: [
           interact.modifiers.restrictRect({
             restriction: 'parent',
-            endOnly: true,
           }),
           interact.modifiers.snap({
             targets: [interact.createSnapGrid({ x: 50, y: 50 })],
-            range: Infinity,
-            relativePoints: [{ x: 40, y: -50 }],
-            offset: { x: 35, y: 10 },
+            //range: Infinity,
+            relativePoints: [{ x: 1, y: 1 }],
+            //offset: { x: 0, y: 0 },
       }),
-        ]}}
+        ],
+      origin: "parent",}
+      }
       onDragMove={event => {
         const {dx, dy} = event;
         setCoordinate(prev => ({
@@ -246,15 +247,16 @@ const BasicRedSQ = () => {
       draggable={{modifiers: [
           interact.modifiers.restrictRect({
             restriction: 'parent',
-            endOnly: true,
           }),
           interact.modifiers.snap({
             targets: [interact.createSnapGrid({ x: 50, y: 50 })],
-            range: Infinity,
-            relativePoints: [{ x: 40, y: -50 }],
-            offset: { x: 35, y: 10 },
+            //range: Infinity,
+            relativePoints: [{ x: 1, y: 1 }],
+            //offset: { x: 35, y: 10 },
           }),
-        ]}}
+        ],
+      origin: "parent",
+      }}
       onDragMove={event => {
         const {dx, dy} = event;
         setCoordinate(prev => ({
@@ -274,15 +276,13 @@ const BasicGreenSQ = () => {
       draggable={{modifiers: [
           interact.modifiers.restrictRect({
             restriction: 'parent',
-            endOnly: true,
           }),
           interact.modifiers.snap({
             targets: [interact.createSnapGrid({ x: 50, y: 50 })],
-            range: Infinity,
-            relativePoints: [{ x: 40, y: -50 }],
-            offset: { x: 35, y: 10 },
+            //range: Infinity,
+            relativePoints: [{ x: 0, y: 0 }],
           }),
-        ]}}
+        ], origin: "parent",}}
       onDragMove={event => {
         const {dx, dy} = event;
         setCoordinate(prev => ({
@@ -302,15 +302,13 @@ const BasicBlueSQ = () => {
       draggable={{modifiers: [
           interact.modifiers.restrictRect({
             restriction: 'parent',
-            endOnly: true,
           }),
           interact.modifiers.snap({
             targets: [interact.createSnapGrid({ x: 50, y: 50 })],
             range: Infinity,
-            relativePoints: [{ x: 40, y: -50 }],
-            offset: { x: 35, y: 10 },
+            relativePoints: [{ x: 0, y: 0 }],
           }),
-        ]}}
+        ], origin:"parent"}}
       onDragMove={event => {
         const {dx, dy} = event;
         setCoordinate(prev => ({
@@ -330,15 +328,13 @@ const BasicYellowSQ = () => {
       draggable={{modifiers: [
           interact.modifiers.restrictRect({
             restriction: 'parent',
-            endOnly: true,
           }),
           interact.modifiers.snap({
             targets: [interact.createSnapGrid({ x: 50, y: 50 })],
             range: Infinity,
-            relativePoints: [{ x: 40, y: -50 }],
-            offset: { x: 35, y: 10 },
+            relativePoints: [{ x: 0, y: 0 }],
           }),
-        ]}}
+        ], origin:"parent"}}
       onDragMove={event => {
         const {dx, dy} = event;
         setCoordinate(prev => ({
@@ -358,15 +354,13 @@ const BasicGreySQ = () => {
       draggable={{modifiers: [
           interact.modifiers.restrictRect({
             restriction: 'parent',
-            endOnly: true,
           }),
           interact.modifiers.snap({
             targets: [interact.createSnapGrid({ x: 50, y: 50 })],
             range: Infinity,
-            relativePoints: [{ x: 40, y: -50 }],
-            offset: { x: 35, y: 10 },
+            relativePoints: [{ x: 0, y: 0 }],
           }),
-        ]}}
+        ], origin:"parent"}}
       onDragMove={event => {
         const {dx, dy} = event;
         setCoordinate(prev => ({

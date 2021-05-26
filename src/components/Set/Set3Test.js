@@ -489,10 +489,10 @@ const BasicDemo = () => {
           interact.modifiers.snap({
             targets: [interact.createSnapGrid({ x: 133, y: 133 })],
             range: Infinity,
-            relativePoints: [{ x: 40, y: 50 }],
-            offset: { x: 0, y: 90 },
+            relativePoints: [{ x: 0, y: 0 }],
+            offset: { x: 33, y: 33 },
           }),
-        ]}}
+        ], origin:"parent"}}
       onDragMove={event => {
         const {dx, dy} = event;
         setCoordinate(prev => ({
@@ -516,10 +516,10 @@ const BasicDemo2 = () => {
           interact.modifiers.snap({
             targets: [interact.createSnapGrid({ x: 133, y: 133 })],
             range: Infinity,
-            relativePoints: [{ x: 40, y: 50 }],
-            offset: { x: 0, y: 90 },
+            relativePoints: [{ x: 0, y: 0 }],
+            offset: { x: 33, y: 33 },
           }),
-        ]}}
+        ], origin:"parent"}}
       onDragMove={event => {
         const {dx, dy} = event;
         setCoordinate(prev => ({
@@ -543,10 +543,10 @@ const BasicDemo3 = () => {
           interact.modifiers.snap({
             targets: [interact.createSnapGrid({ x: 133, y: 133 })],
             range: Infinity,
-            relativePoints: [{ x: 40, y: 50 }],
-            offset: { x: 0, y: 90 },
+            relativePoints: [{ x: 0, y: 0 }],
+            offset: { x: 33, y: 33 },
           }),
-        ]}}
+        ], origin:"parent"}}
       onDragMove={event => {
         const {dx, dy} = event;
         setCoordinate(prev => ({
@@ -570,10 +570,10 @@ const BasicDemo4 = () => {
           interact.modifiers.snap({
             targets: [interact.createSnapGrid({ x: 133, y: 133 })],
             range: Infinity,
-            relativePoints: [{ x: 40, y: 50 }],
-            offset: { x: 0, y: 90 },
+            relativePoints: [{ x: 0, y: 0 }],
+            offset: { x: 33, y: 33 },
           }),
-        ]}}
+        ], origin:"parent"}}
       onDragMove={event => {
         const {dx, dy} = event;
         setCoordinate(prev => ({
@@ -597,10 +597,10 @@ const BasicDemo5 = () => {
           interact.modifiers.snap({
             targets: [interact.createSnapGrid({ x: 133, y: 133 })],
             range: Infinity,
-            relativePoints: [{ x: 40, y: 50 }],
-            offset: { x: 0, y: 90 },
+            relativePoints: [{ x: 0, y: 0 }],
+            offset: { x: 33, y: 33 },
           }),
-        ]}}
+        ], origin:"parent"}}
       onDragMove={event => {
         const {dx, dy} = event;
         setCoordinate(prev => ({
@@ -624,10 +624,10 @@ const BasicDemo6 = () => {
           interact.modifiers.snap({
             targets: [interact.createSnapGrid({ x: 133, y: 133 })],
             range: Infinity,
-            relativePoints: [{ x: 40, y: 50 }],
-            offset: { x: 0, y: 90 },
+            relativePoints: [{ x: 0, y: 0 }],
+            offset: { x: 33, y: 33 },
           }),
-        ]}}
+        ], origin:"parent"}}
       onDragMove={event => {
         const {dx, dy} = event;
         setCoordinate(prev => ({
@@ -651,10 +651,10 @@ const BasicDemo7 = () => {
           interact.modifiers.snap({
             targets: [interact.createSnapGrid({ x: 133, y: 133 })],
             range: Infinity,
-            relativePoints: [{ x: 40, y: 50 }],
-            offset: { x: 0, y: 90 },
+            relativePoints: [{ x: 0, y: 0 }],
+            offset: { x: 33, y: 33 },
           }),
-        ]}}
+        ], origin:"parent"}}
       onDragMove={event => {
         const {dx, dy} = event;
         setCoordinate(prev => ({
@@ -678,10 +678,10 @@ const BasicDemo8 = () => {
           interact.modifiers.snap({
             targets: [interact.createSnapGrid({ x: 133, y: 133 })],
             range: Infinity,
-            relativePoints: [{ x: 40, y: 50 }],
-            offset: { x: 0, y: 90 },
+            relativePoints: [{ x: 0, y: 0 }],
+            offset: { x: 33, y: 33 },
           }),
-        ]}}
+        ], origin:"parent"}}
       onDragMove={event => {
         const {dx, dy} = event;
         setCoordinate(prev => ({
@@ -705,10 +705,10 @@ const BasicDemo9 = () => {
           interact.modifiers.snap({
             targets: [interact.createSnapGrid({ x: 133, y: 133 })],
             range: Infinity,
-            relativePoints: [{ x: 40, y: 50 }],
-            offset: { x: 0, y: 90 },
+            relativePoints: [{ x: 0, y: 0 }],
+            offset: { x: 33, y: 33 },
           }),
-        ]}}
+        ], origin:"parent"}}
       onDragMove={event => {
         const {dx, dy} = event;
         setCoordinate(prev => ({
@@ -732,10 +732,10 @@ const BasicDemo10 = () => {
           interact.modifiers.snap({
             targets: [interact.createSnapGrid({ x: 133, y: 133 })],
             range: Infinity,
-            relativePoints: [{ x: 40, y: 50 }],
-            offset: { x: 0, y: 90 },
+            relativePoints: [{ x: 0, y: 0 }],
+            offset: { x: 33, y: 33 },
           }),
-        ]}}
+        ], origin:"parent"}}
       onDragMove={event => {
         const {dx, dy} = event;
         setCoordinate(prev => ({
@@ -759,10 +759,10 @@ const BasicDemo11 = () => {
           interact.modifiers.snap({
             targets: [interact.createSnapGrid({ x: 133, y: 133 })],
             range: Infinity,
-            relativePoints: [{ x: 40, y: 50 }],
-            offset: { x: 0, y: 90 },
+            relativePoints: [{ x: 0, y: 0 }],
+            offset: { x: 33, y: 33 },
           }),
-        ]}}
+        ], origin:"parent"}}
       onDragMove={event => {
         const {dx, dy} = event;
         setCoordinate(prev => ({
@@ -786,10 +786,10 @@ const BasicDemo12 = () => {
           interact.modifiers.snap({
             targets: [interact.createSnapGrid({ x: 133, y: 133 })],
             range: Infinity,
-            relativePoints: [{ x: 40, y: 50 }],
-            offset: { x: 0, y: 90 },
+            relativePoints: [{ x: 0, y: 0 }],
+            offset: { x: 33, y: 33 },
           }),
-        ]}}
+        ], origin:"parent"}}
       onDragMove={event => {
         const {dx, dy} = event;
         setCoordinate(prev => ({
@@ -813,10 +813,10 @@ const BasicDemo13 = () => {
           interact.modifiers.snap({
             targets: [interact.createSnapGrid({ x: 133, y: 133 })],
             range: Infinity,
-            relativePoints: [{ x: 40, y: 50 }],
-            offset: { x: 0, y: 90 },
+            relativePoints: [{ x: 0, y: 0 }],
+            offset: { x: 33, y: 33 },
           }),
-        ]}}
+        ], origin:"parent"}}
       onDragMove={event => {
         const {dx, dy} = event;
         setCoordinate(prev => ({
@@ -840,10 +840,10 @@ const BasicDemo14 = () => {
           interact.modifiers.snap({
             targets: [interact.createSnapGrid({ x: 133, y: 133 })],
             range: Infinity,
-            relativePoints: [{ x: 40, y: 50 }],
-            offset: { x: 0, y: 90 },
+            relativePoints: [{ x: 0, y: 0 }],
+            offset: { x: 33, y: 33 },
           }),
-        ]}}
+        ], origin:"parent"}}
       onDragMove={event => {
         const {dx, dy} = event;
         setCoordinate(prev => ({
@@ -867,10 +867,10 @@ const BasicDemo15 = () => {
           interact.modifiers.snap({
             targets: [interact.createSnapGrid({ x: 133, y: 133 })],
             range: Infinity,
-            relativePoints: [{ x: 40, y: 50 }],
-            offset: { x: 0, y: 90 },
+            relativePoints: [{ x: 0, y: 0 }],
+            offset: { x: 33, y: 33 },
           }),
-        ]}}
+        ], origin:"parent"}}
       onDragMove={event => {
         const {dx, dy} = event;
         setCoordinate(prev => ({
@@ -894,10 +894,10 @@ const BasicDemo16 = () => {
           interact.modifiers.snap({
             targets: [interact.createSnapGrid({ x: 133, y: 133 })],
             range: Infinity,
-            relativePoints: [{ x: 40, y: 50 }],
-            offset: { x: 0, y: 90 },
+            relativePoints: [{ x: 0, y: 0 }],
+            offset: { x: 33, y: 33 },
           }),
-        ]}}
+        ], origin:"parent"}}
       onDragMove={event => {
         const {dx, dy} = event;
         setCoordinate(prev => ({
