@@ -5,6 +5,7 @@ import { withRouter } from 'react-router-dom';
 import {BaseeContainer} from "../profile/Profile";
 import {SpinnerAlt} from "../../views/design/SpinnerAlt";
 import CanvasDraw from "react-canvas-draw";
+import html2canvas from "html2canvas";
 
 const Picture = styled.img`
   height: 400px;
@@ -93,6 +94,7 @@ class Recreate extends React.Component {
     this.state = {
       picture: null,
       disabled: false,
+      recreation: null,
       isDone: null,
       allDone: null
     };
@@ -142,6 +144,12 @@ class Recreate extends React.Component {
   }
 
   async savePicture(){
+      let canvas = this.saveableCanvas.canvasContainer.children[1];
+      console.log("yeet");
+      let pic = canvas.toDataURL("image/png").split(';base64,');
+      localStorage.setItem("savedDrawing", pic[1]);
+      console.log(localStorage.getItem("savedDrawing"))
+    ;
     try{
       const requestBody = JSON.stringify({
         token: localStorage.getItem("token"),
@@ -172,6 +180,7 @@ class Recreate extends React.Component {
             <Picture src={`${this.state.picture.url}&fit=crop&w=800&h=800`}>
             </Picture>
             <LabelCircle>{this.state.picture.coordinate}</LabelCircle>
+            <div id="recreation">
             <Recreation
   ref={canvasDraw => (this.saveableCanvas = canvasDraw)}
   hideGrid
@@ -184,13 +193,11 @@ class Recreate extends React.Component {
   }
   }
   />
+            </div>
             {!this.state.isDone ? (
                 <TokenButton
                   onClick={() => {
-                    localStorage.setItem(
-                      "savedDrawing",
-                      this.saveableCanvas.getSaveData()
-                    );
+                    console.log(this.id)
                     this.savePicture();
                   }}
                 >

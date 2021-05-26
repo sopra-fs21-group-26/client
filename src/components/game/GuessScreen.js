@@ -12,7 +12,6 @@ const GridContainer = styled.div`
   width: 500px;
   box-sizing: border-box;
 `;
-
 const Picture = styled.img`
   height: 120px;
   width: 120px;
@@ -20,7 +19,6 @@ const Picture = styled.img`
   box-sizing: border-box;
   padding: 5px;
 `;
-
 const LabelCircle = styled.div`
 
     height: 100px;
@@ -43,7 +41,6 @@ const LabelCircle = styled.div`
     padding-left: 8px;
     
 `;
-
 const LeftLabelCircleA = styled.div`
 
     height: 100px;
@@ -66,7 +63,6 @@ const LeftLabelCircleA = styled.div`
     padding-left: 8px;
     
 `;
-
 const LeftLabelCircleB = styled.div`
 
     height: 100px;
@@ -89,7 +85,6 @@ const LeftLabelCircleB = styled.div`
     padding-left: 8px;
     
 `;
-
 const LeftLabelCircleC = styled.div`
 
     height: 100px;
@@ -112,7 +107,6 @@ const LeftLabelCircleC = styled.div`
     padding-left: 8px;
     
 `;
-
 const LeftLabelCircleD = styled.div`
 
     height: 100px;
@@ -135,7 +129,6 @@ const LeftLabelCircleD = styled.div`
     padding-left: 8px;
     
 `;
-
 export const BasedContainer = styled(BaseeContainer)`
     
     position: absolute;
@@ -145,14 +138,12 @@ export const BasedContainer = styled(BaseeContainer)`
     left: 10%;
         
 `;
-
 export const BasedContainer2 = styled(BaseeContainer)`
     
     position: absolute;
     left: 50%;
         
 `;
-
 export const BaseddContainer = styled(BaseeContainer)`
     
     position: relative;
@@ -161,7 +152,6 @@ export const BaseddContainer = styled(BaseeContainer)`
     justify-content: center;
         
 `;
-
 export const DoneContainer = styled(BaseeContainer)`
     
     position: relative;
@@ -171,13 +161,11 @@ export const DoneContainer = styled(BaseeContainer)`
     width: 80%;
         
 `;
-
 const Recreation = styled(CanvasDraw)`
       position: relative;
       margin-right: 20px;
       float: left;
 `;
-
 const Username = styled.div` 
     
     transition: all 0.3s ease;
@@ -203,7 +191,6 @@ const Username = styled.div`
     border: 4px solid #F2AD43;
     
 `;
-
 const DoneName = styled.div` 
     
     transition: all 0.3s ease;
@@ -222,7 +209,6 @@ const DoneName = styled.div`
     text-shadow: 0px 8px 4px rgba(0, 0, 0, 0.25);
     
 `;
-
 const Username1 = styled.div` 
     
     transition: all 0.3s ease;
@@ -240,8 +226,6 @@ const Username1 = styled.div`
     text-shadow: 0px 8px 4px rgba(0, 0, 0, 0.25);
     
 `;
-
-
 const Pictures = styled.img`
   height: 120px;
   width: 120px;
@@ -254,7 +238,6 @@ const Pictures = styled.img`
   }
   transition: all 0.3s ease;
 `;
-
 class GuessScreen extends React.Component {
 
   interval = this.intervalSet();
@@ -411,20 +394,17 @@ class GuessScreen extends React.Component {
                   })}
                   {this.state.guess.recreatedPictures.map(pic => {
                     return (
-                      <Recreation
-                        hideGrid
-                        canvasWidth={120}
-                        canvasHeight={120}
-                        lazyRadius={0}
-                        brushRadius={2}
-                        brushColor={"#000000"}
-                        disabled={true}
-                        saveData={pic}
-                        onChange={() => {
-                          this.setState({disabled: true})
+                      <img
+                        src={`data:image/jpeg;base64,${pic}`}
+                        style={{
+                          backgroundColor: "white",
+                          width: 120,
+                          height: 120,
+                          paddingRight: 20,
                         }
-                        }>
-                      </Recreation>
+                        }
+                      >
+                      </img>
                     );
                   })}
                 </div>
