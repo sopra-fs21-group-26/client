@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { LoginGuard } from "../routeProtectors/LoginGuard";
 import { MenuGuard } from "../routeProtectors/MenuGuard";
+import { LobbyGuard } from "../routeProtectors/LobbyGuard";
 import Login from "../../login/Login";
 import Home from "../../home/Home";
 import Register from "../../register/Register";
@@ -126,7 +127,9 @@ class AppRouter extends React.Component {
                   exact
                   render = {() => (
                       <MenuGuard>
-                          <Lobby />
+                          <LobbyGuard>
+                              <Lobby />
+                          </LobbyGuard>
                       </MenuGuard>
                   )}
               />

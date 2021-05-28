@@ -128,6 +128,7 @@ class Lobby extends React.Component{
         this.setState({playersInLobby: response.data.numbersOfPlayers});
 
         if(response.data.admin.playerStatus === "PLAYING"){
+            localStorage.removeItem('lobby_ID');
             this.props.history.push(`/game/${params.lobbyId}`)
         }
 
