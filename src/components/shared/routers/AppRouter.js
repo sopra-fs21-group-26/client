@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { LoginGuard } from "../routeProtectors/LoginGuard";
 import { MenuGuard } from "../routeProtectors/MenuGuard";
 import { LobbyGuard } from "../routeProtectors/LobbyGuard";
+import { InGameGuard } from "../routeProtectors/InGameGuard";
 import Login from "../../login/Login";
 import Home from "../../home/Home";
 import Register from "../../register/Register";
@@ -43,7 +44,9 @@ class AppRouter extends React.Component {
               exact
               render={() => (
                 <LoginGuard>
-                  <Login />
+
+                    <Login />
+
                 </LoginGuard>
               )}
             />
@@ -80,7 +83,9 @@ class AppRouter extends React.Component {
                 exact
                 render={() => (
                     <LoginGuard>
+
                         <Register />
+
                     </LoginGuard>
                 )}
             />
@@ -89,13 +94,17 @@ class AppRouter extends React.Component {
                 exact
                 render = {() => (
                     <MenuGuard>
+
                         <Menu/>
+
                     </MenuGuard>
                 )}
             />
             <Route path="/" exact render={() => (
                 <LoginGuard>
+
                     <Home />
+
                 </LoginGuard>
             )}
             />
@@ -109,7 +118,9 @@ class AppRouter extends React.Component {
                   exact
                   render = {() => (
                       <MenuGuard>
+
                           <Leaderboard />
+
                       </MenuGuard>
                   )}
               />
@@ -118,7 +129,9 @@ class AppRouter extends React.Component {
                   exact
                   render = {() => (
                       <MenuGuard>
+
                           <LobbyCreate />
+
                       </MenuGuard>
                   )}
               />
@@ -127,9 +140,9 @@ class AppRouter extends React.Component {
                   exact
                   render = {() => (
                       <MenuGuard>
-                          <LobbyGuard>
-                              <Lobby />
-                          </LobbyGuard>
+
+                          <Lobby />
+
                       </MenuGuard>
                   )}
               />
@@ -138,7 +151,9 @@ class AppRouter extends React.Component {
                 exact
                 render = {() => (
                     <MenuGuard>
+
                         <LobbyTransition history={this.props.history}/>
+
                     </MenuGuard>
                 )}
               />
@@ -147,7 +162,9 @@ class AppRouter extends React.Component {
               exact
               render = {() => (
                 <MenuGuard>
-                  <LobbyJoin/>
+
+                    <LobbyJoin/>
+
                 </MenuGuard>
               )}
             />
@@ -156,7 +173,9 @@ class AppRouter extends React.Component {
               exact
               render = {() => (
                 <MenuGuard>
-                  <Game/>
+
+                    <Game/>
+
                 </MenuGuard>
               )}
             />
@@ -165,7 +184,9 @@ class AppRouter extends React.Component {
                   exact
                   render = {() => (
                       <MenuGuard>
+
                           <Scoring/>
+
                       </MenuGuard>
                   )}
               />
@@ -174,7 +195,9 @@ class AppRouter extends React.Component {
                   exact
                   render = {() => (
                       <MenuGuard>
+
                           <End/>
+
                       </MenuGuard>
                   )}
               />
@@ -183,7 +206,9 @@ class AppRouter extends React.Component {
               exact
               render = {() => (
                 <MenuGuard>
-                  <Recreate/>
+
+                    <Recreate/>
+
                 </MenuGuard>
               )}
             />
@@ -192,7 +217,9 @@ class AppRouter extends React.Component {
               exact
               render = {() => (
                 <MenuGuard>
-                  <GuessScreen/>
+
+                    <GuessScreen/>
+
                 </MenuGuard>
               )}
             />
