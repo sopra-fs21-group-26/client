@@ -322,7 +322,7 @@ class SetTest extends React.Component {
           <div
             id="recreation"
             style={{
-              top: "150px",
+              top: "20%",
               width: 400,
               height: 400,
               border: '1px solid black',

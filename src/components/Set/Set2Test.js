@@ -472,7 +472,7 @@ class Set2Test extends React.Component {
           <LabelCircle>{this.state.picture.coordinate}</LabelCircle>
         <div
           style={{
-            top:"150px",
+            top:"20%",
             width: 400,
             height: 400,
             border: '1px solid black',

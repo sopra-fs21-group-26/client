@@ -7,7 +7,7 @@ import {SpinnerAlt} from "../../views/design/SpinnerAlt";
 import CanvasDraw from "react-canvas-draw";
 
 const GridContainer = styled.div`
-  margin-bottom: 100px;
+  top: 20%;
   height: 480px;
   width: 500px;
   box-sizing: border-box;
@@ -386,10 +386,10 @@ class GuessScreen extends React.Component {
                   style={{
                     zIndex: 20,
                     background: "rgba(0,0,0,0.95)",
-                    position: "absolute",
-                    height: 520,
-                    bottom: 40,
-                    width: 500,
+                    position: "relative",
+                    height: "105%",
+                    marginTop: -500,
+                    width: "98%",
                   }}
                 >
                   <DoneName
