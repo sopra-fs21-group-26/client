@@ -14,14 +14,21 @@ The frontend was fully developed using the framework React.JS, with the help of 
 * react-canvas-draw
 * react-sound
 * react-tooltip
+* reactablejs
 
 Check package.json for additional information on dependencies.
 
-InteractJS was used for set creation.
+InteractJS was used with the reactablejs wrapper for set creation.
 
 ## High Level Components
 
-PLACEHOLDER
+The most important components in this project are the picture grid, which is 
+generated in [Game.js](src/components/game/Game.js), the reactablejs recreation environments, one of which can be seen in [Recreate.js](src/components/game/Recreate.js),
+as well as the guessing environment, as can be seen in [GuessScreen.js](src/components/game/GuessScreen.js).
+<br>
+<br>
+The picture grid represents the game board from which players will be assigned a picture to recreate in the recreation environment. The pictures of these recreations are then 
+displayed in the guess screen for the players to submit their guesses.
 
 ## Launch & Deployment
 
