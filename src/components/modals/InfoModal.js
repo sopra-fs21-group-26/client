@@ -59,11 +59,10 @@ const InfoModal = () => {
                 About Us
             </ReactTooltip>
             <Modal styles={style} open={open} onClose={onCloseModal} center>
-                <h2>TEST</h2>
+                <h2>About Us</h2>
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
-                    pulvinar risus non risus hendrerit venenatis. Pellentesque sit amet
-                    hendrerit risus, sed porttitor quam.
+                    This page is still a placeholder and will be reworked in a future release.
+                    For now, if you are interested in learning more about us, be sure to check out our GitHub page or take a look at the README file.
                 </p>
             </Modal>
         </Container>

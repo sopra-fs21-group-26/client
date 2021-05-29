@@ -6,6 +6,7 @@ import Header from "../../views/Header";
 import { AiOutlineInfoCircle } from "react-icons/ai";
 import ReactTooltip from "react-tooltip";
 import '../../views/design/tooltip.css'
+import InfoModal from "../modals/InfoModal";
 
 // Reworked
 
@@ -111,10 +112,7 @@ class Home extends React.Component {
                     <div>made by students @ University of Zurich</div>
                     <div style={{color: "#FFFFFF"}}>An adaption of the board game “Pictures”, created by Christian & Daniela Stöhr</div>
                 </Footer>
-                <InfoButton data-tip data-for="infoTip" />
-                <ReactTooltip class ="buttonTooltip" textColor="#252525" backgroundColor="#F2AD43" id="infoTip" place="top" effect="solid">
-                    About Us
-                </ReactTooltip>
+                <InfoModal></InfoModal>
             </BaseContainer>
         );
     }
