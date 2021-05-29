@@ -17,6 +17,7 @@ const Background = styled(BackgroundContainer)`
     transform: scale(0.72);
     position: relative;
     top: 20px;
+    
 
 `;
 
@@ -44,7 +45,7 @@ const SearchInputField = styled(UsernameInputField)`
 const HeadingContainer = styled.div`
     
     position: absolute;
-    top: 200px;
+    top: 30%;
     height: 75px;
     left: 155px;
     width: 580px;
@@ -82,6 +83,7 @@ const PlayerContainer = styled.div`
     justify-content: center;
     position: relative;
     top: 78px;
+   
 `;
 
 class Leaderboard extends React.Component {

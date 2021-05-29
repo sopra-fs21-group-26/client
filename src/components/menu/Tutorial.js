@@ -60,7 +60,7 @@ function Tutorial(){
 
                 In Pictures, each player simultaneously tries to copy a picture with one of five different materials: building blocks, sticks and stones, icon cards, color cubes, or a drawable string. <b>You can find further information on each of the material sets at the bottom of this tutorial.</b>
                 <br/>
-                Following this, each player decides which of the 16 displayed pictures has been copied. The game ends after five rounds, when each player has used each material once.
+                Following this, each player decides which of the 16 displayed pictures has been copied. The game ends after five rounds.
             </p>
             <h1>Sequence of a Round</h1>
             <p>
@@ -71,9 +71,6 @@ function Tutorial(){
                 <br/>
                 <br/>
                 The materials of the set may be arranged in any way and not all of them have to be used.
-                <br/>
-                <br/>
-                <b>There are three exceptions:</b> The drawable string must be used. Players must place 2 to 5 icon cards side by side and they must use exactly 9 color cubes and place them in a 3 by 3 square grid.
                 <br/>
                 <br/>
                 3. What photo have the other players pictured?
@@ -93,7 +90,19 @@ function Tutorial(){
             </p>
             <h1>Set Tutorial</h1>
             <p>
-                PLACEHOLDER
+                Set 1: <b>Drawable String</b> - With this set you are able to redraw the assigned picture by holding the left mouse button and moving around on the white canvas. Do this in one continuous stroke. Please note that if you touch the edges of the canvas, or lift your mouse, the recreation process stops.
+                <br/>
+                <br/>
+                Set 2: <b>Color Cubes</b> - You are presented a square canvas and a selection of colored cubes. You can simply drag and drop the cubes onto the canvas. Please note that the cubes snap to the canvas after you drop them. You can use each color three times at most. Attention: once dropped onto the canvas, you are not able to drag them out. However, you are always able to rearrange them between each other.
+                <br/>
+                <br/>
+                Set 3: <b>Building Blocks</b> - Similar to the colored cubes, you are presented a canvas and a selection of shapes. You can choose between circles, squares or triangles. Please note that you can use each building block at most twice. Attention: once dropped on to the canvas, you are not able to drag them out. However, you are always able to rearrange them between each other.
+                <br/>
+                <br/>
+                Set 4: <b>Icon Cards</b> - You are presented a canvas and a selection of icon cards. You can drag and drop the icon cards onto the canvas. Depending on the assigned picture, you may feel like it is impossible to recreate it with these cards. We encourage you to be as creative as possible! Attention: once dropped on to the canvas, you are not able to drag them out. However, you are always able to rearrange them between each other.
+                <br/>
+                <br/>
+                Set 5: <b>Sticks & Stones</b> - Similar to the building blocks, you are presented a canvas and a selection of sticks and stones. You can simply drag and drop them onto the canvas. Attention: once dropped on to the canvas, you are not able to drag them out. However, you are always able to rearrange them between each other.
             </p>
         </TextContainer>
     );

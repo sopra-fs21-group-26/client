@@ -93,10 +93,9 @@ class AppRouter extends React.Component {
                 path="/menu"
                 exact
                 render = {() => (
+
                     <MenuGuard>
-
-                        <Menu/>
-
+                            <Menu/>
                     </MenuGuard>
                 )}
             />

@@ -2,13 +2,14 @@ import React from "react";
 import styled from 'styled-components';
 
 export const PlayerContainer = styled.div`
-    height: 650px;
+    height: 70%;
     display: flex;
     position: relative;
-    top: 20px;
+    top: 3%;
     align-items: center;
     flex-direction: column;
     justify-content: space-evenly;
+    
 `;
 
 export const Player = styled.div`

@@ -12,14 +12,19 @@ export const InGameGuard = props => {
     console.log("CHECKING...")
 
     async function checkPlayerStatus(){
+
         const response = await api.get(`/players/${localStorage.getItem('userID')}`);
+
         console.log(response.data.playerStatus)
+
         if(response.data.playerStatus === "PLAYING"){
             return true;
         }
+
         else{
             return false;
         }
+
     }
 
     console.log(isPlaying)
