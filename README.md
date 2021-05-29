@@ -1,23 +1,29 @@
-# SoPra FS21 - Client Template
+# Welcome to Pictures
 
-## Getting started with React
+## Introduction
 
-Read and go through those Tutorials, It will make your life easier!
+In Pictures, each player simultaneously tries to copy a picture with one of five different materials: building blocks, sticks and stones, icon cards, color cubes, or a drawable string.
+<br/><br/>
+This project was developed as part of a software development course @ the University of Zurich.
 
-- Read the React [Docs](https://reactjs.org/docs/getting-started.html)
-- Do this React [Getting Started](https://reactjs.org/tutorial/tutorial.html) Tutorial (it doesn’t assume any existing React knowledge)
-- Get an Understanding of [CSS](http://localhost:3000) and [HTML](https://www.w3schools.com/html/html_intro.asp)!
+## Technologies Used
 
-Once you have done all of this, in the template there are two main external dependencies that you should look at:
+The frontend was fully developed using the framework React.JS, with the help of additional small React libraries, such as:
+* styled-components
+* react-icons
+* react-canvas-draw
+* react-sound
+* react-tooltip
 
-- [styled-components](https://www.styled-components.com/docs)
-  It removes the mapping between components and styles (i.e. external css files). This means that when you're defining your styles, you're actually creating a normal React component, that has your styles attached to it
-* [react-router-dom](https://reacttraining.com/react-router/web/guides/quick-start) Declarative routing for React being a collection of navigational components that compose declaratively with your application. 
-* [react-hooks](https://reactrouter.com/web/api/Hooks) Let's you access the state of the router and perform navigation from inside your components.
+Check package.json for additional information on dependencies.
 
+InteractJS was used for set creation.
 
+## High Level Components
 
-## Prerequisites and Installation
+PLACEHOLDER
+
+## Launch & Deployment
 
 For your local development environment you'll need Node.js >= 8.10. You can download it [here](https://nodejs.org). All other dependencies including React get installed with:
 
@@ -50,9 +56,41 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-## Learn More
+## Illustrations
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+PLACEHOLDER
+
+## Roadmap
+
+If you want to contribute to the project, you can find a selection of missing features below:
+
+* Functioning ELO scoring system
+* New kinds of sets
+* Other game modes with time limits
+
+## Authors and Acknowledgment
+
+**Project Lead & Frontend:** Maximilian Jonescu (https://github.com/maxi1123)  
+**Frontend & Game Flow:** Arjun Villanthanam (https://github.com/arjvillan)  
+**Backend Lead & Testing:** Max Zehnder (https://github.com/mzehnde)  
+**Backend Support:** Jakob Schmid (https://github.com/InfoYak)  
+<br/>
+Special thanks to our supervisor, Remy Egloff, for always lending a supportive hand: https://github.com/regloff
+
+## License
+
+![license.png](license.png)
+
+Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)
+<br/>
+<br/>
+Please find the license agreement by following the link below:  
+https://creativecommons.org/licenses/by-nc/4.0/legalcode
 
 
->Thanks to Lucas Pelloni for the template
+
+
+
+
+
+
