@@ -1,7 +1,8 @@
 ![Logo](src/pictures_logo.svg)
 
-[![Lines of Code](https://github.com/sopra-fs21-group-26/client/actions/workflows/deploy.yml/badge.svg)](https://github.com/sopra-fs21-group-26/client/actions/workflows/deploy.yml) [![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=sopra-fs21-group-26_client&metric=ncloc)](https://sonarcloud.io/dashboard?id=sopra-fs21-group-26_client)
+[![Deploy Project](https://github.com/sopra-fs21-group-26/client/actions/workflows/deploy.yml/badge.svg)](https://github.com/sopra-fs21-group-26/client/actions/workflows/deploy.yml) [![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=sopra-fs21-group-26_client&metric=ncloc)](https://sonarcloud.io/dashboard?id=sopra-fs21-group-26_client)
 
+[![SonarCloud](https://sonarcloud.io/images/project_badges/sonarcloud-white.svg)](https://sonarcloud.io/dashboard?id=sopra-fs21-group-26_client)
 ## Introduction
 
 In Pictures, each player simultaneously tries to copy a picture with one of five different materials: building blocks, sticks and stones, icon cards, color cubes, or a drawable string.
