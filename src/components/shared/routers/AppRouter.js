@@ -95,15 +95,15 @@ class AppRouter extends React.Component {
                 render = {() => (
 
                     <MenuGuard>
+                        <LobbyGuard>
                             <Menu/>
+                        </LobbyGuard>
                     </MenuGuard>
                 )}
             />
             <Route path="/" exact render={() => (
                 <LoginGuard>
-
                     <Home />
-
                 </LoginGuard>
             )}
             />
@@ -117,9 +117,9 @@ class AppRouter extends React.Component {
                   exact
                   render = {() => (
                       <MenuGuard>
-
-                          <Leaderboard />
-
+                          <LobbyGuard>
+                              <Leaderboard />
+                          </LobbyGuard>
                       </MenuGuard>
                   )}
               />
@@ -128,9 +128,9 @@ class AppRouter extends React.Component {
                   exact
                   render = {() => (
                       <MenuGuard>
-
-                          <LobbyCreate />
-
+                          <LobbyGuard>
+                              <LobbyCreate />
+                          </LobbyGuard>
                       </MenuGuard>
                   )}
               />
@@ -140,7 +140,7 @@ class AppRouter extends React.Component {
                   render = {() => (
                       <MenuGuard>
 
-                          <Lobby />
+                              <Lobby />
 
                       </MenuGuard>
                   )}
@@ -151,7 +151,9 @@ class AppRouter extends React.Component {
                 render = {() => (
                     <MenuGuard>
 
-                        <LobbyTransition history={this.props.history}/>
+                        <LobbyGuard>
+                            <LobbyTransition history={this.props.history}/>
+                        </LobbyGuard>
 
                     </MenuGuard>
                 )}
@@ -162,7 +164,9 @@ class AppRouter extends React.Component {
               render = {() => (
                 <MenuGuard>
 
-                    <LobbyJoin/>
+                    <LobbyGuard>
+                        <LobbyJoin/>
+                    </LobbyGuard>
 
                 </MenuGuard>
               )}
@@ -172,9 +176,9 @@ class AppRouter extends React.Component {
               exact
               render = {() => (
                 <MenuGuard>
-
-                    <Game/>
-
+                    <LobbyGuard>
+                        <Game/>
+                    </LobbyGuard>
                 </MenuGuard>
               )}
             />
@@ -184,7 +188,9 @@ class AppRouter extends React.Component {
                   render = {() => (
                       <MenuGuard>
 
-                          <Scoring/>
+                          <LobbyGuard>
+                              <Scoring/>
+                          </LobbyGuard>
 
                       </MenuGuard>
                   )}
@@ -195,7 +201,9 @@ class AppRouter extends React.Component {
                   render = {() => (
                       <MenuGuard>
 
-                          <End/>
+                          <LobbyGuard>
+                              <End/>
+                          </LobbyGuard>
 
                       </MenuGuard>
                   )}
@@ -206,7 +214,10 @@ class AppRouter extends React.Component {
               render = {() => (
                 <MenuGuard>
 
-                    <Recreate/>
+                    <LobbyGuard>
+                        <Recreate/>
+                    </LobbyGuard>
+
 
                 </MenuGuard>
               )}
@@ -217,7 +228,9 @@ class AppRouter extends React.Component {
               render = {() => (
                 <MenuGuard>
 
-                    <GuessScreen/>
+                    <LobbyGuard>
+                        <GuessScreen/>
+                    </LobbyGuard>
 
                 </MenuGuard>
               )}
