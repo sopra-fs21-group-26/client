@@ -1,4 +1,4 @@
-![Logo](src/pictures_logo.svg)
+[![Logo](src/pictures_logo.svg)](http://www.pictures-game.cc)
 
 [![Deploy Project](https://github.com/sopra-fs21-group-26/client/actions/workflows/deploy.yml/badge.svg)](https://github.com/sopra-fs21-group-26/client/actions/workflows/deploy.yml) [![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=sopra-fs21-group-26_client&metric=ncloc)](https://sonarcloud.io/dashboard?id=sopra-fs21-group-26_client)
 
@@ -68,7 +68,26 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 ## Illustrations
 
-PLACEHOLDER
+We don't want to spoil everything there is to see. Best to just go ahead and visit the game under http://www.pictures-game.cc or clone the project for yourself.
+
+![Home](illustrations/Home.png)
+<center>Home</center>
+
+![Menu](illustrations/Menu.png)
+<center>Menu</center>
+
+![Profile](illustrations/Profile.png)
+<center>Profile</center>
+
+![Lobby_Finder](illustrations/Lobby_Finder.png)
+<center>Lobby Finder</center>
+
+![Lobby](illustrations/Lobby.png)
+<center>Lobby</center>
+
+![Grid](illustrations/Grid.png)
+<center>Game Grid</center>
+
 
 ## Roadmap
 
