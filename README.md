@@ -1,4 +1,6 @@
-# Welcome to Pictures
+![Logo](src/pictures_logo.svg)
+
+[![Lines of Code](https://github.com/sopra-fs21-group-26/client/actions/workflows/deploy.yml/badge.svg)](https://github.com/sopra-fs21-group-26/client/actions/workflows/deploy.yml/badge.svg) [![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=sopra-fs21-group-26_client&metric=ncloc)](https://sonarcloud.io/dashboard?id=sopra-fs21-group-26_client)
 
 ## Introduction
 
