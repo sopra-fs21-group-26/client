@@ -32,7 +32,10 @@ class LobbyCreate extends React.Component{
 
             console.log(this.state.lobby)
 
-            localStorage.setItem('lobby_ID', this.state.lobby.lobbyId)
+
+            // TODO
+            localStorage.setItem('lobby_ID', this.state.lobby.lobbyId);
+            localStorage.setItem('inLobby', 'true');
 
             this.props.history.push(`/lobbies/${this.state.lobby.lobbyId}`)
         }

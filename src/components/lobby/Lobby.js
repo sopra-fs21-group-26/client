@@ -129,6 +129,7 @@ class Lobby extends React.Component{
 
         if(response.data.admin.playerStatus === "PLAYING"){
             localStorage.removeItem('lobby_ID');
+            localStorage.removeItem('inLobby');
             this.props.history.push(`/game/${params.lobbyId}`)
         }
 
@@ -191,6 +192,8 @@ class Lobby extends React.Component{
 
         await api.put(`/lobby/leave/${params.lobbyId}`, requestBody);
 
+        localStorage.removeItem('lobby_ID');
+        localStorage.removeItem('inLobby');
         this.props.history.push(`/lobbies`);
     }
 

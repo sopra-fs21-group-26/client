@@ -172,7 +172,12 @@ class LobbyCreate extends React.Component {
             await api.put(`/lobby/join/${lobby.lobbyId}`, requestBody);
             await new Promise(resolve => setTimeout(resolve, 1000));
 
-      localStorage.setItem('lobby_ID', lobby.lobbyId)
+
+            // TODO
+
+      localStorage.setItem('lobby_ID', lobby.lobbyId);
+      localStorage.setItem('inLobby', 'true');
+
       this.props.history.push(`/lobbies/${lobby.lobbyId}`);
    }
    catch (error) {

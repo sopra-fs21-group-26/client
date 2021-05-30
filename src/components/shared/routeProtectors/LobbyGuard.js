@@ -1,17 +1,15 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import { useHistory } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 
 export const LobbyGuard = props => {
 
-    const params = useParams();
-    let history = useHistory();
-
-    if (localStorage.getItem("lobby_ID")) {
-
-        if(localStorage.getItem("lobby_ID") === params.lobbyId){
-            return props.children;
-        }
+    if(localStorage.getItem('inLobby') === 'true'){
+        return <Redirect to={`/lobbies/${localStorage.getItem('lobby_ID')}`} />;
     }
-    return history.goBack();
+
+    else{
+        return props.children;
+    }
 };

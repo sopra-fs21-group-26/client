@@ -1,5 +1,8 @@
-# Welcome to Pictures
+[![Logo](src/pictures_logo.svg)](http://www.pictures-game.cc)
 
+[![Deploy Project](https://github.com/sopra-fs21-group-26/client/actions/workflows/deploy.yml/badge.svg)](https://github.com/sopra-fs21-group-26/client/actions/workflows/deploy.yml) [![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=sopra-fs21-group-26_client&metric=ncloc)](https://sonarcloud.io/dashboard?id=sopra-fs21-group-26_client)
+
+[![SonarCloud](https://sonarcloud.io/images/project_badges/sonarcloud-white.svg)](https://sonarcloud.io/dashboard?id=sopra-fs21-group-26_client)
 ## Introduction
 
 In Pictures, each player simultaneously tries to copy a picture with one of five different materials: building blocks, sticks and stones, icon cards, color cubes, or a drawable string.
@@ -65,7 +68,26 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 ## Illustrations
 
-PLACEHOLDER
+We don't want to spoil everything there is to see. Best to just go ahead and visit the game under http://www.pictures-game.cc or clone the project for yourself.
+
+![Home](illustrations/Home.PNG)
+<center>Home</center>
+
+![Menu](illustrations/Menu.PNG)
+<center>Menu</center>
+
+![Profile](illustrations/Profile.PNG)
+<center>Profile</center>
+
+![Lobby_Finder](illustrations/Lobby_Finder.PNG)
+<center>Lobby Finder</center>
+
+![Lobby](illustrations/Lobby.PNG)
+<center>Lobby</center>
+
+![Grid](illustrations/Grid.PNG)
+<center>Game Grid</center>
+
 
 ## Roadmap
 
