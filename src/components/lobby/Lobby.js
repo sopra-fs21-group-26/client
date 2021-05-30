@@ -115,7 +115,7 @@ class Lobby extends React.Component{
 
     intervalSetter(){
         const thisBoundedGetPlayers = this.getPlayers.bind(this);
-        return setInterval(thisBoundedGetPlayers, 3000);
+        return setInterval(thisBoundedGetPlayers, 1000);
 
     }
 
