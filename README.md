@@ -70,22 +70,22 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 We don't want to spoil everything there is to see. Best to just go ahead and visit the game under http://www.pictures-game.cc or clone the project for yourself.
 
-![Home](illustrations/Home.png)
+![Home](illustrations/Home.PNG)
 <center>Home</center>
 
-![Menu](illustrations/Menu.png)
+![Menu](illustrations/Menu.PNG)
 <center>Menu</center>
 
-![Profile](illustrations/Profile.png)
+![Profile](illustrations/Profile.PNG)
 <center>Profile</center>
 
-![Lobby_Finder](illustrations/Lobby_Finder.png)
+![Lobby_Finder](illustrations/Lobby_Finder.PNG)
 <center>Lobby Finder</center>
 
-![Lobby](illustrations/Lobby.png)
+![Lobby](illustrations/Lobby.PNG)
 <center>Lobby</center>
 
-![Grid](illustrations/Grid.png)
+![Grid](illustrations/Grid.PNG)
 <center>Game Grid</center>
 
 
